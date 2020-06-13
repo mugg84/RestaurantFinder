@@ -24,6 +24,10 @@ h5 {
   font-weight: 400;
 }
 
+p {
+  color: white;
+}
+
 a {
   text-decoration: none;
 }
@@ -32,14 +36,35 @@ a:hover {
   color: #666;
 }
 
+li {
+  list-style: none;
+  color: white;
+}
+
 img {
   width: 100%;
+}
+
+.button {
+  box-shadow: 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 11px;
+  border: 1px solid #ffaa22;
+  cursor: pointer;
+  color: #333333;
+  font-size: 1.6rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
 }
 
 /* resuable */
 
 .active {
-  color: yellow;
+  color: #ffaa22;
+  text-align: center;
+  padding: 4rem 0;
 }
 
 /* navbar */
@@ -51,8 +76,20 @@ img {
   z-index: 1;
   width: 100%;
   opacity: 0.9;
-  margin-bottom: 1rem;
-  background-color: rgb(185, 102, 102);
+  margin: 1rem 0;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar li:first-child {
+  padding-right: 3rem;
 }
 
 /* SearchBar */
@@ -61,13 +98,15 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 70vh;
-  background: url("./Images/charles-koh-cFPjXBIIIQI-unsplash.jpg") no-repeat
-    center center fixed;
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./Images/adils-photography-gmo6Ok9G0U8-unsplash.jpg");
+
   background-size: cover;
 }
 
-h1 {
+.searchBar h1 {
+  color: #ffaa22;
   text-align: center;
   padding: 4rem 0;
 }
@@ -80,6 +119,7 @@ h1 {
 }
 
 .searchBar-sort-options li {
+  border-bottom: 1px solid;
   padding: 0 2rem;
 }
 
@@ -104,17 +144,6 @@ h1 {
 
 .myButton,
 .clearButton {
-  box-shadow: 0px 1px 0px 0px #fff6af;
-  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-  background-color: #ffec64;
-  border-radius: 11px;
-  border: 1px solid #ffaa22;
-  cursor: pointer;
-  color: #333333;
-  font-size: 1.6rem;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #ffee66;
   margin: 0 1rem;
 }
 .myButton:hover,
@@ -168,4 +197,29 @@ h1 {
   -moz-border-radius: 50rem;
   -ms-border-radius: 50rem;
   -o-border-radius: 50rem;
+}
+
+/* About page */
+
+.about {
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./Images/8-low-ural-hdfIOjp8ABE-unsplash.jpg") no-repeat center center
+      fixed;
+  background-size: cover;
+}
+
+.about h1 {
+  color: white;
+}
+
+/* restaurant page */
+
+.backButton {
+  width: 20%;
+}
+
+.restaurant {
+  flex-direction: column;
+  display: flex;
 }

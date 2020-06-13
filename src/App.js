@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./Components/layout/Navbar";
 import Search from "./Components/restaurants/Search";
 import Yelp from "./Components/Util/Yelp";
 import DisplayRestaurants from "./Components/layout/DisplayRestaurants";
 import Alert from "./Components/layout/Alert";
+import About from "./Components/pages/About";
+import Restaurant from "./Components/restaurants/Restaurant";
 
 import "./App.css";
 
@@ -11,7 +14,12 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { restaurants: [], loading: false, alert: null };
+    this.state = {
+      restaurants: [],
+      restaurant: {},
+      loading: false,
+      alert: null,
+    };
   }
 
   getRestaurants = async (text) => {
@@ -20,17 +28,32 @@ class App extends Component {
     } else {
       this.setState({ loading: true });
 
-      let businesses = await Yelp.search(text);
+      let restaurants = await Yelp.searchRestaurants(text);
 
-      if (businesses) {
+      if (restaurants) {
         this.setState({
-          restaurants: businesses.data.businesses,
+          restaurants: restaurants.data.businesses,
           loading: false,
         });
       } else {
         this.setAlert("No restaurant found", "error");
         this.setState({ loading: false });
       }
+    }
+  };
+
+  getInfoRestaurant = async (id) => {
+    this.setState({ loading: true });
+    let restaurant = await Yelp.searchRestaurantsInfo(id);
+
+    if (restaurant) {
+      this.setState({
+        restaurant: restaurant.data,
+        loading: false,
+      });
+    } else {
+      this.setAlert("Something went wrong. Try again", "error");
+      this.setState({ loading: false });
     }
   };
 
@@ -46,19 +69,47 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Navbar />
-        <Search
-          search={this.getRestaurants}
-          clearSearch={this.clearSearch}
-          restaurants={this.state.restaurants}
-        />
-        <Alert alert={this.state.alert} />
-        <DisplayRestaurants
-          restaurants={this.state.restaurants}
-          loading={this.state.loading}
-        />
-      </div>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={(props) => (
+                  <Fragment>
+                    <Search
+                      search={this.getRestaurants}
+                      clearSearch={this.clearSearch}
+                      restaurants={this.state.restaurants}
+                    />
+                    <Alert alert={this.state.alert} />
+                    <DisplayRestaurants
+                      restaurants={this.state.restaurants}
+                      loading={this.state.loading}
+                      infoRestaurant={this.getInfoRestaurant}
+                    />
+                  </Fragment>
+                )}
+              />
+              <Route exact path="/about" component={About} />
+              <Route
+                exact
+                path="/restaurant/:id"
+                render={(props) => (
+                  <Restaurant
+                    {...props}
+                    infoRestaurant={this.getInfoRestaurant}
+                    restaurant={this.state.restaurant}
+                    loading={this.state.loading}
+                  />
+                )}
+              />
+            </Switch>
+          </div>
+        </div>
+      </Router>
     );
   }
 }
