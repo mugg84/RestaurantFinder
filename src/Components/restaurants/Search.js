@@ -70,6 +70,8 @@ class Search extends Component {
         renderSortByOptions={this.renderSortByOptions}
         where={this.state.where}
         what={this.state.what}
+        clearSearch={this.props.clearSearch}
+        restaurants={this.props.restaurants}
       />
     );
   }

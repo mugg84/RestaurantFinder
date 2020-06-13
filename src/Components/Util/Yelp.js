@@ -3,7 +3,7 @@ import axios from "axios";
 const Yelp = {
   async search(text) {
     try {
-      if (text.what && text.where) {
+     
         let response = await axios.get(
           `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=21&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
           {
@@ -13,7 +13,7 @@ const Yelp = {
           }
         );
         return response;
-      }
+    
     } catch (e) {
       console.log(e);
     }

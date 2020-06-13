@@ -36,6 +36,12 @@ class DisplaySearchBar extends Component {
               name="submit"
               value="Search"
             ></input>
+
+            {this.props.restaurants.length > 0 && (
+              <button className="clearButton" onClick={this.props.clearSearch}>
+                Clear
+              </button>
+            )}
           </div>
         </form>
       </div>
