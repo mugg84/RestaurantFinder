@@ -31,14 +31,17 @@ class DisplaySearchBar extends Component {
 
           <div className="searchBar-submit">
             <input
-              className="myButton"
+              className="myButton button"
               type="submit"
               name="submit"
               value="Search"
             ></input>
 
             {this.props.restaurants.length > 0 && (
-              <button className="clearButton" onClick={this.props.clearSearch}>
+              <button
+                className="clearButton button"
+                onClick={this.props.clearSearch}
+              >
                 Clear
               </button>
             )}

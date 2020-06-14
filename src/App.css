@@ -16,12 +16,13 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   color: #333;
 }
 
 h5 {
   font-weight: 400;
+  margin: 1rem 1rem 0 0;
 }
 
 p {
@@ -42,21 +43,25 @@ li {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .button {
   box-shadow: 0px 1px 0px 0px #fff6af;
   background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
   background-color: #ffec64;
-  border-radius: 11px;
+  border-radius: 1rem;
   border: 1px solid #ffaa22;
   cursor: pointer;
   color: #333333;
   font-size: 1.6rem;
-  padding: 1rem 1.5rem;
   text-decoration: none;
   text-shadow: 0px 1px 0px #ffee66;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
 
 /* resuable */
@@ -145,6 +150,7 @@ img {
 .myButton,
 .clearButton {
   margin: 0 1rem;
+  padding: 1rem 1.5rem;
 }
 .myButton:hover,
 .clearButton:hover {
@@ -199,6 +205,10 @@ img {
   -o-border-radius: 50rem;
 }
 
+.button-info {
+  margin: 0 3rem;
+}
+
 /* About page */
 
 .about {
@@ -209,6 +219,10 @@ img {
   background-size: cover;
 }
 
+.aboutText {
+  padding: 5rem;
+}
+
 .about h1 {
   color: white;
 }
@@ -216,10 +230,48 @@ img {
 /* restaurant page */
 
 .backButton {
-  width: 20%;
+  width: 15rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .restaurant {
-  flex-direction: column;
   display: flex;
+  padding: 2rem 6rem;
+}
+
+.restaurant-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-rest-info div {
+  display: flex;
+}
+
+.restaurant-img {
+  padding: 2rem 10rem 0 0;
+}
+
+.restaurant-img img {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.restaurant-card {
+  height: 30vh;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 0#777;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(255, 247, 247);
+}
+
+.restaurant-card h5 {
+  margin: 0.5rem;
 }

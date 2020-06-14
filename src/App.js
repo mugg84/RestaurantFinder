@@ -48,7 +48,7 @@ class App extends Component {
 
     if (restaurant) {
       this.setState({
-        restaurant: restaurant.data,
+        restaurant: restaurant,
         loading: false,
       });
     } else {

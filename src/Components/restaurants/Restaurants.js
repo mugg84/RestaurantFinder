@@ -15,8 +15,13 @@ export class Restaurants extends Component {
         />
         <h4>{this.props.restaurant.name}</h4>
         <h5>Phone {this.props.restaurant.phone}</h5>
-        <h5>Price {this.props.restaurant.price}</h5>
-        <Link to={`/restaurant/${this.props.id}`}>info</Link>
+        {this.props.restaurant.price && (
+          <h5>Price {this.props.restaurant.price}</h5>
+        )}
+
+        <Link to={`/restaurant/${this.props.id}`}>
+          <div className="button button-info">info</div>{" "}
+        </Link>
       </div>
     );
   }

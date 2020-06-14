@@ -27,8 +27,20 @@ const Yelp = {
           },
         }
       );
-      console.log(response);
-      return response;
+
+      const parameters = {
+        name: response.data.name,
+        address: response.data.location.display_address[0],
+        city: response.data.location.display_address[1],
+        rating: response.data.rating,
+        image: response.data.image_url,
+        phone: response.data.phone,
+        categories: response.data.categories[0].title,
+        isClosed: response.data.is_closed,
+        url: response.data.url,
+      };
+
+      return parameters;
     } catch (e) {
       console.log(e);
     }
