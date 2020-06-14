@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./Components/layout/Navbar";
 import Search from "./Components/restaurants/Search";
@@ -10,108 +10,96 @@ import Restaurant from "./Components/restaurants/Restaurant";
 
 import "./App.css";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [restaurants, setRestaurants] = useState([]);
+  const [restaurant, setRestaurant] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState(null);
 
-    this.state = {
-      restaurants: [],
-      restaurant: {},
-      loading: false,
-      alert: null,
-    };
-  }
-
-  getRestaurants = async (text) => {
+  const getRestaurants = async (text) => {
     if (!text.what && !text.where) {
-      this.setAlert("Please fill all inputs", "error");
+      setAlertMsg("Please fill all inputs", "error");
     } else {
-      this.setState({ loading: true });
+      setLoading(true);
 
       let restaurants = await Yelp.searchRestaurants(text);
 
       if (restaurants) {
-        this.setState({
-          restaurants: restaurants.data.businesses,
-          loading: false,
-        });
+        setRestaurants(restaurants);
       } else {
-        this.setAlert("No restaurant found", "error");
-        this.setState({ loading: false });
+        setAlertMsg("No restaurant found", "error");
       }
+      setLoading(false);
     }
   };
 
-  getInfoRestaurant = async (id) => {
-    this.setState({ loading: true });
+  const getInfoRestaurant = async (id) => {
+    setLoading(true);
     let restaurant = await Yelp.searchRestaurantsInfo(id);
 
     if (restaurant) {
-      this.setState({
-        restaurant: restaurant,
-        loading: false,
-      });
+      setRestaurant(restaurant);
     } else {
-      this.setAlert("Something went wrong. Try again", "error");
-      this.setState({ loading: false });
+      setAlertMsg("Something went wrong. Try again", "error");
     }
+    setLoading(false);
   };
 
-  clearSearch = () => {
-    this.setState({ restaurants: [], loading: false });
+  const clearSearch = () => {
+    setRestaurants([]);
+    setLoading(false);
   };
 
-  setAlert = (msg, type) => {
-    this.setState({ alert: { msg, type }, restaurants: [] });
+  const setAlertMsg = (msg, type) => {
+    setRestaurants([]);
+    setAlert({ msg, type });
 
-    setTimeout(() => this.setState({ alert: null }), 3000);
+    setTimeout(() => setAlert(null), 3000);
   };
 
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Navbar />
-          <div className="container">
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={(props) => (
-                  <Fragment>
-                    <Search
-                      search={this.getRestaurants}
-                      clearSearch={this.clearSearch}
-                      restaurants={this.state.restaurants}
-                    />
-                    <Alert alert={this.state.alert} />
-                    <DisplayRestaurants
-                      restaurants={this.state.restaurants}
-                      loading={this.state.loading}
-                      infoRestaurant={this.getInfoRestaurant}
-                    />
-                  </Fragment>
-                )}
-              />
-              <Route exact path="/about" component={About} />
-              <Route
-                exact
-                path="/restaurant/:id"
-                render={(props) => (
-                  <Restaurant
-                    {...props}
-                    infoRestaurant={this.getInfoRestaurant}
-                    restaurant={this.state.restaurant}
-                    loading={this.state.loading}
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <Fragment>
+                  <Search
+                    search={getRestaurants}
+                    clearSearch={clearSearch}
+                    restaurants={restaurants}
                   />
-                )}
-              />
-            </Switch>
-          </div>
+                  <Alert alert={alert} />
+                  <DisplayRestaurants
+                    restaurants={restaurants}
+                    loading={loading}
+                    infoRestaurant={getInfoRestaurant}
+                  />
+                </Fragment>
+              )}
+            />
+            <Route exact path="/about" component={About} />
+            <Route
+              exact
+              path="/restaurant/:id"
+              render={(props) => (
+                <Restaurant
+                  {...props}
+                  infoRestaurant={getInfoRestaurant}
+                  restaurant={restaurant}
+                  loading={loading}
+                />
+              )}
+            />
+          </Switch>
         </div>
-      </Router>
-    );
-  }
-}
+      </div>
+    </Router>
+  );
+};
 
 export default App;

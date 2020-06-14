@@ -1,15 +1,19 @@
-import React, { Component } from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
-class Alert extends Component {
-        render() {
-                 return (
-                   this.props.alert !== null && (
-                     <div className="alert-empty">
-                       <i className="fas fa-info-circle" />{this.props.alert.msg}
-                     </div>
-                   )
-                 );
-        }
-}
+const Alert = ({ alert }) => {
+  return (
+    alert !== null && (
+      <div className="alert-empty">
+        <i className="fas fa-info-circle" />
+        {alert.msg}
+      </div>
+    )
+  );
+};
 
-export default Alert
+Alert.propTypes = {
+  alert: PropTypes.object,
+};
+
+export default Alert;

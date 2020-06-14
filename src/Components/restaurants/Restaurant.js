@@ -1,31 +1,30 @@
-import React, { Component, Fragment } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
+import PropTypes from "prop-types";
 
-class Restaurant extends Component {
-  componentDidMount() {
-    this.props.infoRestaurant(this.props.match.params.id);
-  }
+const Restaurant = ({ loading, restaurant, match, infoRestaurant }) => {
+  useEffect(() => {
+    infoRestaurant(match.params.id);
+    // eslint-disable-next-line
+  }, []);
 
-  renderPage = () => {
-    if (this.props.loading) {
+  const renderPage = () => {
+    if (loading) {
       return <Spinner />;
     } else {
-      if (this.props.restaurant) {
+      if (restaurant) {
         const {
           name,
           address,
           city,
-          price,
           rating,
           image,
           phone,
           categories,
           is_closed,
           url,
-        } = this.props.restaurant;
-
-        console.log(categories);
+        } = restaurant;
 
         return (
           <div className="restaurant">
@@ -46,7 +45,7 @@ class Restaurant extends Component {
                   </h5>
                   <h5>Phone: {phone}</h5>
                   <h5>
-                    <a href={url} target="_blank">
+                    <a href={url} target="_blank" rel="noopener noreferrer">
                       Website
                     </a>
                   </h5>
@@ -63,7 +62,7 @@ class Restaurant extends Component {
               <h4>{phone}</h4>
               <h5>
                 or visit their
-                <a href={url} target="_blank">
+                <a href={url} target="_blank" rel="noopener noreferrer">
                   Website
                 </a>
               </h5>
@@ -74,9 +73,14 @@ class Restaurant extends Component {
     }
   };
 
-  render() {
-    return <div>{this.renderPage()}</div>;
-  }
-}
+  return <div>{renderPage()}</div>;
+};
+
+Restaurant.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  restaurant: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  infoRestaurant: PropTypes.func.isRequired,
+};
 
 export default Restaurant;

@@ -1,30 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export class Restaurants extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Restaurants = ({ restaurant, id }) => {
+  const { image, name, phone, price } = restaurant;
+  return (
+    <div className="card">
+      <img src={image} alt={name} />
+      <h4>{name}</h4>
+      <h5>Phone {phone}</h5>
+      {price && <h5>Price {price}</h5>}
 
-  render() {
-    return (
-      <div className="card">
-        <img
-          src={this.props.restaurant.image_url}
-          alt={this.props.restaurant.name}
-        />
-        <h4>{this.props.restaurant.name}</h4>
-        <h5>Phone {this.props.restaurant.phone}</h5>
-        {this.props.restaurant.price && (
-          <h5>Price {this.props.restaurant.price}</h5>
-        )}
+      <Link to={`/restaurant/${id}`}>
+        <div className="button button-info">info</div>{" "}
+      </Link>
+    </div>
+  );
+};
 
-        <Link to={`/restaurant/${this.props.id}`}>
-          <div className="button button-info">info</div>{" "}
-        </Link>
-      </div>
-    );
-  }
-}
+Restaurants.propTypes = {
+  restaurant: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export default Restaurants;

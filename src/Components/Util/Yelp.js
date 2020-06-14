@@ -11,7 +11,19 @@ const Yelp = {
           },
         }
       );
-      return response;
+
+      const parameters = response.data.businesses.map((business) => {
+        return {
+          id: business.id,
+          image: business.image_url,
+          name: business.name,
+          url: business.url,
+          price: business.price,
+          phone: business.phone,
+        };
+      });
+
+      return parameters;
     } catch (e) {
       console.log(e);
     }
