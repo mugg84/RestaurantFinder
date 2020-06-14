@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Restaurants from "../restaurants/Restaurants";
 import Spinner from "./Spinner";
-import PropTypes from "prop-types";
+import RestContext from "../context/restaurant/restContext";
 
-const DisplayRestaurants = ({ loading, restaurants, infoRestaurant }) => {
+const DisplayRestaurants = () => {
+  const restContext = useContext(RestContext);
+
+  const { loading, restaurants } = restContext;
+
   if (loading) {
     return <Spinner />;
   } else {
@@ -13,19 +17,12 @@ const DisplayRestaurants = ({ loading, restaurants, infoRestaurant }) => {
           <Restaurants
             key={restaurant.id}
             restaurant={restaurant}
-            infoRestaurant={infoRestaurant}
             id={restaurant.id}
           />
         ))}
       </div>
     );
   }
-};
-
-DisplayRestaurants.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  restaurants: PropTypes.array.isRequired,
-  infoRestaurant: PropTypes.func.isRequired,
 };
 
 export default DisplayRestaurants;

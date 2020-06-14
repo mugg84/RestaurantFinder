@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DisplaySearchBar from "../layout/DisplaySearchBar";
-import PropTypes from 'prop-types'
+import RestContext from "../context/restaurant/restContext";
+import AlertContext from "../context/alert/alertContext";
 
-const Search = ({ clearSearch, restaurants, search }) => {
+const Search = () => {
+  const restContext = useContext(RestContext);
+  const alertContext = useContext(AlertContext);
+
   const [where, setWhere] = useState("");
   const [what, setWhat] = useState("");
   const [sortBy, setSortBy] = useState("best_match");
@@ -38,11 +42,15 @@ const Search = ({ clearSearch, restaurants, search }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    search({ where, what, sortBy });
+    if (where && what) {
+      restContext.getRestaurants({ where, what, sortBy });
 
-    setWhere("");
-    setWhat("");
-    setSortBy("best_match");
+      setWhere("");
+      setWhat("");
+      setSortBy("best_match");
+    } else {
+      alertContext.setAlert('Please insert somethiing', 'error')
+    }
   };
 
   // displays sort options
@@ -68,16 +76,8 @@ const Search = ({ clearSearch, restaurants, search }) => {
       renderSortByOptions={renderSortByOptions}
       where={where}
       what={what}
-      clearSearch={clearSearch}
-      restaurants={restaurants}
     />
   );
 };
-
-Search.propTypes = {
-  clearSearch: PropTypes.func.isRequired,
-  search: PropTypes.func.isRequired,
-  restaurants: PropTypes.array.isRequired,
-}
 
 export default Search;

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import RestContext from "../context/restaurant/restContext";
 
 const DisplaySearchBar = ({
   renderSortByOptions,
@@ -7,9 +8,11 @@ const DisplaySearchBar = ({
   where,
   handleChange,
   what,
-  restaurants,
-  clearSearch,
 }) => {
+  const restContext = useContext(RestContext);
+
+  const { restaurants, clearSearch } = restContext;
+
   return (
     <div className="searchBar">
       <h1>Where are you going to eat tonigth?</h1>
@@ -58,12 +61,9 @@ const DisplaySearchBar = ({
 
 DisplaySearchBar.propTypes = {
   renderSortByOptions: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
   where: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   what: PropTypes.string.isRequired,
-  restaurants: PropTypes.array.isRequired,
-  clearSearch: PropTypes.func.isRequired,
 };
 
 export default DisplaySearchBar;

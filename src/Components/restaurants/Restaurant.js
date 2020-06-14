@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import PropTypes from "prop-types";
+import RestContext from "../context/restaurant/restContext";
 
-const Restaurant = ({ loading, restaurant, match, infoRestaurant }) => {
+const Restaurant = ({ match }) => {
+  const restContext = useContext(RestContext);
+
+  const { loading, restaurant, getInfoRestaurant } = restContext;
+
   useEffect(() => {
-    infoRestaurant(match.params.id);
+    getInfoRestaurant(match.params.id);
     // eslint-disable-next-line
   }, []);
 
@@ -77,10 +82,7 @@ const Restaurant = ({ loading, restaurant, match, infoRestaurant }) => {
 };
 
 Restaurant.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  restaurant: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
-  infoRestaurant: PropTypes.func.isRequired,
 };
 
 export default Restaurant;
