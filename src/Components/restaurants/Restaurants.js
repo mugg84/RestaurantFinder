@@ -7,10 +7,11 @@ const Restaurants = ({ restaurant, id }) => {
   return (
     <div className="card">
       <img src={image} alt={name} />
-      <h4>{name}</h4>
-      <h5>Phone {phone}</h5>
-      {price && <h5>Price {price}</h5>}
-
+      <div className="card-text">
+        <h4>{name}</h4>
+        <h5>Phone {phone}</h5>
+        {price && <h5>Price {price}</h5>}
+      </div>
       <Link to={`/restaurant/${id}`}>
         <div className="button button-info">info</div>{" "}
       </Link>

@@ -1,9 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./Components/layout/Navbar";
-import Search from "./Components/restaurants/Search";
-import DisplayRestaurants from "./Components/layout/DisplayRestaurants";
-import Alert from "./Components/layout/Alert";
+import Home from "./Components/pages/Home";
 import About from "./Components/pages/About";
 import Restaurant from "./Components/restaurants/Restaurant";
 
@@ -21,17 +19,7 @@ const App = () => {
             <Navbar />
             <div className="container">
               <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={(props) => (
-                    <Fragment>
-                      <Search />
-                      <Alert />
-                      <DisplayRestaurants />
-                    </Fragment>
-                  )}
-                />
+                <Route exact path="/" component={Home} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/restaurant/:id" component={Restaurant} />
               </Switch>
