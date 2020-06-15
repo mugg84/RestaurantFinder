@@ -126,6 +126,7 @@ img {
 .searchBar-sort-options li {
   border-bottom: 1px solid;
   padding: 0 2rem;
+  margin: 0 .5rem;
 }
 
 .searchBar-input {

@@ -17,6 +17,8 @@ const Search = () => {
     "Most Reviewed": "review_count",
   };
 
+  let autocomplete;
+
   // give active class to option selected
   const getSortByClass = (sortByOption) => {
     if (sortBy === sortByOption) {
@@ -49,7 +51,7 @@ const Search = () => {
       setWhat("");
       setSortBy("best_match");
     } else {
-      alertContext.setAlert('Please insert somethiing', 'error')
+      alertContext.setAlert("Please insert somethiing", "error");
     }
   };
 
@@ -69,6 +71,39 @@ const Search = () => {
     });
   };
 
+  // google suggestion
+
+  const handleScriptLoad = () => {
+    const options = {
+      types: ["(cities)"],
+    }; // To disable any eslint 'google not defined' errors
+
+    // Initialize Google Autocomplete
+    /*global google*/ autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById("autocomplete"),
+      options
+    );
+
+    // address.
+    autocomplete.setFields(["address_components", "formatted_address"]);
+
+    // Fire Event when a suggested name is selected
+    autocomplete.addListener("place_changed", handlePlaceSelect);
+  };
+
+  const handlePlaceSelect = () => {
+    // Extract City From Address Object
+
+    const addressObject = autocomplete.getPlace();
+    const address = addressObject.address_components;
+
+    // Check if address is valid
+    if (address) {
+      // Set State
+      setWhere(address[0].long_name);
+    }
+  };
+
   return (
     <DisplaySearchBar
       onSubmit={onSubmit}
@@ -76,6 +111,7 @@ const Search = () => {
       renderSortByOptions={renderSortByOptions}
       where={where}
       what={what}
+      handleScriptLoad={handleScriptLoad}
     />
   );
 };
