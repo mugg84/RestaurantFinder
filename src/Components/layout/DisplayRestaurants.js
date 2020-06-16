@@ -8,6 +8,7 @@ const DisplayRestaurants = () => {
 
   const { loading, restaurants } = restContext;
 
+  
   if (loading) {
     return <Spinner />;
   } else {

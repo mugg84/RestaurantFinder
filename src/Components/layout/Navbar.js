@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="sticky">
       <p>
         <i className="fas fa-pizza-slice"></i>Food finder
       </p>

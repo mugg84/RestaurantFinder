@@ -93,7 +93,6 @@ nav {
 
 nav p {
   font-size: 2.5rem;
-  color: var(--main--color);
 }
 
 nav ul {
@@ -106,6 +105,28 @@ nav a {
   margin: 0 3rem;
 }
 
+.sticky {
+}
+
+.sticky p {
+  color: var(--main--color);
+}
+
+.fixed {
+  position: fixed;
+  background-color: var(--main--color);
+  z-index: 999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+.fixed p {
+  color: white;
+}
 /* SearchBar */
 
 .main-home {
@@ -192,9 +213,19 @@ nav a {
   -o-transition: all 0.8s ease 0s;
 }
 
+.myButton {
+  padding: 1rem 3rem;
+}
+
+.clearButton {
+  padding: 1rem 3.8rem;
+  left: 24rem;
+  position: absolute;
+}
+
 .myButton,
 .clearButton {
-  padding: 1rem 3rem;
+
   transition: all 0.8s ease 0s;
 }
 .myButton:hover,
@@ -209,7 +240,6 @@ nav a {
   -o-transform: scale(1.1);
 }
 .myButton:active {
-  position: relative;
   top: 1px;
 }
 
@@ -257,24 +287,40 @@ nav a {
   flex-direction: column;
   padding-bottom: 2rem;
   margin: 2rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
-  background-color: #f1f1f1;
   position: relative;
-  border-radius: 1rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
-  
+  z-index: 1;
+}
+
+.card-front {
+  position: absolute;
+  background-color: #f1f1f1;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.card-front:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  bottom: 1rem;
+}
+
+.card-front:hover .card-image {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .card a {
   color: rgb(29, 29, 29);
   width: 100%;
   font-size: 1.4rem;
-  position: absolute;
-   transition: all 1.5s ease 0s;
 }
 
 .card a:hover {
@@ -316,25 +362,9 @@ nav a {
   -o-transition: all 1.5s ease 0s;
 }
 
-.card:hover .card-image {
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-}
-
 .card-text {
   height: 17rem;
   padding: 0 2rem 2rem 2rem;
-}
-
-.card:hover {
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover a {
-  bottom: 1rem;
 }
 
 .card-text * {

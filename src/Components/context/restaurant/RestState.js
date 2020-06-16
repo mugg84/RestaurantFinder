@@ -2,11 +2,13 @@ import React, { useReducer } from "react";
 import RestContext from "./restContext";
 import RestReducer from "./restReducer";
 import Yelp from "../../Util/Yelp";
+import { getCurrentPosition } from "../../Util/GeoLocation";
 import {
   GET_RESTAURANTS,
   GET_INFO_RESTAURANT,
   CLEAR_SEARCH,
   SET_LOADING,
+  GET_LOCATION,
 } from "../../types";
 
 const RestState = (props) => {
@@ -14,6 +16,7 @@ const RestState = (props) => {
     restaurants: [],
     restaurant: {},
     loading: false,
+    location: {},
   };
 
   const [state, dispatch] = useReducer(RestReducer, initalState);
@@ -52,6 +55,19 @@ const RestState = (props) => {
 
   const setLoading = () => dispatch({ type: SET_LOADING });
 
+  // Get location
+
+  const fetchCoordinates = async () => {
+    try {
+      const { coords } = await getCurrentPosition();
+      dispatch({ type: GET_LOCATION, payload: coords });
+      
+    } catch (error) {
+      // Handle error
+      console.error(error);
+    }
+  };
+
   return (
     <RestContext.Provider
       value={{
@@ -61,6 +77,7 @@ const RestState = (props) => {
         getRestaurants,
         clearSearch,
         getRestaurantInfo,
+        fetchCoordinates,
       }}
     >
       {props.children}

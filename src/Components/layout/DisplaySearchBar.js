@@ -22,7 +22,7 @@ const DisplaySearchBar = ({
     <section className="searchBar">
       <form onSubmit={onSubmit} className="searchBar-form">
         <legend className="title">
-          <h1>Where are you going to eat tonight?</h1>
+          <h1>Where are you going to eat tonigt?</h1>
         </legend>
 
         <fieldset className="searchBar-input">

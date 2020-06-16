@@ -7,25 +7,27 @@ const RestaurantCardList = ({ restaurant, id }) => {
   const { image, name, phone, price, categories, address } = restaurant;
   return (
     <section className="card">
-      <Link to={`/restaurant/${id}`}>
-        <figure className="card-image-holder">
-          <div
-            className="card-image"
-            style={{ backgroundImage: `url(${image})` }}
-          ></div>
-        </figure>
-        <article className="card-text">
-          <div className="card-title">
-            <h3>{name}</h3>
-          </div>
-          <div className="card-details">
-            <p>Address: {address}</p>
-            <p>Phone: {phone}</p>
-            <p>Cousine: {categories}</p>
-            {price && <p>Price: {price}</p>}
-          </div>
-        </article>
-      </Link>
+      <section className="card-front">
+        <Link to={`/restaurant/${id}`}>
+          <figure className="card-image-holder">
+            <div
+              className="card-image"
+              style={{ backgroundImage: `url(${image})` }}
+            ></div>
+          </figure>
+          <article className="card-text">
+            <div className="card-title">
+              <h3>{name}</h3>
+            </div>
+            <div className="card-details">
+              <p>Address: {address}</p>
+              <p>Phone: {phone}</p>
+              <p>Cousine: {categories}</p>
+              {price && <p>Price: {price}</p>}
+            </div>
+          </article>
+        </Link>
+      </section>
     </section>
   );
 };

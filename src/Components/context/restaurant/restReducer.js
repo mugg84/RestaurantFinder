@@ -3,6 +3,7 @@ import {
   GET_INFO_RESTAURANT,
   CLEAR_SEARCH,
   SET_LOADING,
+  GET_LOCATION,
 } from "../../types";
 
 export default (state, action) => {
@@ -18,6 +19,9 @@ export default (state, action) => {
         ...state,
         loading: true,
       };
+    case GET_LOCATION:
+      console.log(action.payload)
+      return { ...state, location: action.payload };
     default:
       return state;
   }

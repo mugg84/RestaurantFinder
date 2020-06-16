@@ -8,7 +8,7 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=21&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
         {
           headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
+            Authorization: `Bearer  ${process.env.REACT_APP_YELP_API_KEY}`,
           },
         }
       );
@@ -25,10 +25,11 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
+      console.log(parameters);
 
       return parameters;
     } catch (e) {
-      console.log(e);
+      return "Error";
     }
   },
 
@@ -38,11 +39,10 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`,
         {
           headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
+            Authorization: `Bearer  ${process.env.REACT_APP_YELP_API_KEY}`,
           },
         }
       );
-    
 
       const parameters = {
         name: response.data.name,
