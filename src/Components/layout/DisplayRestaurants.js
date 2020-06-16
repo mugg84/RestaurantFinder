@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Restaurants from "../restaurants/Restaurants";
+import RestaurantCardList from "../restaurants/RestaurantCardList";
 import Spinner from "./Spinner";
 import RestContext from "../context/restaurant/restContext";
 
@@ -12,15 +12,15 @@ const DisplayRestaurants = () => {
     return <Spinner />;
   } else {
     return (
-      <div className="restaurant-list">
+      <aside className="restaurant-list">
         {restaurants.map((restaurant) => (
-          <Restaurants
+          <RestaurantCardList
             key={restaurant.id}
             restaurant={restaurant}
             id={restaurant.id}
           />
         ))}
-      </div>
+      </aside>
     );
   }
 };

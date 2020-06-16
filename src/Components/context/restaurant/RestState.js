@@ -33,7 +33,7 @@ const RestState = (props) => {
 
   // Get info Restaurants
 
-  const getInfoRestaurant = async (id) => {
+  const getRestaurantInfo = async (id) => {
     setLoading();
     let restaurant = await Yelp.searchRestaurantsInfo(id);
 
@@ -60,7 +60,7 @@ const RestState = (props) => {
         loading: state.loading,
         getRestaurants,
         clearSearch,
-        getInfoRestaurant,
+        getRestaurantInfo,
       }}
     >
       {props.children}

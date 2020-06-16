@@ -7,10 +7,10 @@ const Alert = () => {
 
   return (
     alert !== null && (
-      <div className="alert-empty">
+      <article className="alert-empty">
         <i className="fas fa-info-circle" />
         {alert.msg}
-      </div>
+      </article>
     )
   );
 };

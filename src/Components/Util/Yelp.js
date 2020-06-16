@@ -2,6 +2,7 @@ import axios from "axios";
 
 const Yelp = {
   async searchRestaurants(text) {
+    console.log(process.env.REACT_APP_YELP_API_KEY);
     try {
       let response = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=21&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
@@ -20,6 +21,8 @@ const Yelp = {
           url: business.url,
           price: business.price,
           phone: business.phone,
+          categories: business.categories[0].title,
+          address: business.location.display_address[0],
         };
       });
 
@@ -39,6 +42,7 @@ const Yelp = {
           },
         }
       );
+    
 
       const parameters = {
         name: response.data.name,

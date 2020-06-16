@@ -19,15 +19,13 @@ const DisplaySearchBar = ({
   const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
 
   return (
-    <div className="searchBar">
-      <h1>Where are you going to eat tonigth?</h1>
-
-      <div className="searchBar-sort-options">
-        <ul>{renderSortByOptions()}</ul>
-      </div>
-
+    <section className="searchBar">
       <form onSubmit={onSubmit} className="searchBar-form">
-        <div className="searchBar-input">
+        <legend className="title">
+          <h1>Where are you going to eat tonight?</h1>
+        </legend>
+
+        <fieldset className="searchBar-input">
           <Script url={googleUrl} onLoad={handleScriptLoad} />
           <input
             type="text"
@@ -45,9 +43,9 @@ const DisplaySearchBar = ({
             onChange={handleChange}
             value={what}
           />
-        </div>
+        </fieldset>
 
-        <div className="searchBar-submit">
+        <fieldset className="searchBar-submit">
           <input
             className="myButton button"
             type="submit"
@@ -60,9 +58,12 @@ const DisplaySearchBar = ({
               Clear
             </button>
           )}
-        </div>
+        </fieldset>
       </form>
-    </div>
+      <article className="searchBar-sort-options">
+        <ul>{renderSortByOptions()}</ul>
+      </article>
+    </section>
   );
 };
 

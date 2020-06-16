@@ -1,16 +1,18 @@
 import React, { Fragment } from "react";
 import Search from "../../Components/restaurants/Search";
 import Alert from "../../Components/layout/Alert";
+import Navbar from "../../Components/layout/Navbar";
 import DisplayRestaurants from "../../Components/layout/DisplayRestaurants";
 
 const Home = () => (
-  <div>
+  <section className="main-home"> 
     <Fragment>
+      <Navbar />
       <Search />
       <Alert />
       <DisplayRestaurants />
     </Fragment>
-  </div>
+  </section>
 );
 
 export default Home;

@@ -51,7 +51,7 @@ const Search = () => {
       setWhat("");
       setSortBy("best_match");
     } else {
-      alertContext.setAlert("Please insert somethiing", "error");
+      alertContext.setAlert("Please fill all the inputs", "error");
     }
   };
 
