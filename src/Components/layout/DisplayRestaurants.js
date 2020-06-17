@@ -8,12 +8,11 @@ const DisplayRestaurants = () => {
 
   const { loading, restaurants } = restContext;
 
-  
   if (loading) {
     return <Spinner />;
   } else {
     return (
-      <aside className="restaurant-list">
+      <div className="restaurant-list">
         {restaurants.map((restaurant) => (
           <RestaurantCardList
             key={restaurant.id}
@@ -21,7 +20,7 @@ const DisplayRestaurants = () => {
             id={restaurant.id}
           />
         ))}
-      </aside>
+      </div>
     );
   }
 };

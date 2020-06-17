@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const apiKey = process.env.REACT_APP_YELP_API_KEY;
+
 const Yelp = {
   async searchRestaurants(text) {
     console.log(process.env.REACT_APP_YELP_API_KEY);
@@ -8,7 +10,7 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=21&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
         {
           headers: {
-            Authorization: `Bearer  ${process.env.REACT_APP_YELP_API_KEY}`,
+            Authorization: `Bearer ${apiKey}`,
           },
         }
       );
@@ -25,11 +27,10 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-      console.log(parameters);
 
       return parameters;
     } catch (e) {
-      return "Error";
+      console.log(e);
     }
   },
 
@@ -39,7 +40,7 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`,
         {
           headers: {
-            Authorization: `Bearer  ${process.env.REACT_APP_YELP_API_KEY}`,
+            Authorization: `Bearer ${apiKey}`,
           },
         }
       );
@@ -55,6 +56,35 @@ const Yelp = {
         isClosed: response.data.is_closed,
         url: response.data.url,
       };
+
+      return parameters;
+    } catch (e) {
+      console.log(e);
+    }
+  },
+
+  async SearchDefaultRestaurants(location) {
+    try {
+      let response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?&latitude=${location[0]}&longitude=${location[1]}&radius=39999`,
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        }
+      );
+      const parameters = response.data.businesses.map((business) => {
+        return {
+          id: business.id,
+          image: business.image_url,
+          name: business.name,
+          url: business.url,
+          price: business.price,
+          phone: business.phone,
+          categories: business.categories[0].title,
+          address: business.location.display_address[0],
+        };
+      });
 
       return parameters;
     } catch (e) {

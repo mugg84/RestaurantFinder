@@ -6,6 +6,7 @@ import { getCurrentPosition } from "../../Util/GeoLocation";
 import {
   GET_RESTAURANTS,
   GET_INFO_RESTAURANT,
+  GET_DEFAULT_RESTAURANTS,
   CLEAR_SEARCH,
   SET_LOADING,
   GET_LOCATION,
@@ -16,7 +17,9 @@ const RestState = (props) => {
     restaurants: [],
     restaurant: {},
     loading: false,
-    location: {},
+    // default location central London
+    location: ["51.5", "0.1"],
+    defaultRestaurants: [],
   };
 
   const [state, dispatch] = useReducer(RestReducer, initalState);
@@ -34,7 +37,7 @@ const RestState = (props) => {
     }
   };
 
-  // Get info Restaurants
+  // Get Restaurants Info
 
   const getRestaurantInfo = async (id) => {
     setLoading();
@@ -60,11 +63,24 @@ const RestState = (props) => {
   const fetchCoordinates = async () => {
     try {
       const { coords } = await getCurrentPosition();
-      dispatch({ type: GET_LOCATION, payload: coords });
-      
+      dispatch({
+        type: GET_LOCATION,
+        payload: [coords.latitude.toFixed(5), coords.longitude.toFixed(5)],
+      });
     } catch (error) {
       // Handle error
       console.error(error);
+    }
+  };
+
+  // Get default restaurants
+
+  const getDefaultrestaurants = async (location) => {
+    let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
+    if (defaultRestaurants) {
+      dispatch({ type: GET_DEFAULT_RESTAURANTS, payload: defaultRestaurants });
+    } else {
+      dispatch({ type: GET_DEFAULT_RESTAURANTS, payload: [] });
     }
   };
 
@@ -74,10 +90,13 @@ const RestState = (props) => {
         restaurants: state.restaurants,
         restaurant: state.restaurant,
         loading: state.loading,
+        location: state.location,
+        defaultRestaurants: state.defaultRestaurants,
         getRestaurants,
         clearSearch,
         getRestaurantInfo,
         fetchCoordinates,
+        getDefaultrestaurants,
       }}
     >
       {props.children}

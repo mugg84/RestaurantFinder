@@ -61,7 +61,7 @@ const Restaurant = ({ match }) => {
                 <img src={image} alt={name}></img>
               </figure>
             </article>
-            <aside className="restaurant-card">
+            <div className="restaurant-card">
               <p>Book a table</p>
               <p>Call {name} to make a booking on: </p>
               <p>{phone}</p>
@@ -71,7 +71,7 @@ const Restaurant = ({ match }) => {
                   Website
                 </a>
               </p>
-            </aside>
+            </div>
           </section>
         );
       }

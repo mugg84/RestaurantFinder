@@ -4,6 +4,7 @@ import {
   CLEAR_SEARCH,
   SET_LOADING,
   GET_LOCATION,
+  GET_DEFAULT_RESTAURANTS,
 } from "../../types";
 
 export default (state, action) => {
@@ -20,8 +21,9 @@ export default (state, action) => {
         loading: true,
       };
     case GET_LOCATION:
-      console.log(action.payload)
       return { ...state, location: action.payload };
+    case GET_DEFAULT_RESTAURANTS:
+      return { ...state, defaultRestaurants: action.payload };
     default:
       return state;
   }
