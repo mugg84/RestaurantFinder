@@ -10,7 +10,7 @@ import RestContext from "../context/restaurant/restContext";
 
 const Home = () => {
   const restContext = useContext(RestContext);
-  
+
   useEffect(() => {
     restContext.fetchCoordinates();
     // eslint-disable-next-line
@@ -30,8 +30,8 @@ const Home = () => {
         <Search />
         <Alert />
         <Waypoint onEnter={handleWaypointEnter} onLeave={handleWaypointLeave} />
-        <DisplatDefaultRestaurants />
         <DisplayRestaurants />
+        <DisplatDefaultRestaurants />
         <Footer />
       </Fragment>
     </section>

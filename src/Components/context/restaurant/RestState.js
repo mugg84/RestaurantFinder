@@ -7,6 +7,9 @@ import {
   GET_RESTAURANTS,
   GET_INFO_RESTAURANT,
   GET_DEFAULT_RESTAURANTS,
+  GET_DEFAULT_THAI_RESTAURANTS,
+  GET_DEFAULT_ITALIAN_RESTAURANTS,
+  GET_DEFAULT_INDIAN_RESTAURANTS,
   CLEAR_SEARCH,
   SET_LOADING,
   GET_LOCATION,
@@ -20,6 +23,9 @@ const RestState = (props) => {
     // default location central London
     location: ["51.5", "0.1"],
     defaultRestaurants: [],
+    defaultThaiRestaurants: [],
+    defaultItalianRestaurants: [],
+    defaultIndianRestaurants: [],
   };
 
   const [state, dispatch] = useReducer(RestReducer, initalState);
@@ -75,12 +81,54 @@ const RestState = (props) => {
 
   // Get default restaurants
 
-  const getDefaultrestaurants = async (location) => {
+  const getDefaultRestaurants = async (location) => {
     let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
     if (defaultRestaurants) {
       dispatch({ type: GET_DEFAULT_RESTAURANTS, payload: defaultRestaurants });
     } else {
       dispatch({ type: GET_DEFAULT_RESTAURANTS, payload: [] });
+    }
+  };
+
+  const getDefaultThaiRestaurants = async (location) => {
+    let defaultThaiRestaurants = await Yelp.SearchDefaultThaiRestaurants(
+      location
+    );
+    if (defaultThaiRestaurants) {
+      dispatch({
+        type: GET_DEFAULT_THAI_RESTAURANTS,
+        payload: defaultThaiRestaurants,
+      });
+    } else {
+      dispatch({ type: GET_DEFAULT_THAI_RESTAURANTS, payload: [] });
+    }
+  };
+
+  const getDefaultItalianRestaurants = async (location) => {
+    let defaultItaRestaurants = await Yelp.SearchDefaultItalianRestaurants(
+      location
+    );
+    if (defaultItaRestaurants) {
+      dispatch({
+        type: GET_DEFAULT_ITALIAN_RESTAURANTS,
+        payload: defaultItaRestaurants,
+      });
+    } else {
+      dispatch({ type: GET_DEFAULT_ITALIAN_RESTAURANTS, payload: [] });
+    }
+  };
+
+  const getDefaultIndianRestaurants = async (location) => {
+    let defaultIndianRestaurants = await Yelp.SearchDefaultIndianRestaurants(
+      location
+    );
+    if (defaultIndianRestaurants) {
+      dispatch({
+        type: GET_DEFAULT_INDIAN_RESTAURANTS,
+        payload: defaultIndianRestaurants,
+      });
+    } else {
+      dispatch({ type: GET_DEFAULT_INDIAN_RESTAURANTS, payload: [] });
     }
   };
 
@@ -92,11 +140,17 @@ const RestState = (props) => {
         loading: state.loading,
         location: state.location,
         defaultRestaurants: state.defaultRestaurants,
+        defaultThaiRestaurants: state.defaultThaiRestaurants,
+        defaultItalianRestaurants: state.defaultItalianRestaurants,
+        defaultIndianRestaurants: state.defaultIndianRestaurants,
         getRestaurants,
         clearSearch,
         getRestaurantInfo,
         fetchCoordinates,
-        getDefaultrestaurants,
+        getDefaultRestaurants,
+        getDefaultThaiRestaurants,
+        getDefaultItalianRestaurants,
+        getDefaultIndianRestaurants,
       }}
     >
       {props.children}

@@ -33,7 +33,7 @@ const RestaurantSlideCard = ({ restaurant }) => {
 };
 
 RestaurantSlideCard.propTypes = {
-  restaurant: PropTypes.object.isRequired,
+  restaurant: PropTypes.number,
 };
 
 export default RestaurantSlideCard;

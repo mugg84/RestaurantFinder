@@ -1,43 +1,98 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import RestContext from "../context/restaurant/restContext";
 import RestaurantSlideCard from "../restaurants/RestaurantSlideCard";
-import Carousel, { Dots } from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const DisplayDefaultRestaurants = () => {
-  const [value, setValue] = useState(0);
-
   const restContext = useContext(RestContext);
 
-  const { location, defaultRestaurants } = restContext;
+  const {
+    location,
+    defaultRestaurants,
+    defaultThaiRestaurants,
+    defaultIndianRestaurants,
+    defaultItalianRestaurants,
+  } = restContext;
 
   // get default restaurants with initial state location and then with actual location
   useEffect(() => {
-    restContext.getDefaultrestaurants(location);
-    // eslint-disable-next-line
+    restContext.getDefaultRestaurants(location);
+    restContext.getDefaultThaiRestaurants(location);
+    restContext.getDefaultItalianRestaurants(location);
+    restContext.getDefaultIndianRestaurants(location);
+    //s eslint-disable-next-line
   }, [location]);
 
-  // change slide
-  const onChange = (value) => {
-    setValue(value);
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 624, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
   };
-  
 
   return (
-    <section className="restaurant-slider">
-      <header>
-        <h2>Restaurants near you</h2>
-      </header>
+    <section className="restaurant-sliders">
+      <section className="restaurant-slider">
+        <header>
+          <h2>Restaurants near you</h2>
+        </header>
 
-      <Carousel
-        onChange={onChange}
-        value={value}
-        slides={defaultRestaurants.map((resturant) => (
-          <RestaurantSlideCard restaurant={resturant}/>
-        ))}
-        arrows
-        clickToChange
-      />
+        <Carousel responsive={responsive} infinite={true}>
+          {defaultRestaurants.map((resturant) => (
+            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+          ))}
+        </Carousel>
+      </section>
+
+      <section className="restaurant-slider">
+        <header>
+          <h2>Fancy Thai?</h2>
+        </header>
+
+        <Carousel responsive={responsive} infinite={true}>
+          {defaultThaiRestaurants.map((resturant) => (
+            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+          ))}
+        </Carousel>
+      </section>
+
+      <section className="restaurant-slider">
+        <header>
+          <h2>Fancy Italian?</h2>
+        </header>
+
+        <Carousel responsive={responsive} infinite={true}>
+          {defaultItalianRestaurants.map((resturant) => (
+            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+          ))}
+        </Carousel>
+      </section>
+
+      <section className="restaurant-slider">
+        <header>
+          <h2>Fancy Indian?</h2>
+        </header>
+
+        <Carousel responsive={responsive} infinite={true}>
+          {defaultIndianRestaurants.map((resturant) => (
+            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+          ))}
+        </Carousel>
+      </section>
     </section>
   );
 };

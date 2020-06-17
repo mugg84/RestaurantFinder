@@ -41,7 +41,7 @@ body {
 }
 
 h3 {
-  font-size: 2.5rem;
+  font-size: 1.7rem;
 }
 
 p {
@@ -179,7 +179,11 @@ nav a {
   padding: 0 2rem;
   margin: 3rem 0;
   cursor: pointer;
-  transition: all 0.8s ease 0s;
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -ms-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
 }
 
 .searchBar-sort-options li:hover {
@@ -249,7 +253,6 @@ nav a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 8rem 2rem;
 }
 
 /* alert */
@@ -302,6 +305,13 @@ nav a {
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
+  bottom: 0;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition-delay: 0.2s;
 }
 
 .card-front:hover {
@@ -355,11 +365,11 @@ nav a {
   background-size: cover;
   height: 100%;
   width: 100%;
-  transition: all 1.5s ease 0s;
-  -webkit-transition: all 1.5s ease 0s;
-  -moz-transition: all 1.5s ease 0s;
-  -ms-transition: all 1.5s ease 0s;
-  -o-transition: all 1.5s ease 0s;
+  transition: all 1.5s ease 0.8s;
+  -webkit-transition: all 1.5s ease 0.8s;
+  -moz-transition: all 1.5s ease 0.8s;
+  -ms-transition: all 1.5s ease 0.8s;
+  -o-transition: all 1.5s ease 0.8s;
 }
 
 .card-text {
@@ -449,82 +459,108 @@ nav a {
 }
 
 /* restaurant slices */
-
-.restaurant-slider {
-  height: 60vh;
-  margin: 2rem 22rem;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-  background-color: rgb(240, 240, 240);
+.restaurant-slider header {
+  height: 20%;
 }
 
-.restaurant-slider header {
-  height: 15%;
+.react-multi-carousel-item {
+  height: 70%;
+}
+
+.react-multi-carousel-track {
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-slider {
+  margin: 2rem 2rem;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgb(240, 240, 240);
 }
 
 .restaurant-slider h2 {
   color: var(--main--color);
   text-align: center;
-}
-
-.BrainhubCarousel__container {
-  display: flex;
-  height: 85%;
-}
-
-.BrainhubCarousel__trackContainer {
-  height: 90%;
-}
-
-.BrainhubCarousel__trackContainer a {
-  color: rgb(29, 29, 29);
-  width: 100%;
-  font-size: 1.4rem;
-  width: 100%;
-  height: 100%;
-}
-
-.BrainhubCarousel__trackContainer a:hover {
-  color: rgb(29, 29, 29);
-}
-
-.BrainhubCarousel__trackContainer a:visited {
-  color: rgb(29, 29, 29);
-}
-
-.BrainhubCarousel__trackContainer a:active {
-  color: rgb(29, 29, 29);
-}
-
-.BrainhubCarousel__trackContainer ul {
-  height: 100%;
-}
-
-.BrainhubCarousel {
-  width: 100%;
-}
-
-.BrainhubCarousel__arrows {
-  background-color: var(--main--color);
+   padding: 2rem 0 1rem 0;
 }
 
 .slide-card {
   display: flex;
   height: 100%;
   justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
+  margin: 2rem 6rem;
 }
 
 .slice-image-holder {
-  width: 20rem;
-  height: 20rem;
+  width: 100%;
+  height: 25vh;
 }
 
 .slide-card-image {
   min-width: 100%;
   min-height: 100%;
   background-size: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.slide-card-text {
+  height: 30vh;
+  width: 100%;
+  padding: 2rem 3rem;
+  background-color: white;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.slide-card-details {
+  font-size: 1.5rem;
 }
 
 .slide-card-details p {
   color: rgb(29, 29, 29);
+}
+
+/* footer */
+
+footer {
+  height: 70vh;
+  background-color: black;
+}
+
+.footer-items {
+  height: 100%;
+  padding: 10rem 5rem;
+}
+
+.top-list {
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+  font-weight: 600;
+}
+
+.top-list li {
+  text-align: center;
+  width: 25%;
+}
+
+.footer-logo {
+  display: flex;
+}
+
+.nested-list li {
+  padding-top: 1rem;
+  font-weight: 400;
+  width: 100%;
+  opacity: 0.8;
+}
+
+small {
+  display: block;
+  background-color: black;
+  color: white;
+  padding: 0 0 2rem 5rem;
 }

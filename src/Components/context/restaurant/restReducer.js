@@ -5,6 +5,9 @@ import {
   SET_LOADING,
   GET_LOCATION,
   GET_DEFAULT_RESTAURANTS,
+  GET_DEFAULT_THAI_RESTAURANTS,
+  GET_DEFAULT_ITALIAN_RESTAURANTS,
+  GET_DEFAULT_INDIAN_RESTAURANTS,
 } from "../../types";
 
 export default (state, action) => {
@@ -24,6 +27,13 @@ export default (state, action) => {
       return { ...state, location: action.payload };
     case GET_DEFAULT_RESTAURANTS:
       return { ...state, defaultRestaurants: action.payload };
+    case GET_DEFAULT_THAI_RESTAURANTS:
+      return { ...state, defaultThaiRestaurants: action.payload };
+    case GET_DEFAULT_ITALIAN_RESTAURANTS:
+      return { ...state, defaultItalianRestaurants: action.payload };
+    case GET_DEFAULT_INDIAN_RESTAURANTS:
+      return { ...state, defaultIndianRestaurants: action.payload };
+
     default:
       return state;
   }
