@@ -9,7 +9,7 @@ const Yelp = {
     console.log(process.env.REACT_APP_YELP_API_KEY);
     try {
       let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=3&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,
@@ -70,7 +70,7 @@ const Yelp = {
   async SearchDefaultRestaurants(location) {
     try {
       let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=3&latitude=${location[0]}&longitude=${location[1]}&radius=40000`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=4&latitude=${location[0]}&longitude=${location[1]}&radius=40000`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,
@@ -100,7 +100,7 @@ const Yelp = {
   async SearchDefaultThaiRestaurants(location) {
     try {
       let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=3&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=thai`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=4&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=thai`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,
@@ -130,7 +130,7 @@ const Yelp = {
   async SearchDefaultItalianRestaurants(location) {
     try {
       let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=3&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=italian`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=4&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=italian`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,
@@ -160,7 +160,7 @@ const Yelp = {
   async SearchDefaultIndianRestaurants(location) {
     try {
       let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=3&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=indian`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=4&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=indian`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,
