@@ -1,15 +1,12 @@
 import React from "react";
-import Navbar from "../../Components/layout/Navbar";
+import DisplayAbout from "../../Components/layout/DisplayAbout";
+import Footer from "../../Components/layout/Footer";
 
 const About = () => {
   return (
-    <section className="about">
-      <Navbar />
-      <hgroup className="aboutText">
-        <h1>About this App</h1>
-        <p>Lorem</p>
-        <p>Version: 1.0.0</p>
-      </hgroup>
+    <section className="about-container">
+      <DisplayAbout />
+      <Footer />
     </section>
   );
 };

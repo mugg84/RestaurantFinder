@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({className}) => {
   return (
-    <nav className="sticky">
+    <nav className={className}>
       <p>
         <i className="fas fa-pizza-slice"></i>Food finder
       </p>

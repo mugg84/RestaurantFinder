@@ -16,20 +16,26 @@ const Home = () => {
     // eslint-disable-next-line
   }, []);
 
+
   const handleWaypointEnter = () => {
-    document.querySelector("nav").classList.remove("fixed");
+    document.querySelector(".fixed").style.opacity = "0";
   };
   const handleWaypointLeave = () => {
-    document.querySelector("nav").classList.add("fixed");
+    document.querySelector(".fixed").style.opacity = "100";
   };
 
   return (
     <section className="main-home">
       <Fragment>
-        <Navbar />
+        <Navbar className="sticky" />
         <Search />
         <Alert />
-        <Waypoint onEnter={handleWaypointEnter} onLeave={handleWaypointLeave} />
+        <Waypoint
+          onEnter={handleWaypointEnter}
+          onLeave={handleWaypointLeave}
+          topOffset="15%"
+        />
+        <Navbar className="fixed" />
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
         <Footer />

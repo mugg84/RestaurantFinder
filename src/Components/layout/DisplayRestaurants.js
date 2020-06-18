@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import RestaurantCardList from "../restaurants/RestaurantCardList";
+import RestaurantCard from "../restaurants/RestaurantCard";
 import Spinner from "./Spinner";
 import RestContext from "../context/restaurant/restContext";
 
@@ -14,7 +14,7 @@ const DisplayRestaurants = () => {
     return (
       <div className="restaurant-list">
         {restaurants.map((restaurant) => (
-          <RestaurantCardList
+          <RestaurantCard
             key={restaurant.id}
             restaurant={restaurant}
             id={restaurant.id}

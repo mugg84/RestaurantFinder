@@ -3,6 +3,7 @@ import RestContext from "./restContext";
 import RestReducer from "./restReducer";
 import Yelp from "../../Util/Yelp";
 import { getCurrentPosition } from "../../Util/GeoLocation";
+import rest from "../../Util/HardCodedRestaurants";
 import {
   GET_RESTAURANTS,
   GET_INFO_RESTAURANT,
@@ -21,11 +22,11 @@ const RestState = (props) => {
     restaurant: {},
     loading: false,
     // default location central London
-    location: ["51.5", "0.1"],
-    defaultRestaurants: [],
-    defaultThaiRestaurants: [],
-    defaultItalianRestaurants: [],
-    defaultIndianRestaurants: [],
+    location: [],
+    defaultRestaurants: [rest, rest, rest, rest, rest, rest],
+    defaultThaiRestaurants: [rest, rest, rest, rest, rest, rest],
+    defaultItalianRestaurants: [rest, rest, rest, rest, rest, rest],
+    defaultIndianRestaurants: [rest, rest, rest, rest, rest, rest],
   };
 
   const [state, dispatch] = useReducer(RestReducer, initalState);
@@ -82,53 +83,64 @@ const RestState = (props) => {
   // Get default restaurants
 
   const getDefaultRestaurants = async (location) => {
-    let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
-    if (defaultRestaurants) {
-      dispatch({ type: GET_DEFAULT_RESTAURANTS, payload: defaultRestaurants });
-    } else {
-      dispatch({ type: GET_DEFAULT_RESTAURANTS, payload: [] });
+    if (location.length > 0) {
+      let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
+      if (defaultRestaurants) {
+        dispatch({
+          type: GET_DEFAULT_RESTAURANTS,
+          payload: defaultRestaurants,
+        });
+      } else {
+        dispatch({ type: GET_DEFAULT_RESTAURANTS, payload: [] });
+      }
     }
   };
 
   const getDefaultThaiRestaurants = async (location) => {
-    let defaultThaiRestaurants = await Yelp.SearchDefaultThaiRestaurants(
-      location
-    );
-    if (defaultThaiRestaurants) {
-      dispatch({
-        type: GET_DEFAULT_THAI_RESTAURANTS,
-        payload: defaultThaiRestaurants,
-      });
-    } else {
-      dispatch({ type: GET_DEFAULT_THAI_RESTAURANTS, payload: [] });
+    if (location.length > 0) {
+      let defaultThaiRestaurants = await Yelp.SearchDefaultThaiRestaurants(
+        location
+      );
+      if (defaultThaiRestaurants) {
+        dispatch({
+          type: GET_DEFAULT_THAI_RESTAURANTS,
+          payload: defaultThaiRestaurants,
+        });
+      } else {
+        dispatch({ type: GET_DEFAULT_THAI_RESTAURANTS, payload: [] });
+      }
     }
   };
 
   const getDefaultItalianRestaurants = async (location) => {
-    let defaultItaRestaurants = await Yelp.SearchDefaultItalianRestaurants(
-      location
-    );
-    if (defaultItaRestaurants) {
-      dispatch({
-        type: GET_DEFAULT_ITALIAN_RESTAURANTS,
-        payload: defaultItaRestaurants,
-      });
-    } else {
-      dispatch({ type: GET_DEFAULT_ITALIAN_RESTAURANTS, payload: [] });
+    if (location.length > 0) {
+      let defaultItaRestaurants = await Yelp.SearchDefaultItalianRestaurants(
+        location
+      );
+      if (defaultItaRestaurants) {
+        dispatch({
+          type: GET_DEFAULT_ITALIAN_RESTAURANTS,
+          payload: defaultItaRestaurants,
+        });
+      } else {
+        dispatch({ type: GET_DEFAULT_ITALIAN_RESTAURANTS, payload: [] });
+      }
     }
   };
 
   const getDefaultIndianRestaurants = async (location) => {
-    let defaultIndianRestaurants = await Yelp.SearchDefaultIndianRestaurants(
-      location
-    );
-    if (defaultIndianRestaurants) {
-      dispatch({
-        type: GET_DEFAULT_INDIAN_RESTAURANTS,
-        payload: defaultIndianRestaurants,
-      });
-    } else {
-      dispatch({ type: GET_DEFAULT_INDIAN_RESTAURANTS, payload: [] });
+    if (location.length > 0) {
+      let defaultIndianRestaurants = await Yelp.SearchDefaultIndianRestaurants(
+        location
+      );
+      if (defaultIndianRestaurants) {
+        dispatch({
+          type: GET_DEFAULT_INDIAN_RESTAURANTS,
+          payload: defaultIndianRestaurants,
+        });
+      } else {
+        dispatch({ type: GET_DEFAULT_INDIAN_RESTAURANTS, payload: [] });
+      }
     }
   };
 

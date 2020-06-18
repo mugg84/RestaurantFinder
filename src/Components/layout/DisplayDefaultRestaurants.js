@@ -17,10 +17,11 @@ const DisplayDefaultRestaurants = () => {
 
   // get default restaurants with initial state location and then with actual location
   useEffect(() => {
-    restContext.getDefaultRestaurants(location);
+    
+     restContext.getDefaultRestaurants(location);
     restContext.getDefaultThaiRestaurants(location);
     restContext.getDefaultItalianRestaurants(location);
-    restContext.getDefaultIndianRestaurants(location);
+    restContext.getDefaultIndianRestaurants(location); 
     //s eslint-disable-next-line
   }, [location]);
 
@@ -32,11 +33,11 @@ const DisplayDefaultRestaurants = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 5,
     },
     tablet: {
       breakpoint: { max: 624, min: 464 },
-      items: 2,
+      items: 4,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -93,6 +94,10 @@ const DisplayDefaultRestaurants = () => {
           ))}
         </Carousel>
       </section>
+
+      <div className='slider-endimage'>
+        <h2>Something that's supposed to be inspirational</h2>
+      </div>
     </section>
   );
 };

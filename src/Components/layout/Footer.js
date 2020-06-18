@@ -3,6 +3,18 @@ import React from "react";
 function Footer() {
   return (
     <footer>
+      <section className="newsletter">
+        <form>
+          <legend>
+            <i className="far fa-paper-plane"></i>
+            <h3>Want some Inbox love?</h3>
+          </legend>
+          <div className="form-text">
+            <input type="email"></input>
+            <input type="submit" className="button"></input>
+          </div>
+        </form>
+      </section>
       <section className="footer-items">
         <ul className="top-list">
           <li className="footer-logo">
