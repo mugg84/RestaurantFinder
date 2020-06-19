@@ -33,7 +33,7 @@ const Home = () => {
         <Waypoint
           onEnter={handleWaypointEnter}
           onLeave={handleWaypointLeave}
-          topOffset="15%"
+          topOffset="7%"
         />
         <Navbar className="fixed" />
         <DisplayRestaurants />

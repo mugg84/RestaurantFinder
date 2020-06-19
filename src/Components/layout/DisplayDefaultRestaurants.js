@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import RestContext from "../context/restaurant/restContext";
+import AlertContext from "../context/alert/alertContext";
 import RestaurantSlideCard from "../restaurants/RestaurantSlideCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const DisplayDefaultRestaurants = () => {
   const restContext = useContext(RestContext);
+  const alertContext = useContext(AlertContext);
 
   const {
     location,
@@ -17,11 +19,16 @@ const DisplayDefaultRestaurants = () => {
 
   // get default restaurants with initial state location and then with actual location
   useEffect(() => {
-    
-     restContext.getDefaultRestaurants(location);
-    restContext.getDefaultThaiRestaurants(location);
-    restContext.getDefaultItalianRestaurants(location);
-    restContext.getDefaultIndianRestaurants(location); 
+    if (location === "Not Available") {
+      console.log("a");
+      alertContext.setAlert("Location not available.", "error");
+    } else if (location !== "Not Available" && location.length > 0) {
+      restContext.getDefaultRestaurants(location);
+      restContext.getDefaultThaiRestaurants(location);
+      restContext.getDefaultItalianRestaurants(location);
+      restContext.getDefaultIndianRestaurants(location);
+    }
+
     //s eslint-disable-next-line
   }, [location]);
 
@@ -95,7 +102,7 @@ const DisplayDefaultRestaurants = () => {
         </Carousel>
       </section>
 
-      <div className='slider-endimage'>
+      <div className="slider-endimage">
         <h2>Something that's supposed to be inspirational</h2>
       </div>
     </section>

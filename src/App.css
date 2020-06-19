@@ -25,7 +25,7 @@ body {
 
 :root {
   --main--color: #fad222;
-  --text--color: rgba(75, 75, 75, 0.9);
+  --text--color: rgba(44, 44, 44, 0.9);
 }
 
 .active {
@@ -46,6 +46,11 @@ h1 {
   font-size: 5.5rem;
   line-height: 5rem;
   text-shadow: 1px 1px 1px rgba(77, 77, 77, 0.5);
+}
+
+h2 {
+  color: var(--text--color);
+  margin: 2rem;
 }
 
 h3 {
@@ -107,6 +112,7 @@ input {
 nav {
   display: flex;
   justify-content: space-between;
+  position: fixed;
   align-items: center;
   padding: 0.7rem 2rem;
   width: 100%;
@@ -132,13 +138,14 @@ nav a {
   font-size: 2rem;
   margin: 0 3rem;
 }
-
+.sticky {
+  position: absolute;
+}
 .sticky p {
   color: var(--main--color);
 }
 
 .fixed {
-  position: fixed;
   background-color: var(--main--color);
   top: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -238,6 +245,10 @@ nav a {
 }
 
 /* displat restauants */
+
+.restaurant-list-container {
+  padding: 0 4rem;
+}
 
 .restaurant-list {
   display: flex;
@@ -382,31 +393,147 @@ nav a {
 
 /* About page */
 
+.about-container h2 {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
 .about {
-  height: 90vh;
+  height: 95vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("./Images/charles-koh-cFPjXBIIIQI-unsplash.jpg") no-repeat center center
       fixed;
   background-size: 100% 100%;
-}
-
-.about h1 {
+  padding: 4rem 0;
 }
 
 .aboutText {
   position: absolute;
-  top: 20%;
+  top: 60%;
   left: 10%;
   display: flex;
   flex-direction: column;
   padding: 5rem;
 }
 
-.goal,
+
 .who,
-.values,
-.work {
-  height: 100vh;
+.values {
+  padding: 8rem 16rem;
+}
+
+.goal{
+  padding: 8rem 0;
+  margin: 0 16rem;
+}
+
+.goal article {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./Images/8-low-ural-hdfIOjp8ABE-unsplash.jpg") no-repeat center center;
+  height: 85vh;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+}
+
+.goal img {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.goal h3 {
+font-size: 3rem;
+}
+
+.goal p {
+  font-size: 2rem;
+  color: var(--text--color)
+}
+
+.who {
+  background-color: #fad22220;
+  display: grid;
+  align-items: center;
+  grid-gap: 0.5rem;
+  grid-template-areas:
+    "header header header header"
+    "one one two two"
+    "three four five six";
+}
+
+.who-text {
+  grid-area: header;
+}
+
+.one {
+  height: 47vh;
+  grid-area: one;
+}
+
+.two {
+  height: 47vh;
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.who p {
+  margin: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--text--color);
+}
+
+.who img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.values p {
+  color: var(--text--color);
+}
+
+.value {
+  text-align: center;
+  margin: 3rem;
+}
+
+.value i {
+  font-size: 7rem;
+}
+
+.value h3 {
+  padding: 2rem 0 1rem 0;
+}
+
+.values-grid {
+  margin-top: 8rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 /* restaurant page */
@@ -472,7 +599,7 @@ nav a {
   height: 20%;
 }
 
-.react-multi-carousel-list {
+.restaurant .react-multi-carousel-list {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 2rem 0;
 }
@@ -486,11 +613,6 @@ nav a {
   align-items: center;
 }
 
-.restaurant-slider h2 {
-  color: var(--text--color);
-  margin: 2rem;
-}
-
 .slide-card {
   display: flex;
   height: 100%;
@@ -500,6 +622,7 @@ nav a {
   margin: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
+  overflow: hidden;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
@@ -587,6 +710,7 @@ h3,
 }
 
 .slider-endimage h2 {
+  color: var(--main--color);
   display: inline-block;
   width: 60%;
   position: absolute;
@@ -627,7 +751,7 @@ footer {
 }
 
 .footer-items {
-  padding: 10rem 5rem 0 5rem;
+  padding: 4rem 5rem 0 5rem;
 }
 
 .top-list {
@@ -656,6 +780,7 @@ footer {
 }
 
 small {
+  font-size: 1rem;
   display: block;
   background-color: black;
   color: white;

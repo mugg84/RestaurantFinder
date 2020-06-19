@@ -15,7 +15,7 @@ const RestaurantSlideCard = ({ restaurant }) => {
             className="slide-card-image"
             style={{
               backgroundImage: `url(${
-                image ? image : require("../../Images/no-image-avaiable.png")
+                image ? image : require("../../Images/no-image-avaiable.jpg")
               }`,
             }}
           ></div>
@@ -43,7 +43,7 @@ const RestaurantSlideCard = ({ restaurant }) => {
 };
 
 RestaurantSlideCard.propTypes = {
-  restaurant: PropTypes.number,
+  restaurant: PropTypes.object,
 };
 
 export default RestaurantSlideCard;

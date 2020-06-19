@@ -12,15 +12,21 @@ const DisplayRestaurants = () => {
     return <Spinner />;
   } else {
     return (
-      <div className="restaurant-list">
-        {restaurants.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant.id}
-            restaurant={restaurant}
-            id={restaurant.id}
-          />
-        ))}
-      </div>
+      <section className="restaurant-list-container">
+        {restaurants.length > 0 && (
+          <h2 style={{ paddingTop: "8rem" }}>Your search results:</h2>
+        )}
+        <article className="restaurant-list">
+          {restaurants.length > 0 &&
+            restaurants.map((restaurant) => (
+              <RestaurantCard
+                key={restaurant.id}
+                restaurant={restaurant}
+                id={restaurant.id}
+              />
+            ))}
+        </article>
+      </section>
     );
   }
 };

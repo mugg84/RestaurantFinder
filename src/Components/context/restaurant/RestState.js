@@ -21,12 +21,25 @@ const RestState = (props) => {
     restaurants: [],
     restaurant: {},
     loading: false,
-    // default location central London
     location: [],
-    defaultRestaurants: [rest, rest, rest, rest, rest, rest],
-    defaultThaiRestaurants: [rest, rest, rest, rest, rest, rest],
-    defaultItalianRestaurants: [rest, rest, rest, rest, rest, rest],
-    defaultIndianRestaurants: [rest, rest, rest, rest, rest, rest],
+    defaultRestaurants: [
+      rest.def,
+      rest.def,
+      rest.def,
+      rest.def,
+      rest.def,
+      rest.def,
+    ],
+    defaultThaiRestaurants: rest.thai,
+    defaultItalianRestaurants: rest.thai,
+    defaultIndianRestaurants: [
+      rest.def,
+      rest.def,
+      rest.def,
+      rest.def,
+      rest.def,
+      rest.def,
+    ],
   };
 
   const [state, dispatch] = useReducer(RestReducer, initalState);
@@ -40,7 +53,7 @@ const RestState = (props) => {
     if (restaurants) {
       dispatch({ type: GET_RESTAURANTS, payload: restaurants });
     } else {
-      dispatch({ type: GET_RESTAURANTS, payload: [] });
+      dispatch({ type: GET_RESTAURANTS, payload: 'No Restaurants' });
     }
   };
 
@@ -75,8 +88,10 @@ const RestState = (props) => {
         payload: [coords.latitude.toFixed(5), coords.longitude.toFixed(5)],
       });
     } catch (error) {
-      // Handle error
-      console.error(error);
+       dispatch({
+         type: GET_LOCATION,
+         payload: 'Not Available',
+       });
     }
   };
 
