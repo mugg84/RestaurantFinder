@@ -54,6 +54,8 @@ const Yelp = {
         }
       );
 
+      console.log(response);
+
       const parameters = {
         name: response.data.name,
         address: response.data.location.display_address[0],
@@ -77,7 +79,7 @@ const Yelp = {
   async SearchDefaultRestaurants(location) {
     try {
       let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=restaurants`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&categories=restaurants`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,

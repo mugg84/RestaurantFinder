@@ -1,30 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import classnames from "classnames";
 
 const Navbar = ({ className }) => {
-  const [y, setY] = useState(0);
+  const [scrollDir, setScrollDir] = useState("scrolling down");
 
   useEffect(() => {
-    window.addEventListener("scroll", (e) => handleNavigation(e));
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
 
-    return () => {
-      // return a cleanup function to unregister our function since its gonna run multiple times
-      window.removeEventListener("scroll", (e) => handleNavigation(e));
-    };
-  }, [y]);
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
 
-    const handleNavigation = (e) => {
-      const window = e.currentTarget;
-      if (y > window.scrollY) {
-        console.log("scrolling up");
-      } else if (y < window.scrollY) {
-        console.log("scrolling down");
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
       }
-      setY(window.scrollY);
+      setScrollDir(scrollY > lastScrollY ? "scrolling down" : "scrolling up");
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
     };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
 
   return (
-    <nav className={className}>
+    <nav
+      className={classnames(
+        className,
+        scrollDir === "scrolling down" && className === "fixed"
+          ? "hide"
+          : "show"
+      )}
+    >
       <p>
         <i className="fas fa-pizza-slice"></i>Food finder
       </p>

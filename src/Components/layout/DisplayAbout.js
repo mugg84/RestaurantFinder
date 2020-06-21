@@ -50,7 +50,10 @@ const DisplayAbout = () => {
         <h2>Our Goal</h2>
         <Carousel
           responsive={responsive}
+          autoplay={true}
+          autoPlaySpeed={1000}
           infinite={true}
+          transitionDuration={1000}
         >
           <figure>
             <img
@@ -59,7 +62,11 @@ const DisplayAbout = () => {
             />
             <figcaption>
               <h3>Something</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                dolor fugiat deleniti voluptatibus dolores voluptate ducimus
+                provident ipsa.
+              </p>
             </figcaption>
           </figure>
 
@@ -70,7 +77,11 @@ const DisplayAbout = () => {
             />
             <figcaption>
               <h3>Something</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                dolor fugiat deleniti voluptatibus dolores voluptate ducimus
+                provident ipsa.
+              </p>
             </figcaption>
           </figure>
 
@@ -81,7 +92,11 @@ const DisplayAbout = () => {
             />
             <figcaption>
               <h3>Something</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                dolor fugiat deleniti voluptatibus dolores voluptate ducimus
+                provident ipsa.
+              </p>
             </figcaption>
           </figure>
         </Carousel>
@@ -89,7 +104,7 @@ const DisplayAbout = () => {
 
       <section className="who">
         <article className="who-text">
-          <h2>RestaurantFinder is a Lorem ipsum dolor</h2>{" "}
+          <h2>RestaurantFinder is a Lorem ipsum dolor</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. In, dolor
             fugiat deleniti voluptatibus dolores voluptate ducimus provident

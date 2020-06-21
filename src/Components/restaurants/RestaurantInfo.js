@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import PropTypes from "prop-types";
@@ -78,7 +78,7 @@ const Restaurant = ({ match }) => {
     }
   };
 
-  return <div>{renderPage()}</div>;
+  return <Fragment>{renderPage()}</Fragment>;
 };
 
 Restaurant.propTypes = {

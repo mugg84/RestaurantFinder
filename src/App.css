@@ -117,11 +117,7 @@ nav {
   width: 100%;
   height: 10vh;
   z-index: 999;
-  transition: all 0.1s;
-  -webkit-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  -ms-transition: all 0.1s;
-  -o-transition: all 0.1s;
+  transition: top 1s ease 1s;
 }
 
 nav p {
@@ -137,21 +133,31 @@ nav a {
   font-size: 2rem;
   margin: 0 3rem;
 }
+
 .sticky {
   position: absolute;
 }
+
 .sticky p {
   color: var(--main--color);
 }
 
 .fixed {
   background-color: var(--main--color);
-  top: 0;
+  top: -10vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .fixed p {
   color: white;
+}
+
+.hide {
+  top: -10vh;
+}
+
+.show {
+  top: 0;
 }
 /* SearchBar */
 
@@ -410,7 +416,7 @@ nav a {
 .about {
   height: 95vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./Images/charles-koh-cFPjXBIIIQI-unsplash.jpg") no-repeat center center
+    url("./Images/jay-wennington-N_Y88TWmGwA-unsplash.jpg") no-repeat center center
       fixed;
   background-size: 100% 100%;
   padding: 4rem 0;
@@ -449,8 +455,17 @@ nav a {
   -webkit-border-radius: 1rem;
 }
 
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
 .goal img {
-  height: 75vh;
+  height: 85vh;
   width: 100%;
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -481,6 +496,19 @@ nav a {
 
 .who-text {
   grid-area: header;
+}
+
+.who figure{
+  overflow: hidden;
+  transition: all 1s;
+}
+
+.who img {
+  transition: all 1s;
+}
+
+.who img:hover {
+transform: scale(1.1);
 }
 
 .one,
