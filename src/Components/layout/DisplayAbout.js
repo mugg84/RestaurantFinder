@@ -48,7 +48,10 @@ const DisplayAbout = () => {
 
       <section className="goal">
         <h2>Our Goal</h2>
-        <Carousel responsive={responsive} infinite={true}>
+        <Carousel
+          responsive={responsive}
+          infinite={true}
+        >
           <figure>
             <img
               src={require("../../Images/tim-mossholder-FH3nWjvia-U-unsplash.jpg")}
