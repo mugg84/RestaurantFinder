@@ -8,6 +8,8 @@ import {
   GET_DEFAULT_THAI_RESTAURANTS,
   GET_DEFAULT_ITALIAN_RESTAURANTS,
   GET_DEFAULT_INDIAN_RESTAURANTS,
+  SET_ALERT,
+  REMOVE_ALERT,
 } from "../../types";
 
 export default (state, action) => {
@@ -33,6 +35,10 @@ export default (state, action) => {
       return { ...state, defaultItalianRestaurants: action.payload };
     case GET_DEFAULT_INDIAN_RESTAURANTS:
       return { ...state, defaultIndianRestaurants: action.payload };
+    case SET_ALERT:
+      return{ ...state, alert: action.payload, loading: false}
+    case REMOVE_ALERT:
+      return { ...state, alert: null };
 
     default:
       return state;

@@ -48,10 +48,13 @@ const DisplayAbout = () => {
 
       <section className="goal">
         <h2>Our Goal</h2>
-        <Carousel responsive={responsive} infinite={true}>
+        <Carousel
+          responsive={responsive}
+          infinite={true}
+        >
           <figure>
             <img
-              src={require("../../Images/charles-koh-cFPjXBIIIQI-unsplash.jpg")}
+              src={require("../../Images/tim-mossholder-FH3nWjvia-U-unsplash.jpg")}
               alt="Who we are"
             />
             <figcaption>
@@ -62,7 +65,7 @@ const DisplayAbout = () => {
 
           <figure>
             <img
-              src={require("../../Images/charles-koh-cFPjXBIIIQI-unsplash.jpg")}
+              src={require("../../Images/thomas-marban-EHK-EH1SRzQ-unsplash.jpg")}
               alt="Who we are"
             />
             <figcaption>
@@ -73,7 +76,7 @@ const DisplayAbout = () => {
 
           <figure>
             <img
-              src={require("../../Images/charles-koh-cFPjXBIIIQI-unsplash.jpg")}
+              src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
               alt="Who we are"
             />
             <figcaption>
@@ -103,32 +106,32 @@ const DisplayAbout = () => {
         </figure>
         <figure className="two">
           <img
-            src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
+            src={require("../../Images/austin-distel-rxpThOwuVgE-unsplash.jpg")}
             alt="Who we are"
           />
         </figure>
 
         <figure className="three">
           <img
-            src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
+            src={require("../../Images/dan-gold-E6HjQaB7UEA-unsplash.jpg")}
             alt="Who we are"
           />
         </figure>
         <figure className="four">
           <img
-            src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
+            src={require("../../Images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg")}
             alt="Who we are"
           />
         </figure>
         <figure className="five">
           <img
-            src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
+            src={require("../../Images/dan-gold-E6HjQaB7UEA-unsplash.jpg")}
             alt="Who we are"
           />
         </figure>
         <figure className="six">
           <img
-            src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
+            src={require("../../Images/peter-dawn-sxZ_Ca6MkWM-unsplash.jpg")}
             alt="Who we are"
           />
         </figure>
@@ -154,7 +157,7 @@ const DisplayAbout = () => {
             </p>
           </article>
           <article className="value">
-            <i class="fas fa-boxes"></i>
+            <i className="fas fa-boxes"></i>
             <h3>Stable</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ea
@@ -163,7 +166,7 @@ const DisplayAbout = () => {
             </p>
           </article>
           <article className="value">
-            <i class="far fa-clock"></i>
+            <i className="far fa-clock"></i>
             <h3>Fast</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ea
@@ -172,7 +175,7 @@ const DisplayAbout = () => {
             </p>
           </article>
           <article className="value">
-            <i class="fas fa-globe"></i>
+            <i className="fas fa-globe"></i>
             <h3>For the World</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ea
@@ -181,7 +184,7 @@ const DisplayAbout = () => {
             </p>
           </article>
           <article className="value">
-            <i class="fas fa-crop-alt"></i>
+            <i className="fas fa-crop-alt"></i>
             <h3>Scalable</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ea
@@ -190,7 +193,7 @@ const DisplayAbout = () => {
             </p>
           </article>
           <article className="value">
-            <i class="fas fa-lock"></i>
+            <i className="fas fa-lock"></i>
             <h3>Secure</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ea

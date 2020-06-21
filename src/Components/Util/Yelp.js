@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const apiKey = process.env.REACT_APP_YELP_API_KEY;
+const apiKey =
+  "6meLJD-Ens7NJmpTI5w_TKdjnnVaYTqn4DzDsNSmQ5SFaCVaBpkQNOSwR2E5mxLDnr7PIl-WLb-kF9XZlROu33VB3QqNpndMA9-d5LxY1C6LnDm7z7M722w7XCrjXnYx";
 
 const Yelp = {
   // Returns restaurant search resuts
@@ -16,7 +17,11 @@ const Yelp = {
           },
         }
       );
-      console.log(response);
+
+      //If result finds no restaurants in the area
+      if (response.data.businesses.length === 0) {
+        return "Zero Restaurnts";
+      }
 
       const parameters = response.data.businesses.map((business) => {
         return {
@@ -34,6 +39,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
+      return "Error";
     }
   },
 
@@ -64,6 +70,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
+      return "Error";
     }
   },
 
@@ -78,6 +85,11 @@ const Yelp = {
           },
         }
       );
+
+      if (response.data.businesses.length === 0) {
+        return "Zero Restaurnts";
+      }
+
       const parameters = response.data.businesses.map((business) => {
         return {
           id: business.id,
@@ -95,6 +107,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
+      return "Error";
     }
   },
 
@@ -109,6 +122,11 @@ const Yelp = {
           },
         }
       );
+
+      if (response.data.businesses.length === 0) {
+        return "Zero Restaurnts";
+      }
+
       const parameters = response.data.businesses.map((business) => {
         return {
           id: business.id,
@@ -122,10 +140,10 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-      console.log(response);
       return parameters;
     } catch (e) {
       console.log(e);
+      return "Error";
     }
   },
 
@@ -140,6 +158,11 @@ const Yelp = {
           },
         }
       );
+
+      if (response.data.businesses.length === 0) {
+        return "Zero Restaurnts";
+      }
+
       const parameters = response.data.businesses.map((business) => {
         return {
           id: business.id,
@@ -153,10 +176,10 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-      console.log(response);
       return parameters;
     } catch (e) {
       console.log(e);
+      return "Error";
     }
   },
 
@@ -171,6 +194,11 @@ const Yelp = {
           },
         }
       );
+
+      if (response.data.businesses.length === 0) {
+        return "Zero Restaurnts";
+      }
+
       const parameters = response.data.businesses.map((business) => {
         return {
           id: business.id,
@@ -184,10 +212,11 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-      console.log(response);
+
       return parameters;
     } catch (e) {
       console.log(e);
+      return "Error";
     }
   },
 };
