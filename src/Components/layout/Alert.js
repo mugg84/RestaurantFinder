@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import AlertContext from "../../Components/context/alert/alertContext";
+import RestContext from "../../Components/context/restaurant/restContext";
 
 const Alert = () => {
-  const alertContext = useContext(AlertContext);
-  const { alert } = alertContext;
-
+  const restContext = useContext(RestContext);
+  const { alert } = restContext;
+  
   return (
     alert !== null && (
       <article className="alert-empty">

@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import DisplaySearchBar from "../layout/DisplaySearchBar";
 import RestContext from "../context/restaurant/restContext";
-import AlertContext from "../context/alert/alertContext";
+
 
 const Search = () => {
   const restContext = useContext(RestContext);
-  const alertContext = useContext(AlertContext);
+  
 
   const [where, setWhere] = useState("");
   const [what, setWhat] = useState("");
@@ -51,7 +51,7 @@ const Search = () => {
       setWhat("");
       setSortBy("best_match");
     } else {
-      alertContext.setAlert("Please fill all the inputs", "error");
+      restContext.setAlert("Please fill all the inputs", "error");
     }
   };
 
