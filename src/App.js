@@ -4,14 +4,12 @@ import Home from "./Components/pages/Home";
 import About from "./Components/pages/About";
 import RestaurantInfo from "./Components/restaurants/RestaurantInfo";
 import RestState from "./Components/context/restaurant/RestState";
-import AlertState from "./Components/context/alert/alertState";
 
 import "./App.css";
 
 const App = () => {
   return (
     <RestState>
-      <AlertState>
         <Router>
           <main className="App">
             <Switch>
@@ -21,7 +19,6 @@ const App = () => {
             </Switch>
           </main>
         </Router>
-      </AlertState>
     </RestState>
   );
 };

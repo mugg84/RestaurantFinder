@@ -1,13 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import RestContext from "../context/restaurant/restContext";
-import AlertContext from "../context/alert/alertContext";
 import RestaurantSlideCard from "../restaurants/RestaurantSlideCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const DisplayDefaultRestaurants = () => {
   const restContext = useContext(RestContext);
-  const alertContext = useContext(AlertContext);
 
   const {
     location,
@@ -19,11 +17,8 @@ const DisplayDefaultRestaurants = () => {
 
   // get default restaurants with initial state location and then with actual location
   useEffect(() => {
-    if (location === "Not Available") {
-      console.log("a");
-      alertContext.setAlert("Location not available.", "error");
-    } else if (location !== "Not Available" && location.length > 0) {
-      restContext.getDefaultRestaurants(location);
+    if (location) {
+       restContext.getDefaultRestaurants(location);
       restContext.getDefaultThaiRestaurants(location);
       restContext.getDefaultItalianRestaurants(location);
       restContext.getDefaultIndianRestaurants(location);
@@ -54,53 +49,61 @@ const DisplayDefaultRestaurants = () => {
 
   return (
     <section className="restaurant-sliders">
-      <section className="restaurant-slider">
-        <header>
-          <h2>Restaurants near you</h2>
-        </header>
+      {defaultRestaurants.length > 0 && (
+        <section className="restaurant-slider">
+          <header>
+            <h2>Restaurants near you</h2>
+          </header>
 
-        <Carousel responsive={responsive} infinite={true}>
-          {defaultRestaurants.map((resturant) => (
-            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
-          ))}
-        </Carousel>
-      </section>
+          <Carousel responsive={responsive} infinite={true}>
+            {defaultRestaurants.map((resturant) => (
+              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+            ))}
+          </Carousel>
+        </section>
+      )}
 
-      <section className="restaurant-slider">
-        <header>
-          <h2>Fancy Thai?</h2>
-        </header>
+      {defaultThaiRestaurants.length > 0 && (
+        <section className="restaurant-slider">
+          <header>
+            <h2>Fancy Thai?</h2>
+          </header>
 
-        <Carousel responsive={responsive} infinite={true}>
-          {defaultThaiRestaurants.map((resturant) => (
-            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
-          ))}
-        </Carousel>
-      </section>
+          <Carousel responsive={responsive} infinite={true}>
+            {defaultThaiRestaurants.map((resturant) => (
+              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+            ))}
+          </Carousel>
+        </section>
+      )}
 
-      <section className="restaurant-slider">
-        <header>
-          <h2>Fancy Italian?</h2>
-        </header>
+      {defaultItalianRestaurants.length > 0 && (
+        <section className="restaurant-slider">
+          <header>
+            <h2>Fancy Italian?</h2>
+          </header>
 
-        <Carousel responsive={responsive} infinite={true}>
-          {defaultItalianRestaurants.map((resturant) => (
-            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
-          ))}
-        </Carousel>
-      </section>
+          <Carousel responsive={responsive} infinite={true}>
+            {defaultItalianRestaurants.map((resturant) => (
+              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+            ))}
+          </Carousel>
+        </section>
+      )}
 
-      <section className="restaurant-slider">
-        <header>
-          <h2>Fancy Indian?</h2>
-        </header>
+      {defaultIndianRestaurants.length > 0 && (
+        <section className="restaurant-slider">
+          <header>
+            <h2>Fancy Indian?</h2>
+          </header>
 
-        <Carousel responsive={responsive} infinite={true}>
-          {defaultIndianRestaurants.map((resturant) => (
-            <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
-          ))}
-        </Carousel>
-      </section>
+          <Carousel responsive={responsive} infinite={true}>
+            {defaultIndianRestaurants.map((resturant) => (
+              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+            ))}
+          </Carousel>
+        </section>
+      )}
 
       <div className="slider-endimage">
         <h2>Something that's supposed to be inspirational</h2>

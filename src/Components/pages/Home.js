@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <section className="main-home">
       <Fragment>
-        <Navbar className="sticky" />
+        <Navbar className="sticky nav-home" />
         <Search />
         <Alert />
         <Waypoint
