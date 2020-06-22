@@ -6,7 +6,7 @@ import Navbar from "../layout/Navbar";
 const About = () => {
   return (
     <section className="about-container">
-      <Navbar className="sticky" />
+      <Navbar className="sticky nav-about" />
       <DisplayAbout />
       <Footer />
     </section>

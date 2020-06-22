@@ -1,19 +1,23 @@
 import React from "react";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+import CustomForm from './MailChimpForm'
+import { Link } from "react-router-dom";
 
 function Footer() {
+
   return (
     <footer>
       <section className="newsletter">
-        <form>
-          <legend>
-            <i className="far fa-paper-plane"></i>
-            <h3>Want some Inbox love?</h3>
-          </legend>
-          <div className="form-text">
-            <input type="email"></input>
-            <input type="submit" className="button"></input>
-          </div>
-        </form>
+        <MailchimpSubscribe
+          url={process.env.REACT_APP_MAILCHIMP_URL}
+          render={({ subscribe, status, message }) => (
+            <CustomForm
+              status={status}
+              message={message}
+              onValidated={(formData) => subscribe(formData)}
+            />
+          )}
+        />
       </section>
       <section className="footer-items">
         <ul className="top-list">
@@ -23,15 +27,19 @@ function Footer() {
           <li>
             Explore
             <ul className="nested-list">
-              <li>Home</li>
-              <li>About</li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
               <li>Careers</li>
             </ul>
           </li>
           <li>
             Visit
             <ul className="nested-list">
-              <li>Address Address</li>
+              <li>Somewhere over the rainbow</li>
               <li>SW9 999</li>
               <li>London, UK</li>
             </ul>
@@ -51,3 +59,4 @@ function Footer() {
 }
 
 export default Footer;
+

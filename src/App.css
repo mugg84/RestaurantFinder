@@ -16,6 +16,7 @@ html {
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 1.6rem;
+
   line-height: 1.6;
   background-color: white;
   color: var(--main--color);
@@ -25,7 +26,7 @@ body {
 
 :root {
   --main--color: #fad222;
-  --text--color: rgba(44, 44, 44, 0.9);
+  --text--color: rgba(44, 44, 44, 0.911);
 }
 
 .active {
@@ -51,11 +52,12 @@ h1 {
 h2 {
   color: var(--text--color);
   margin: 2rem;
+  font-weight: 400;
 }
 
 h3 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--text--color);
 }
 
@@ -117,7 +119,7 @@ nav {
   width: 100%;
   height: 10vh;
   z-index: 999;
-  transition: top 1s ease 1s;
+  transition: top 1s ease;
 }
 
 nav p {
@@ -144,7 +146,7 @@ nav a {
 
 .fixed {
   background-color: var(--main--color);
-  top: -10vh;
+  top: -400px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -153,7 +155,7 @@ nav a {
 }
 
 .hide {
-  top: -10vh;
+  top: -400px;
 }
 
 .show {
@@ -408,6 +410,11 @@ nav a {
 
 /* About page */
 
+.nav-about li:nth-child(2) a {
+  color: var(--main--color);
+}
+
+
 .about-container h2 {
   font-size: 3.5rem;
   text-align: center;
@@ -416,8 +423,8 @@ nav a {
 .about {
   height: 95vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./Images/jay-wennington-N_Y88TWmGwA-unsplash.jpg") no-repeat center center
-      fixed;
+    url("./Images/jay-wennington-N_Y88TWmGwA-unsplash.jpg") no-repeat center
+      center fixed;
   background-size: 100% 100%;
   padding: 4rem 0;
 }
@@ -455,13 +462,17 @@ nav a {
   -webkit-border-radius: 1rem;
 }
 
+.goal-carousel .react-multiple-carousel__arrow {
+  top: 35%;
+}
+
 .example-appear {
   opacity: 0.01;
 }
 
 .example-appear.example-appear-active {
   opacity: 1;
-  transition: opacity .5s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 
 .goal img {
@@ -483,6 +494,10 @@ nav a {
   color: var(--text--color);
 }
 
+.goal figcaption {
+  padding: 3rem 0;
+}
+
 .who {
   background-color: #fad22220;
   display: grid;
@@ -498,7 +513,7 @@ nav a {
   grid-area: header;
 }
 
-.who figure{
+.who figure {
   overflow: hidden;
   transition: all 1s;
 }
@@ -508,7 +523,7 @@ nav a {
 }
 
 .who img:hover {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .one,
@@ -548,10 +563,14 @@ transform: scale(1.1);
 }
 
 .who p {
-  margin: 2rem;
+  margin: 4rem 0;
   font-size: 2rem;
   text-align: center;
   color: var(--text--color);
+}
+
+.about h2 {
+  margin-top: 0;
 }
 
 .who img {
@@ -585,48 +604,34 @@ transform: scale(1.1);
 
 /* restaurant page */
 
-.backButton {
-  width: 15rem;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
+.nav-info {
+  position: relative;
 }
 
-.restaurant {
-  display: flex;
-  padding: 2rem 6rem;
+.nav-info * {
+  color: var(--main--color);
+}
+
+.backButton {
 }
 
 .restaurant-display {
-  display: flex;
-  flex-direction: column;
+  
 }
 
 .display-rest-info div {
-  display: flex;
+
 }
 
 .restaurant-img {
-  padding: 2rem 10rem 0 0;
 }
 
 .restaurant-img img {
-  max-width: 50%;
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
+ 
 }
 
 .restaurant-card {
-  height: 30vh;
-  border-radius: 1rem;
-  box-shadow: 5px 5px 0#777;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  background-color: rgb(255, 250, 250);
+ 
 }
 
 .restaurant-card h5 {
@@ -704,6 +709,10 @@ transform: scale(1.1);
   -o-transform: scale(1.2);
 }
 
+.slide-card-title h3 {
+  margin: 0 1rem;
+}
+
 .slide-card-text {
   height: 24vh;
   width: 100%;
@@ -715,9 +724,11 @@ transform: scale(1.1);
 
 .react-multiple-carousel__arrow--right {
   z-index: 900 !important;
+  right: 0;
 }
 .react-multiple-carousel__arrow--left {
   z-index: 900 !important;
+  left: 0;
 }
 
 h3,
@@ -765,11 +776,18 @@ footer {
   position: relative;
 }
 
+footer a,
+.newsletter h3,
+small {
+  color: white;
+}
+
 .newsletter {
-  padding: 8rem 0 4rem 0;
+  padding: 4rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .newsletter i {
@@ -784,8 +802,17 @@ footer {
   padding: 1rem;
 }
 
+.newsletter form div {
+  height: 5rem;
+}
+
 .form-text input {
   margin: 1rem;
+}
+
+.news-btn {
+  padding: 1rem;
+  font-size: 1.5rem;
 }
 
 .footer-items {
@@ -821,7 +848,6 @@ small {
   font-size: 1rem;
   display: block;
   background-color: black;
-  color: white;
   padding: 0 0 1rem 2rem;
   position: absolute;
   bottom: 0;

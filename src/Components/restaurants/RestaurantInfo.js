@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
+import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer";
 import PropTypes from "prop-types";
 import RestContext from "../context/restaurant/restContext";
 
@@ -25,41 +27,50 @@ const Restaurant = ({ match }) => {
           city,
           rating,
           image,
+          photos,
           phone,
           categories,
           is_closed,
           url,
+          reviewCount,
+          reviews,
         } = restaurant;
 
         return (
-          <section className="restaurant">
+          <section className="restaurant-info">
+            <Navbar className="nav-info" />
             <article className="restaurant-display">
-              <Link to="/" className="backButton button">
-                Back to Search
-              </Link>
               <article className="display-rest-info">
                 <h2>{name}</h2>
-                <div>
-                  <p>{categories}</p>
+                <p>{categories}</p>
+                <p>Rating: {rating}</p>
+                <p>{reviewCount}</p>
+              </article>
+              <ul>
+                <li>
+                  <i className="far fa-clock"></i>
                   <p>{is_closed ? "Closed" : "Open"}</p>
-                </div>
-                <div>
+                </li>
+                <li>
+                  <i className="fas fa-phone"></i>
+                  <p>Phone: {phone}</p>
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    Website
+                  </a>
+                </li>
+                <li>
+                  <i className="fas fa-map-marker-alt"></i>
                   <p>
                     {address}
                     {city}
                   </p>
-                  <p>Phone: {phone}</p>
-                  <p>
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                      Website
-                    </a>
-                  </p>
-                  <p>Rating: {rating}</p>
-                </div>
-              </article>
-              <figure className="restaurant-img">
-                <img src={image} alt={name}></img>
-              </figure>
+                </li>
+              </ul>
+
+              <Link to="/" className="backButton button">
+                Back to Search
+              </Link>
+              <figure className="restaurant-img"></figure>
             </article>
             <div className="restaurant-card">
               <p>Book a table</p>
@@ -72,6 +83,7 @@ const Restaurant = ({ match }) => {
                 </a>
               </p>
             </div>
+            <Footer />
           </section>
         );
       }

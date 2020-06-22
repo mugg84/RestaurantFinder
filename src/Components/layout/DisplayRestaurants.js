@@ -15,7 +15,7 @@ const DisplayRestaurants = () => {
       <Fragment>
         {restaurants.length > 0 && (
           <section className="restaurant-list-container">
-            <h2 style={{ paddingTop: "8rem" }}>Your search results:</h2>
+            <h2>Your search results:</h2>
             <article className="restaurant-list">
               {restaurants.map((restaurant) => (
                 <RestaurantCard

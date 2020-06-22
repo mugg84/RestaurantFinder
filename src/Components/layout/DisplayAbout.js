@@ -48,12 +48,13 @@ const DisplayAbout = () => {
 
       <section className="goal">
         <h2>Our Goal</h2>
-        <Carousel
+        <Carousel className="goal-carousel"
           responsive={responsive}
-          autoplay={true}
-          autoPlaySpeed={1000}
           infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={4000}
           transitionDuration={1000}
+          focusOnSelect={true}
         >
           <figure>
             <img

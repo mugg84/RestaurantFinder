@@ -54,6 +54,16 @@ const Yelp = {
         }
       );
 
+      let responseRew = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}/reviews`,
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        }
+      );
+
+      console.log(responseRew);
       console.log(response);
 
       const parameters = {
@@ -62,10 +72,13 @@ const Yelp = {
         city: response.data.location.display_address[1],
         rating: response.data.rating,
         image: response.data.image_url,
+        photos: response.data.photos,
         phone: response.data.phone,
         categories: response.data.categories[0].title,
         isClosed: response.data.is_closed,
         url: response.data.url,
+        reviewCount: response.data.review_count,
+        reviews: responseRew.data.reviews,
       };
 
       return parameters;
