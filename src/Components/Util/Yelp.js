@@ -19,7 +19,7 @@ const Yelp = {
 
       //If result finds no restaurants in the area
       if (response.data.businesses.length === 0) {
-        return "Zero Restaurnts";
+        return "Zero Restaurants";
       }
 
       const parameters = response.data.businesses.map((business) => {
@@ -34,7 +34,7 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-
+      console.log(parameters);
       return parameters;
     } catch (e) {
       console.log(e);
@@ -63,15 +63,15 @@ const Yelp = {
         }
       );
 
-      console.log(responseRew);
-      console.log(response);
-
       const parameters = {
         name: response.data.name,
         address: response.data.location.display_address[0],
+        coordinates: {
+          lat: response.data.coordinates.latitude,
+          lng: response.data.coordinates.longitude,
+        },
         city: response.data.location.display_address[1],
         rating: response.data.rating,
-        image: response.data.image_url,
         photos: response.data.photos,
         phone: response.data.phone,
         categories: response.data.categories[0].title,
@@ -80,6 +80,7 @@ const Yelp = {
         reviewCount: response.data.review_count,
         reviews: responseRew.data.reviews,
       };
+      console.log(response);
 
       return parameters;
     } catch (e) {

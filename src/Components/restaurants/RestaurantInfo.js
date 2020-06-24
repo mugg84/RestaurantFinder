@@ -5,6 +5,7 @@ import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import PropTypes from "prop-types";
 import RestContext from "../context/restaurant/restContext";
+import SimpleMap from "../layout/Map";
 
 const Restaurant = ({ match }) => {
   const restContext = useContext(RestContext);
@@ -26,7 +27,7 @@ const Restaurant = ({ match }) => {
           address,
           city,
           rating,
-          image,
+          coordinates,
           photos,
           phone,
           categories,
@@ -39,50 +40,101 @@ const Restaurant = ({ match }) => {
         return (
           <section className="restaurant-info">
             <Navbar className="nav-info" />
-            <article className="restaurant-display">
-              <article className="display-rest-info">
-                <h2>{name}</h2>
-                <p>{categories}</p>
-                <p>Rating: {rating}</p>
-                <p>{reviewCount}</p>
-              </article>
-              <ul>
-                <li>
-                  <i className="far fa-clock"></i>
-                  <p>{is_closed ? "Closed" : "Open"}</p>
-                </li>
-                <li>
-                  <i className="fas fa-phone"></i>
-                  <p>Phone: {phone}</p>
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    Website
-                  </a>
-                </li>
-                <li>
-                  <i className="fas fa-map-marker-alt"></i>
-                  <p>
-                    {address}
-                    {city}
-                  </p>
-                </li>
-              </ul>
+            <section className="restaurant-display">
+              <article className="restaurant-display-left">
+                <hgroup className="display-rest-info">
+                  <h2>{name}</h2>
+                  <div>
+                    <p>{categories}</p>
+                    <p>Rating: {rating}</p>
+                    <p>{reviewCount}</p>
+                  </div>
+                </hgroup>
+                <ul>
+                  <li>
+                    <i className="far fa-clock"></i>
 
-              <Link to="/" className="backButton button">
-                Back to Search
-              </Link>
-              <figure className="restaurant-img"></figure>
-            </article>
-            <div className="restaurant-card">
-              <p>Book a table</p>
-              <p>Call {name} to make a booking on: </p>
-              <p>{phone}</p>
-              <p>
-                or visit their
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                  Website
-                </a>
-              </p>
-            </div>
+                    <p>
+                      <span
+                        style={{
+                          color: "var(--main--color)",
+                          fontSize: "3rem",
+                        }}
+                      >
+                        TODAY
+                      </span>
+                      <br />
+                      {is_closed ? "Closed" : "Open"}
+                    </p>
+                  </li>
+                  <li>
+                    <i className="fas fa-phone"></i>
+                    <p>
+                      <span
+                        style={{
+                          color: "var(--main--color)",
+                          fontSize: "3rem",
+                        }}
+                      >
+                        CONTACT
+                      </span>
+                      <br />
+                      {phone}
+                      <br />
+                      <a href={url} target="_blank" rel="noopener noreferrer">
+                        Website
+                      </a>
+                    </p>
+                  </li>
+                  <li>
+                    <i className="fas fa-map-marker-alt"></i>
+                    <p>
+                      <span
+                        style={{
+                          color: "var(--main--color)",
+                          fontSize: "3rem",
+                        }}
+                      >
+                        FIND
+                      </span>
+                      <br />
+                      {address}
+                      {city}
+                    </p>
+                  </li>
+                </ul>
+
+                <Link to="/" className="backButton button">
+                  Back to Search
+                </Link>
+
+                <figure className="restaurant-img">
+                  <img
+                    src={
+                      photos ? photos[0] : "../../Images/no-image-avaiable.jpg"
+                    }
+                    alt={name}
+                  />
+                  <img
+                    src={
+                      photos ? photos[1] : "../../Images/no-image-avaiable.jpg"
+                    }
+                    alt={name}
+                  />
+                  <img
+                    src={
+                      photos ? photos[2] : "../../Images/no-image-avaiable.jpg"
+                    }
+                    alt={name}
+                  />
+                </figure>
+              </article>
+
+              <aside className="restaurant-display-rigth">
+                <SimpleMap coord={coordinates} />
+              </aside>
+            </section>
+
             <Footer />
           </section>
         );

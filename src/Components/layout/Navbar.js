@@ -45,7 +45,7 @@ const Navbar = ({ className }) => {
       )}
     >
       <p>
-        <i className="fas fa-pizza-slice"></i>Food finder
+        <i className="fas fa-pizza-slice"></i>FoodFinder
       </p>
       <ul>
         <li>

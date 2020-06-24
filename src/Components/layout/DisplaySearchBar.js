@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import RestContext from "../context/restaurant/restContext";
+import Fade from "react-reveal/Fade";
 //Import React Script Libraray to load Google object
 import Script from "react-load-script";
 
@@ -22,46 +23,51 @@ const DisplaySearchBar = ({
     <section className="searchBar">
       <form onSubmit={onSubmit} className="searchBar-form">
         <legend className="title">
-          <h1>Where are you going to eat tonight?</h1>
+          <Fade left>
+            <h1>Where are you going to eat tonight?</h1>
+          </Fade>
         </legend>
+        <Fade>
+          <fieldset className="searchBar-input">
+            <Script url={googleUrl} onLoad={handleScriptLoad} />
+            <input
+              type="text"
+              name="where"
+              placeholder="Where do you want to eat?"
+              value={where}
+              onChange={handleChange}
+              id="autocomplete"
+            />
 
-        <fieldset className="searchBar-input">
-          <Script url={googleUrl} onLoad={handleScriptLoad} />
-          <input
-            type="text"
-            name="where"
-            placeholder="Where do you want to eat?"
-            value={where}
-            onChange={handleChange}
-            id="autocomplete"
-          />
+            <input
+              type="text"
+              name="what"
+              placeholder="What do you want to eat?"
+              onChange={handleChange}
+              value={what}
+            />
+          </fieldset>
 
-          <input
-            type="text"
-            name="what"
-            placeholder="What do you want to eat?"
-            onChange={handleChange}
-            value={what}
-          />
-        </fieldset>
+          <fieldset className="searchBar-submit">
+            <input
+              className="myButton button"
+              type="submit"
+              name="submit"
+              value="Search"
+            ></input>
 
-        <fieldset className="searchBar-submit">
-          <input
-            className="myButton button"
-            type="submit"
-            name="submit"
-            value="Search"
-          ></input>
-
-          {restaurants.length > 0 && (
-            <button className="clearButton button" onClick={clearSearch}>
-              Clear
-            </button>
-          )}
-        </fieldset>
+            {restaurants.length > 0 && (
+              <button className="clearButton button" onClick={clearSearch}>
+                Clear
+              </button>
+            )}
+          </fieldset>
+        </Fade>
       </form>
       <article className="searchBar-sort-options">
-        <ul>{renderSortByOptions()}</ul>
+        <Fade>
+          <ul>{renderSortByOptions()}</ul>
+        </Fade>
       </article>
     </section>
   );

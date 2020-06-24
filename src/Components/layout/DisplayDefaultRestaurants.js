@@ -3,6 +3,7 @@ import RestContext from "../context/restaurant/restContext";
 import RestaurantSlideCard from "../restaurants/RestaurantSlideCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Fade from "react-reveal/Fade";
 
 const DisplayDefaultRestaurants = () => {
   const restContext = useContext(RestContext);
@@ -18,10 +19,12 @@ const DisplayDefaultRestaurants = () => {
   // get default restaurants with initial state location and then with actual location
   useEffect(() => {
     if (location) {
-      restContext.getDefaultRestaurants(location);
-      restContext.getDefaultThaiRestaurants(location);
-      restContext.getDefaultItalianRestaurants(location);
-      restContext.getDefaultIndianRestaurants(location);
+      if (defaultRestaurants.length === 0) {
+        restContext.getDefaultRestaurants(location);
+        restContext.getDefaultThaiRestaurants(location);
+        restContext.getDefaultItalianRestaurants(location);
+        restContext.getDefaultIndianRestaurants(location);
+      }
     }
     //s eslint-disable-next-line
   }, [location]);
@@ -105,7 +108,9 @@ const DisplayDefaultRestaurants = () => {
       )}
 
       <div className="slider-endimage">
-        <h2>Something that's supposed to be inspirational</h2>
+        <Fade left>
+          <h2>Something that's supposed to be inspirational</h2>
+        </Fade>
       </div>
     </section>
   );

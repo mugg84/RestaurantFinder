@@ -10,7 +10,7 @@ const CustomForm = ({ status, onValidated, message }) => {
   let email;
   const submit = (e) => {
     e.preventDefault();
-    // document.querySelector(".news-input").value = "";
+    //document.querySelector(".news-input").value = "";
 
     return (
       email &&
@@ -37,9 +37,9 @@ const CustomForm = ({ status, onValidated, message }) => {
         Submit
       </button>
       <div>
-        {status === "sending" && <p style={{ color: "blue" }}>sending...</p>}
-        {status === "error" && <p style={{ color: "red" }}>{message}</p>}
-        {status === "success" && <p style={{ color: "red" }}>{message}</p>}
+        {status === "sending" && <p>sending...</p>}
+        {status === "error" && <p style={{ color: "red" }}>Something went wrong</p>}
+        {status === "success" && <p>Success</p>}
       </div>
     </form>
   );

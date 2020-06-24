@@ -20,37 +20,7 @@ import {
 const RestState = (props) => {
   const initalState = {
     restaurants: [],
-    restaurant: {
-      name: "Pico’s",
-      address: "Via della Pelliccia 27",
-      city: "00153 Rome",
-      rating: 5,
-      image:
-        "https://s3-media4.fl.yelpcdn.com/bphoto/AZCmxsAgMbXu_AtVFvXitg/o.jpg",
-
-      photos: [
-        "https://s3-media4.fl.yelpcdn.com/bphoto/AZCmxsAgMbXu_AtVFvXitg/o.jpg",
-        "https://s3-media4.fl.yelpcdn.com/bphoto/tVniSL1ia27z-Qhu92ulWA/o.jpg",
-        "https://s3-media4.fl.yelpcdn.com/bphoto/a1Vv0NEziUa4hGrfBGxytg/o.jpg",
-      ],
-      phone: "+393295452819",
-      categories: "Mexican",
-      isClosed: false,
-      url:
-        "https://www.yelp.com/biz/pico-s-roma?adjust_creative=7GHt4FY-2vjNyIPhQV7wcw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=7GHt4FY-2vjNyIPhQV7wcw",
-      reviewCount: 6,
-      reviews: [
-        {
-          id: "5RyafK47S2YtuW1JG44VOA",
-          url:
-            "https://www.yelp.com/biz/pico-s-roma?adjust_creative=7GHt4FY-2vjNyIPhQV7wcw&hrid=5RyafK47S2YtuW1JG44VOA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=7GHt4FY-2vjNyIPhQV7wcw",
-          text:
-            "I know, I know, it's Mexican food in arguably the tastiest capital in the world, but believe me, forget pasta or pizza for one night and come try this...",
-          rating: 5,
-          time_created: "2020-01-08 10:47:25",
-        },
-      ],
-    },
+    restaurant: {},
     loading: false,
     location: [],
     defaultRestaurants: [],
