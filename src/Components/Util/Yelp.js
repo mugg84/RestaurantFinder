@@ -74,13 +74,14 @@ const Yelp = {
         rating: response.data.rating,
         photos: response.data.photos,
         phone: response.data.phone,
+        price: response.data.price,
         categories: response.data.categories[0].title,
         isClosed: response.data.is_closed,
         url: response.data.url,
         reviewCount: response.data.review_count,
         reviews: responseRew.data.reviews,
       };
-      console.log(response);
+     
 
       return parameters;
     } catch (e) {

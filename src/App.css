@@ -164,6 +164,11 @@ nav a {
 
 .nav-info {
   background-color: var(--main--color);
+  position: relative;
+}
+
+.nav-info * {
+  color: white;
 }
 /* SearchBar */
 
@@ -605,14 +610,6 @@ nav a {
 
 /* restaurant page */
 
-.nav-info {
-  position: relative;
-}
-
-.nav-info * {
-  color: white;
-}
-
 .backButton {
   margin: 4rem 0;
   padding: 1rem 3rem;
@@ -632,7 +629,17 @@ nav a {
 .restaurant-display-rigth {
   width: 30%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.restaurant-display-rigth figure{
+  display: flex;
+    flex-direction: column;
+}
+
+.test {
+  background-image: url("./Images/resize-1593073677523335330benjaminrascoedWezYow1Y4Munsplash.jpg");
 }
 
 .restaurant-display * {
@@ -642,6 +649,7 @@ nav a {
 .restaurant-display h2 {
   margin: 0;
   font-size: 3.5rem;
+  font-weight: 700;
 }
 
 .display-rest-info div {
@@ -662,8 +670,8 @@ nav a {
 }
 
 .restaurant-display i {
-  font-size: 4rem;
-  margin-right: 2rem;
+  font-size: 3rem;
+  margin: 0.8rem;
   color: var(--main--color);
 }
 
@@ -671,6 +679,7 @@ nav a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
+  margin: 4rem 0;
 }
 
 .restaurant-img img {
@@ -683,6 +692,30 @@ nav a {
   height: 40vh;
   width: 40vh;
 }
+
+.restaurant-reviews {
+  flex-direction: column;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+}
+
+.review-user img {
+  height: 15vh;
+  width: 15vh;
+  margin: 2rem;
+  border-radius: 50rem;
+}
+
+.review-text {height: 20vh;
+    display: flex;
+    padding:3rem;
+    border: 1px solid;
+    justify-content: center;
+    flex-direction: column;}
+
 
 /* restaurant slices */
 .restaurant-sliders {
