@@ -813,7 +813,7 @@ aside figure {
 .slide-card-image {
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: 100% 100%;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   transition: 1s ease 0.5s;

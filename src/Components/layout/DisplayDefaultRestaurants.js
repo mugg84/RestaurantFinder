@@ -26,7 +26,7 @@ const DisplayDefaultRestaurants = () => {
         restContext.getDefaultIndianRestaurants(location);
       }
     }
-    //s eslint-disable-next-line
+    // eslint-disable-next-line
   }, [location]);
 
   const responsive = {

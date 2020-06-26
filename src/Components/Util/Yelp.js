@@ -34,7 +34,7 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-    
+   
       return parameters;
     } catch (e) {
       console.log(e);

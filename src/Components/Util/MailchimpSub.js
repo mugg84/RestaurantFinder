@@ -14,7 +14,7 @@ const MailchimpSubscribe = ({ render }) => {
     setStatus("sending");
     setMessage(null);
 
-    const res = jsonp(
+    jsonp(
       url,
       {
         param: "c",
