@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const apiKey =
-  "6meLJD-Ens7NJmpTI5w_TKdjnnVaYTqn4DzDsNSmQ5SFaCVaBpkQNOSwR2E5mxLDnr7PIl-WLb-kF9XZlROu33VB3QqNpndMA9-d5LxY1C6LnDm7z7M722w7XCrjXnYx";
+const apiKey = process.env.REACT_APP_YELP_API_KEY;
 
 const Yelp = {
   // Returns restaurant search resuts
 
   async searchRestaurants(text) {
-    console.log(process.env.REACT_APP_YELP_API_KEY);
+    
     try {
       let response = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=12&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
@@ -35,7 +34,7 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-      console.log(parameters);
+    
       return parameters;
     } catch (e) {
       console.log(e);
@@ -77,9 +76,7 @@ const Yelp = {
         phone: response.data.phone,
         price: response.data.price,
         categories: response.data.categories[0].title,
-        isClosed: response.data.is_closed,
         url: response.data.url,
-        reviewCount: response.data.review_count,
         reviews: responseRew.data.reviews,
       };
 

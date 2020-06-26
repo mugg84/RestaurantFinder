@@ -1,12 +1,14 @@
 import React, { useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
-import Spinner from "../layout/Spinner";
+import Spinner from "../Util/Spinner";
 import Navbar from "../layout/Navbar";
-import Review from "../layout/Review";
+import Review from "../Util/Review";
 import Footer from "../layout/Footer";
 import PropTypes from "prop-types";
 import RestContext from "../context/restaurant/restContext";
-import SimpleMap from "../layout/Map";
+import SimpleMap from "../Util/Map";
+import StarRatings from "react-star-ratings";
+import Fade from "react-reveal/Fade";
 
 const Restaurant = ({ match }) => {
   const restContext = useContext(RestContext);
@@ -33,129 +35,98 @@ const Restaurant = ({ match }) => {
           phone,
           price,
           categories,
-          is_closed,
           url,
-          reviewCount,
           reviews,
         } = restaurant;
 
-        console.log(photos);
 
         return (
           <section className="restaurant-info">
-            <Navbar className="sticky" />
+            <Navbar className="nav-info" />
 
-            <figure className="test"></figure>
             <section className="restaurant-display">
-              <article className="restaurant-display-left">
-                <hgroup className="display-rest-info">
-                  <h2>{name}</h2>
+              <article className="restaurant-display-right">
+                <hgroup className="restaurant-display-info">
+                  <Fade left>
+                    <h2>{name}</h2>
+                  </Fade>
+
                   <div>
-                    <p>{categories}</p> <p>Rating: {rating}</p>
+                    <p>{categories}</p>
+                    <StarRatings
+                      rating={rating}
+                      numberOfStars={5}
+                      starRatedColor="#fad222"
+                      starDimension="2rem"
+                      starSpacing="0.3rem"
+                    />
                   </div>
+                  {price && <p>Price: {price}</p>}
                 </hgroup>
-                <ul>
-                  <li>
-                    <i className="far fa-clock"></i>
-
-                    <p>
-                      <span
-                        style={{
-                          color: "var(--main--color)",
-                          fontSize: "3rem",
-                        }}
-                      >
-                        TODAY
-                      </span>
-                      <br />
-                      {is_closed ? "Closed" : "Open"}
-                    </p>
-                  </li>
-                  <li>
-                    <i className="fas fa-phone"></i>
-                    <p>
-                      <span
-                        style={{
-                          color: "var(--main--color)",
-                          fontSize: "3rem",
-                        }}
-                      >
-                        CONTACT
-                      </span>
-                      <br />
-                      {phone}
-                    </p>
-                  </li>
-                  <li>
-                    <i className="fas fa-map-marker-alt"></i>
-                    <p>
-                      <span
-                        style={{
-                          color: "var(--main--color)",
-                          fontSize: "3rem",
-                        }}
-                      >
-                        FIND
-                      </span>
-                      <br />
-                      {address}
-                      {city}
-                    </p>
-                  </li>
-                </ul>
-
-                <figure className="restaurant-img">
-                  <img
-                    src={
-                      photos.length
-                        ? photos[0]
-                        : require("../../Images/no-image-avaiable.jpg")
-                    }
-                    alt={name}
-                  />
-                  <img
-                    src={
-                      photos.length > 1
-                        ? photos[1]
-                        : require("../../Images/no-image-avaiable.jpg")
-                    }
-                    alt={name}
-                  />
-                  <img
-                    src={
-                      photos.length > 2
-                        ? photos[2]
-                        : require("../../Images/no-image-avaiable.jpg")
-                    }
-                    alt={name}
-                  />
-                </figure>
+                <Fade>
+                  <figure className="restaurant-img">
+                    <img
+                      id="first"
+                      src={
+                        photos.length
+                          ? photos[0]
+                          : require("../../Images/no-image-avaiable.jpg")
+                      }
+                      alt={name}
+                    />
+                    <img
+                      src={
+                        photos.length > 1
+                          ? photos[1]
+                          : require("../../Images/no-image-avaiable.jpg")
+                      }
+                      alt={name}
+                    />
+                    <img
+                      src={
+                        photos.length > 2
+                          ? photos[2]
+                          : require("../../Images/no-image-avaiable.jpg")
+                      }
+                      alt={name}
+                    />
+                  </figure>
+                </Fade>
 
                 <ul className="restaurant-reviews">
                   <h3>{reviews && reviews.length} Reviews</h3>
                   {reviews &&
                     reviews.map((review) => (
-                      <Review review={review} key={review.id} />
+                      <Fade>
+                        <Review review={review} key={review.id} />
+                      </Fade>
                     ))}
                 </ul>
-              </article>
-
-              <aside className="restaurant-display-rigth">
-                <figure>
-                  <SimpleMap coord={coordinates} />
-                  <figcaption>
-                    <p>Price: {price}</p>
-                    <p>
-                      <a href={url} target="_blank" rel="noopener noreferrer">
-                        Website
-                      </a>
-                    </p>
-                  </figcaption>
-                </figure>
 
                 <Link to="/" className="backButton button">
                   Back to Search
                 </Link>
+              </article>
+              <aside className="restaurant-display-left">
+                <figure>
+                  <SimpleMap coord={coordinates} />
+                  <figcaption>
+                    <p>{address}</p>
+                    <p>{city}</p>
+                    <p>
+                      Visit our{" "}
+                      <a
+                        style={{ color: "var(--main--color)" }}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Website
+                      </a>
+                    </p>
+                    <p>Call {phone}</p>
+                  </figcaption>
+                </figure>
               </aside>
             </section>
 

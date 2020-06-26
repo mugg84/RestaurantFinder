@@ -1,26 +1,16 @@
-import React /*,{ useContext }*/ from "react";
-//import RestContext from "../context/restaurant/restContext";
+import React from "react";
 
 const CustomForm = ({ status, onValidated }) => {
-  // Need to solve setAlert issue
-  //const restContext = useContext(RestContext);
-
-  //const { setAlert } = restContext;
-
   let email;
   const submit = (e) => {
     e.preventDefault();
-
+    const emailValue = Object.assign({}, email);
 
     document.querySelector(".news-input").value = "";
 
-    return (
-      email &&
-      email.value.indexOf("@") > -1 &&
-      onValidated({
-        EMAIL: email.value,
-      })
-    );
+    return onValidated({
+      EMAIL: emailValue.value,
+    });
   };
 
   return (

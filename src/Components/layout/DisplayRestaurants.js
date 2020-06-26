@@ -1,6 +1,6 @@
 import React, { useContext, Fragment } from "react";
 import RestaurantCard from "../restaurants/RestaurantCard";
-import Spinner from "./Spinner";
+import Spinner from "../Util/Spinner";
 import RestContext from "../context/restaurant/restContext";
 
 const DisplayRestaurants = () => {

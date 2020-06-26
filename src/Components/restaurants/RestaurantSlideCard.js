@@ -4,12 +4,11 @@ import PropTypes from "prop-types";
 import StarRatings from "react-star-ratings";
 
 const RestaurantSlideCard = ({ restaurant }) => {
-  const { image, name, phone, price, categories, id,rating } = restaurant;
+  const { image, name, phone, price, categories, id, rating } = restaurant;
   //might use phone for button
   return (
     <Link to={`/restaurant/${id}`}>
       <section className="slide-card">
-        
         <figure className="slide-image-holder">
           <div
             className="slide-card-image"

@@ -1,12 +1,9 @@
 import React, { Fragment } from "react";
-import spinner from "./ajax-loader.gif";
+import spinner from "../../Images/ajax-loader.gif";
 
 const Spinner = () => (
   <Fragment>
-    <img className="spinner"
-      src={spinner}
-      alt="Loading..."
-    />
+    <img className="spinner" src={spinner} alt="Loading..." />
   </Fragment>
 );
 

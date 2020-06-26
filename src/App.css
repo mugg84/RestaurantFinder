@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
-/* Global Styles */
+/**********************************************************************************
+*********************************** Global styles**********************************
+***********************************************************************************/
 
 * {
   box-sizing: border-box;
@@ -16,18 +18,19 @@ html {
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 1.6rem;
-
   line-height: 1.6;
   background-color: white;
   color: var(--main--color);
 }
 
-/* resuable */
-
 :root {
   --main--color: #fad222;
   --text--color: rgba(44, 44, 44, 0.911);
 }
+
+/**********************************************************************************
+************************************** resuable ***********************************
+***********************************************************************************/
 
 .active {
   color: var(--main--color);
@@ -108,7 +111,9 @@ input {
   background-color: #d6b41d;
 }
 
-/* navbar */
+/**********************************************************************************
+************************************** navbar * ***********************************
+***********************************************************************************/
 
 nav {
   display: flex;
@@ -170,7 +175,10 @@ nav a {
 .nav-info * {
   color: white;
 }
-/* SearchBar */
+
+/**********************************************************************************
+************************************** search bar ***********************************
+***********************************************************************************/
 
 .nav-home li:first-child a {
   color: var(--main--color);
@@ -262,7 +270,9 @@ nav a {
   margin: 2rem 4rem;
 }
 
-/* displat restauants */
+/**********************************************************************************
+**************************************display restaurants**************************
+***********************************************************************************/
 
 .restaurant-list-container {
   margin: 8rem 4rem;
@@ -280,7 +290,9 @@ nav a {
   justify-content: center;
 }
 
-/* alert */
+/**********************************************************************************
+**************************************  alert *************************************
+***********************************************************************************/
 
 .alert-empty {
   display: flex;
@@ -305,7 +317,9 @@ nav a {
   padding: 0 1rem;
 }
 
-/* restaurant card */
+/**********************************************************************************
+************************************** restaurant card *****************************
+***********************************************************************************/
 
 .card {
   display: flex;
@@ -415,7 +429,9 @@ nav a {
   text-align: left;
 }
 
-/* About page */
+/**********************************************************************************
+************************************** about page   *******************************
+***********************************************************************************/
 
 .nav-about li:nth-child(2) a {
   color: var(--main--color);
@@ -608,7 +624,15 @@ nav a {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* restaurant page */
+/**********************************************************************************
+************************************restaurant info********************************
+***********************************************************************************/
+
+.info-background {
+  background-image: url("./Images/banner.jpg");
+  height: 70vh;
+  background-size: 100% 100%;
+}
 
 .backButton {
   margin: 4rem 0;
@@ -621,43 +645,22 @@ nav a {
   display: flex;
 }
 
-.restaurant-display-left {
-  width: 70%;
-  margin-right: 4rem;
-}
-
-.restaurant-display-rigth {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.restaurant-display-rigth figure{
-  display: flex;
-    flex-direction: column;
-}
-
-.test {
-  background-image: url("./Images/banner.jpg");
-}
-
 .restaurant-display * {
-  color: black;
+  color: var(--text--color);
 }
 
-.restaurant-display h2 {
+.restaurant-display-info {
+  margin-bottom: 2rem;
+}
+
+.restaurant-display-info h2 {
   margin: 0;
   font-size: 3.5rem;
   font-weight: 700;
 }
 
-.display-rest-info div {
+.restaurant-display-info div {
   display: flex;
-}
-
-.display-rest-info p {
-  margin-bottom: 2rem;
 }
 
 .restaurant-display ul {
@@ -669,55 +672,101 @@ nav a {
   width: 33.3%;
 }
 
-.restaurant-display i {
-  font-size: 3rem;
-  margin: 0.8rem;
-  color: var(--main--color);
+.restaurant-display-right {
+  width: 70%;
+}
+
+.restaurant-display-left {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .restaurant-img {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
-  margin: 4rem 0;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  height: 60vh;
+}
+
+#first {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 .restaurant-img img {
   border-radius: 1rem;
-  height: 40vh;
-  width: 40vh;
+  height: 100%;
+  width: 100%;
+}
+
+aside figure {
+  margin-top: 12rem;
+  border-radius: 1rem;
+  height: 70vh;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .map-holder {
-  height: 40vh;
-  width: 40vh;
+  height: 45vh;
+  width: 45vh;
+}
+
+.map-holder div :first-child {
+  border-radius: 1rem;
+}
+
+.map-holder i {
+  font-size: 3.5rem;
+  color: var(--main--color);
+  text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-display-left figcaption {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .restaurant-reviews {
   flex-direction: column;
+  padding: 4rem 0;
+}
+
+.restaurant-reviews h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--main--color);
+  padding-bottom: 4rem;
 }
 
 .review-user {
   display: flex;
   align-items: center;
+  padding: 4rem 0 2rem 0;
 }
 
 .review-user img {
-  height: 15vh;
-  width: 15vh;
-  margin: 2rem;
+  height: 8vh;
+  width: 8vh;
+  margin-right: 1rem;
   border-radius: 50rem;
 }
 
-.review-text {height: 20vh;
-    display: flex;
-    padding:3rem;
-    border: 1px solid;
-    justify-content: center;
-    flex-direction: column;}
+.review-text {
+  border-bottom: 1px solid var(--main--color);
+  padding-bottom: 4rem;
+}
 
+/**********************************************************************************
+************************************default restaurants****************************
+***********************************************************************************/
 
-/* restaurant slices */
 .restaurant-sliders {
   margin: 8rem 4rem;
 }
@@ -847,7 +896,9 @@ h3,
   border: none;
 }
 
-/* footer */
+/**********************************************************************************
+************************************** footer ***********************************
+***********************************************************************************/
 
 footer {
   background-color: black;

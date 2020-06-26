@@ -1,6 +1,6 @@
-import React,{useEffect} from "react";
-import MailchimpSubscribe from "./MailchimpSub";
-import CustomForm from './CustomForm'
+import React from "react";
+import MailchimpSubscribe from "../Util/MailchimpSub";
+import CustomForm from '../Util/CustomForm'
 import { Link } from "react-router-dom";
 
 function Footer() {
