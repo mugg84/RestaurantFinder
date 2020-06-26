@@ -1,5 +1,5 @@
 import React,{useEffect} from "react";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
+import MailchimpSubscribe from "./MailchimpSub";
 import CustomForm from './CustomForm'
 import { Link } from "react-router-dom";
 
@@ -8,8 +8,7 @@ function Footer() {
   return (
     <footer>
       <section className="newsletter">
-        <MailchimpSubscribe
-          url={process.env.REACT_APP_MAILCHIMP_URL}
+        <MailchimpSubscribe 
           render={({ subscribe, status, message }) => (
             <CustomForm
               status={status}

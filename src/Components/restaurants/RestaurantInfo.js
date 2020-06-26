@@ -43,7 +43,7 @@ const Restaurant = ({ match }) => {
 
         return (
           <section className="restaurant-info">
-            <Navbar className="nav-info" />
+            <Navbar className="sticky" />
 
             <figure className="test"></figure>
             <section className="restaurant-display">

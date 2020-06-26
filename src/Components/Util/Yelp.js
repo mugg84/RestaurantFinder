@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const apiKey = process.env.REACT_APP_YELP_API_KEY;
+const apiKey =
+  "6meLJD-Ens7NJmpTI5w_TKdjnnVaYTqn4DzDsNSmQ5SFaCVaBpkQNOSwR2E5mxLDnr7PIl-WLb-kF9XZlROu33VB3QqNpndMA9-d5LxY1C6LnDm7z7M722w7XCrjXnYx";
 
 const Yelp = {
   // Returns restaurant search resuts
@@ -81,7 +82,6 @@ const Yelp = {
         reviewCount: response.data.review_count,
         reviews: responseRew.data.reviews,
       };
-     
 
       return parameters;
     } catch (e) {

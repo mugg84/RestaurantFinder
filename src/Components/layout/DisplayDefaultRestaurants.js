@@ -18,13 +18,13 @@ const DisplayDefaultRestaurants = () => {
 
   // get default restaurants with initial state location and then with actual location
   useEffect(() => {
-    if (location) {
+    if (location) {/*
       if (defaultRestaurants.length === 0) {
         restContext.getDefaultRestaurants(location);
         restContext.getDefaultThaiRestaurants(location);
         restContext.getDefaultItalianRestaurants(location);
         restContext.getDefaultIndianRestaurants(location);
-      }
+      }*/
     }
     //s eslint-disable-next-line
   }, [location]);
