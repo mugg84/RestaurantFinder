@@ -32,7 +32,6 @@ function Footer() {
               <li>
                 <Link to="/about">About</Link>
               </li>
-              <li>Careers</li>
             </ul>
           </li>
           <li>

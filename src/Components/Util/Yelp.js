@@ -6,7 +6,7 @@ const Yelp = {
   // Returns restaurant search resuts
 
   async searchRestaurants(text) {
-    
+    console.log(process.env.REACT_APP_YELP_API_KEY);
     try {
       let response = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=12&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
@@ -34,7 +34,7 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-   
+      console.log(parameters);
       return parameters;
     } catch (e) {
       console.log(e);

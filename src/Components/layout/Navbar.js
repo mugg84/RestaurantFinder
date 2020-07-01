@@ -48,11 +48,21 @@ const Navbar = ({ className }) => {
         <i className="fas fa-pizza-slice"></i>FoodFinder
       </p>
       <ul>
-        <li>
+        <li className="nav-big-icon">
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li className="nav-big-icon">
           <Link to="/about">About</Link>
+        </li>
+        <li className="nav-small-icon">
+          <Link to="/">
+            <i className="fas fa-home"></i>
+          </Link>
+        </li>
+        <li className="nav-small-icon">
+          <Link to="/about">
+            <i className="fas fa-info-circle"></i>
+          </Link>
         </li>
       </ul>
     </nav>

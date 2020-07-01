@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import RestContext from "../context/restaurant/restContext";
 import Fade from "react-reveal/Fade";
 //Import React Script Libraray to load Google object
-import Script from "react-load-script";
+//import Script from "react-load-script";
 
 const DisplaySearchBar = ({
   renderSortByOptions,
@@ -17,7 +17,7 @@ const DisplaySearchBar = ({
 
   const { restaurants, clearSearch } = restContext;
 
-  const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
+  //const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
 
   return (
     <section className="searchBar">
@@ -29,7 +29,7 @@ const DisplaySearchBar = ({
         </legend>
         <Fade>
           <fieldset className="searchBar-input">
-            <Script url={googleUrl} onLoad={handleScriptLoad} />
+            {/*<Script url={googleUrl} onLoad={handleScriptLoad} />*/}
             <input
               type="text"
               name="where"

@@ -46,7 +46,6 @@ const Search = () => {
     e.preventDefault();
     if (where && what) {
       restContext.getRestaurants({ where, what, sortBy });
-
       setWhere("");
       setWhat("");
       setSortBy("best_match");
@@ -74,26 +73,31 @@ const Search = () => {
   // google suggestion
 
   const handleScriptLoad = () => {
+    //disabled until expired key iissue solved
+    return 
     const options = {
       types: ["(cities)"],
     }; // To disable any eslint 'google not defined' errors
 
     // Initialize Google Autocomplete
-    /*global google*/ autocomplete = new google.maps.places.Autocomplete(
+    /*global google*/ 
+    autocomplete = new google.maps.places.Autocomplete(
       document.getElementById("autocomplete"),
       options
     );
+    console.log(autocomplete)
 
     // address.
     autocomplete.setFields(["address_components", "formatted_address"]);
+    
 
     // Fire Event when a suggested name is selected
     autocomplete.addListener("place_changed", handlePlaceSelect);
+    
   };
 
   const handlePlaceSelect = () => {
     // Extract City From Address Object
-
     const addressObject = autocomplete.getPlace();
     const address = addressObject.address_components;
 
