@@ -37,7 +37,7 @@ function Footer() {
           <li>
             Visit
             <ul className="nested-list">
-              <li>Somewhere over the rainbow</li>
+              <li>7 Some Street</li>
               <li>SW9 999</li>
               <li>London, UK</li>
             </ul>

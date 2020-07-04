@@ -180,11 +180,19 @@ nav a {
   color: white;
 }
 
+.logo-small {
+  display: none;
+}
+
 /**********************************************************************************
 ************************************** search bar ***********************************
 ***********************************************************************************/
 
 .nav-home li:first-child a {
+  color: var(--main--color);
+}
+
+.nav-home .fa-home {
   color: var(--main--color);
 }
 
@@ -441,6 +449,10 @@ nav a {
   color: var(--main--color);
 }
 
+.nav-about .fa-info-circle {
+  color: var(--main--color);
+}
+
 .about-container h2 {
   font-size: 3.5rem;
   text-align: center;
@@ -465,12 +477,12 @@ nav a {
 
 .who,
 .values {
-  padding: 8rem 16rem;
+  padding: 8rem 14rem;
 }
 
 .goal {
   padding: 8rem 0;
-  margin: 0 16rem;
+  margin: 0 14rem;
 }
 
 .goal article {
@@ -950,7 +962,7 @@ small {
 }
 
 .footer-items {
-  padding: 4rem 5rem 0 5rem;
+  padding: 4rem 5rem;
 }
 
 .top-list {
@@ -996,8 +1008,21 @@ small {
     font-size: 8px;
   }
 
-   .searchBar-input input {
+  .searchBar-input input {
     width: 70%;
+  }
+
+  .who,
+  .values {
+    padding: 8rem 12rem;
+  }
+
+  .goal {
+    margin: 0 12rem;
+  }
+
+  .goal img {
+    height: 100%;
   }
 }
 
@@ -1007,28 +1032,18 @@ small {
   }
 
   h1 {
-    font-size: 4rem;
+    margin-bottom: 4rem;
   }
 
-  .nav-big-icon {
-    display: none;
-  }
-
-  .nav-small-icon {
-    display: flex;
-  }
-
+  
   .fixed {
     display: none;
-  }
-
-  .main-home {
-    height: 80vh;
   }
 
   .searchBar {
     flex-direction: column-reverse;
     justify-content: space-evenly;
+    padding: 4rem 6rem;
   }
 
   .searchBar-sort-options {
@@ -1037,11 +1052,6 @@ small {
 
   .searchBar-sort-options ul {
     flex-direction: row;
-  }
-
-  .searchBar-sort-options li {
-    text-align: center;
-    margin: 0;
   }
 
   .searchBar-sort-options li:hover {
@@ -1054,6 +1064,111 @@ small {
 
   .searchBar-form {
     width: 100%;
+  }
+
+  .restaurant-list-container {
+    margin: 6rem 0.5rem;
+  }
+
+  .slider-endimage {
+    height: 60vh;
+  }
+
+  .newsletter {
+    padding: 2rem 0 0 0;
+  }
+
+  .newsletter form {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  footer {
+    height: 70vh;
+  }
+
+  .footer-items {
+    padding: 4rem 2rem;
+}
+
+  /*about page*/
+  .about {
+    background-size: cover;
+    height: 80vh;
+  }
+
+  .aboutText {
+    top: 60vh;
+  }
+
+  .who,
+  .values {
+    padding: 4rem 8rem;
+  }
+
+  .goal {
+    padding: 4rem 0;
+    margin: 0 8rem;
+  }
+
+  .who {
+    grid-template-areas:
+      "header header"
+      "one one"
+      "three four"
+      "two two"
+      "five six";
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  h1 {
+    font-size: 3.7rem;
+    text-align: center;
+  }
+
+  .nav-big-icon {
+    display: none;
+  }
+
+  .nav-small-icon {
+    display: flex;
+  }
+
+  nav a {
+    margin: 0 0 0 2rem;
+  }
+
+
+  .main-home {
+    height: 80vh;
+  }
+
+  .log-big {
+    display: none;
+  }
+
+  .logo-small {
+    display: block;
+  }
+
+  .searchBar {
+    justify-content: center;
+    padding: 4rem;
+  }
+
+  .searchBar ul {
+    display: none;
+  }
+
+  .searchBar-sort-options li {
+    text-align: center;
   }
 
   .searchBar-input input {
@@ -1069,11 +1184,25 @@ small {
     margin: 0;
   }
 
-  .restaurant-list-container {
-    margin: 6rem 0.5rem;
+  .restaurant-sliders {
+    margin: 4rem;
   }
 
-  .slider-endimage {
-    height: 60vh;
+  .restaurant-sliders h2 {
+    font-size: 3rem;
+  }
+
+  .who,
+  .values {
+    padding: 2rem 4rem;
+  }
+
+  .goal {
+    padding: 2rem 0;
+    margin: 0 4rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
   }
 }
