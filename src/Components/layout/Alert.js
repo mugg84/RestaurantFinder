@@ -4,7 +4,7 @@ import RestContext from "../../Components/context/restaurant/restContext";
 const Alert = () => {
   const restContext = useContext(RestContext);
   const { alert } = restContext;
-  
+
   return (
     alert !== null && (
       <article className="alert-empty">

@@ -20,12 +20,12 @@ const DisplayDefaultRestaurants = () => {
   useEffect(() => {
     if (location) {
       if (defaultRestaurants.length === 0) {
-        /*
+        
         restContext.getDefaultRestaurants(location);
         restContext.getDefaultThaiRestaurants(location);
         restContext.getDefaultItalianRestaurants(location);
         restContext.getDefaultIndianRestaurants(location);
-       */
+       
       }
     }
     // eslint-disable-next-line
@@ -42,15 +42,15 @@ const DisplayDefaultRestaurants = () => {
       items: 4,
     },
     desktop: {
-      breakpoint: { max: 924, min: 724 },
+      breakpoint: { max: 924, min: 624 },
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 724, min: 464 },
+      breakpoint: { max: 624, min: 364 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 364, min: 0 },
       items: 1,
     },
   };
