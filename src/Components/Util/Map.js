@@ -16,7 +16,7 @@ const SimpleMap = (center) => {
       return (
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: "",
+            key: process.env.REACT_APP_GOOGLE_API_KEY,
           }}
           defaultCenter={center.coord}
           defaultZoom={18}

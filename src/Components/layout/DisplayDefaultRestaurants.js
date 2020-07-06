@@ -20,12 +20,10 @@ const DisplayDefaultRestaurants = () => {
   useEffect(() => {
     if (location) {
       if (defaultRestaurants.length === 0) {
-        
         restContext.getDefaultRestaurants(location);
         restContext.getDefaultThaiRestaurants(location);
         restContext.getDefaultItalianRestaurants(location);
         restContext.getDefaultIndianRestaurants(location);
-       
       }
     }
     // eslint-disable-next-line
@@ -65,7 +63,10 @@ const DisplayDefaultRestaurants = () => {
 
           <Carousel responsive={responsive} infinite={true}>
             {defaultRestaurants.map((resturant) => (
-              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+              <RestaurantSlideCard
+                restaurant={resturant}
+                key={`${resturant.id}-d`}
+              />
             ))}
           </Carousel>
         </section>
@@ -79,7 +80,10 @@ const DisplayDefaultRestaurants = () => {
 
           <Carousel responsive={responsive} infinite={true}>
             {defaultThaiRestaurants.map((resturant) => (
-              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+              <RestaurantSlideCard
+                restaurant={resturant}
+                key={`${resturant.id}-t`}
+              />
             ))}
           </Carousel>
         </section>
@@ -93,7 +97,10 @@ const DisplayDefaultRestaurants = () => {
 
           <Carousel responsive={responsive} infinite={true}>
             {defaultItalianRestaurants.map((resturant) => (
-              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+              <RestaurantSlideCard
+                restaurant={resturant}
+                key={`${resturant.id}-it`}
+              />
             ))}
           </Carousel>
         </section>
@@ -107,7 +114,10 @@ const DisplayDefaultRestaurants = () => {
 
           <Carousel responsive={responsive} infinite={true}>
             {defaultIndianRestaurants.map((resturant) => (
-              <RestaurantSlideCard restaurant={resturant} key={resturant.id} />
+              <RestaurantSlideCard
+                restaurant={resturant}
+                key={`${resturant.id}-ind`}
+              />
             ))}
           </Carousel>
         </section>

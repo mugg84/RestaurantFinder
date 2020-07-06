@@ -39,7 +39,6 @@ export default (state, action) => {
       return{ ...state, alert: action.payload, loading: false}
     case REMOVE_ALERT:
       return { ...state, alert: null };
-
     default:
       return state;
   }

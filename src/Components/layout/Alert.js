@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Fade from "react-reveal/Fade";
 import RestContext from "../../Components/context/restaurant/restContext";
 
 const Alert = () => {
@@ -7,10 +8,12 @@ const Alert = () => {
 
   return (
     alert !== null && (
-      <article className="alert-empty">
-        <i className="fas fa-info-circle" />
-        {alert.msg}
-      </article>
+      <Fade>
+        <article className="alert-empty">
+          <i className="fas fa-info-circle" />
+          {alert.msg}
+        </article>
+      </Fade>
     )
   );
 };

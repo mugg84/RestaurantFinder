@@ -2,10 +2,8 @@ import React, { useState, useContext } from "react";
 import DisplaySearchBar from "../layout/DisplaySearchBar";
 import RestContext from "../context/restaurant/restContext";
 
-
 const Search = () => {
   const restContext = useContext(RestContext);
-  
 
   const [where, setWhere] = useState("");
   const [what, setWhat] = useState("");
@@ -16,8 +14,6 @@ const Search = () => {
     "Highest Rated": "rating",
     "Most Reviewed": "review_count",
   };
-
-  let autocomplete;
 
   // give active class to option selected
   const getSortByClass = (sortByOption) => {
@@ -70,44 +66,6 @@ const Search = () => {
     });
   };
 
-  // google suggestion
-
-  const handleScriptLoad = () => {
-    //disabled until expired key iissue solved
-    return 
-    const options = {
-      types: ["(cities)"],
-    }; // To disable any eslint 'google not defined' errors
-
-    // Initialize Google Autocomplete
-    /*global google*/ 
-    autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById("autocomplete"),
-      options
-    );
-    console.log(autocomplete)
-
-    // address.
-    autocomplete.setFields(["address_components", "formatted_address"]);
-    
-
-    // Fire Event when a suggested name is selected
-    autocomplete.addListener("place_changed", handlePlaceSelect);
-    
-  };
-
-  const handlePlaceSelect = () => {
-    // Extract City From Address Object
-    const addressObject = autocomplete.getPlace();
-    const address = addressObject.address_components;
-
-    // Check if address is valid
-    if (address) {
-      // Set State
-      setWhere(address[0].long_name);
-    }
-  };
-
   return (
     <DisplaySearchBar
       onSubmit={onSubmit}
@@ -115,7 +73,6 @@ const Search = () => {
       renderSortByOptions={renderSortByOptions}
       where={where}
       what={what}
-      handleScriptLoad={handleScriptLoad}
     />
   );
 };

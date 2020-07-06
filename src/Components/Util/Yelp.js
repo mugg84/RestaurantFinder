@@ -1,18 +1,26 @@
 import axios from "axios";
+require("dotenv").config();
 
-const apiKey = process.env.REACT_APP_YELP_API_KEY;
+let YELP_API_KEY;
+
+if (process.env.NODE_ENV !== "production") {
+  YELP_API_KEY = process.env.REACT_APP_YELP_API_KEY;
+} else {
+  YELP_API_KEY = process.env.YELP_API_KEY;
+}
 
 const Yelp = {
   // Returns restaurant search resuts
 
   async searchRestaurants(text) {
-    console.log(process.env.REACT_APP_YELP_API_KEY);
     try {
       let response = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=12&term=${text.what}&location=${text.where}&sort_by=${text.sortBy}`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${YELP_API_KEY}`,
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );
@@ -34,7 +42,7 @@ const Yelp = {
           address: business.location.display_address[0],
         };
       });
-      console.log(parameters);
+
       return parameters;
     } catch (e) {
       console.log(e);
@@ -49,7 +57,9 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${YELP_API_KEY}`,
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );
@@ -58,7 +68,9 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}/reviews`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${YELP_API_KEY}`,
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );
@@ -94,7 +106,9 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&categories=restaurants`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${YELP_API_KEY}`,
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );
@@ -131,7 +145,9 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=thai`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${YELP_API_KEY}`,
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );
@@ -167,7 +183,9 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=italian`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${YELP_API_KEY}`,
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );
@@ -203,7 +221,9 @@ const Yelp = {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=indpak`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${YELP_API_KEY}`,
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );

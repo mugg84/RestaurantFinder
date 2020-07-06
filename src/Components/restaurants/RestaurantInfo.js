@@ -9,6 +9,7 @@ import RestContext from "../context/restaurant/restContext";
 import SimpleMap from "../Util/Map";
 import StarRatings from "react-star-ratings";
 import Fade from "react-reveal/Fade";
+import { v4 as uuidv4 } from "uuid";
 
 const Restaurant = ({ match }) => {
   const restContext = useContext(RestContext);
@@ -38,7 +39,6 @@ const Restaurant = ({ match }) => {
           url,
           reviews,
         } = restaurant;
-
 
         return (
           <section className="restaurant-info">
@@ -98,7 +98,7 @@ const Restaurant = ({ match }) => {
                   {reviews &&
                     reviews.map((review) => (
                       <Fade>
-                        <Review review={review} key={review.id} />
+                        <Review review={review} key={uuidv4()} />
                       </Fade>
                     ))}
                 </ul>

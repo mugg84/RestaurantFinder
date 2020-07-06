@@ -15,19 +15,7 @@ const DisplayAbout = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 624, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 4000, min: 0 },
       items: 1,
     },
   };
@@ -143,7 +131,7 @@ const DisplayAbout = () => {
 
           <figure className="three">
             <img
-              src={require("../../Images/dan-gold-E6HjQaB7UEA-unsplash.jpg")}
+              src={require("../../Images/jakub-kapusnak-4f4YZfDMLeU-unsplash.jpg")}
               alt="Who we are"
             />
           </figure>

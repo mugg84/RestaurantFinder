@@ -852,7 +852,6 @@ aside figure {
 }
 
 .slide-card-text {
-  height: 24vh;
   width: 100%;
   padding: 1rem;
   background-color: #f1f1f1;
@@ -882,7 +881,7 @@ h3,
 
 .slide-card-details p {
   margin: 0 1rem;
-  font-size: 1.2rem;
+  font-size: 90%;
   color: var(--text--color);
 }
 
@@ -1048,7 +1047,7 @@ small {
   }
 
   h1 {
-    margin-bottom: 4rem;
+    margin: 4rem 0;
   }
 
   .fixed {
@@ -1057,7 +1056,7 @@ small {
 
   .searchBar {
     flex-direction: column-reverse;
-    justify-content: space-evenly;
+   justify-content: center;
     padding: 4rem 6rem;
   }
 
@@ -1126,7 +1125,7 @@ small {
   }
 
   .aboutText {
-    top: 60vh;
+    top: 50vh;
   }
 
   .who,
@@ -1257,7 +1256,6 @@ small {
   }
 
   .searchBar {
-    justify-content: center;
     padding: 4rem;
   }
 
@@ -1295,7 +1293,7 @@ small {
   }
 
   .restaurant-sliders h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .footer-logo {
