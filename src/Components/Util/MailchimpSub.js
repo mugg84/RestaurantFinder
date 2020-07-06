@@ -4,12 +4,7 @@ import jsonp from "jsonp";
 import toQueryString from "to-querystring";
 import CustomForm from "./CustomForm";
 
-let MAILCHIMP_URL;
-if (process.env.NODE_ENV !== "production") {
-  MAILCHIMP_URL = process.env.REACT_APP_MAILCHIMP_URL;
-} else {
-  MAILCHIMP_URL = process.env.MAILCHIMP_URL;
-}
+let MAILCHIMP_URL = process.env.REACT_APP_MAILCHIMP_URL;
 
 const MailchimpSubscribe = ({ render }) => {
   const [status, setStatus] = useState(null);

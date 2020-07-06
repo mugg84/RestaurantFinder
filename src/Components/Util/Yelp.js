@@ -1,13 +1,7 @@
 import axios from "axios";
 require("dotenv").config();
 
-let YELP_API_KEY;
-
-if (process.env.NODE_ENV !== "production") {
-  YELP_API_KEY = process.env.REACT_APP_YELP_API_KEY;
-} else {
-  YELP_API_KEY = process.env.YELP_API_KEY;
-}
+let YELP_API_KEY = process.env.REACT_APP_YELP_API_KEY;
 
 const Yelp = {
   // Returns restaurant search resuts

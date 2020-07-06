@@ -1,6 +1,8 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 
+let GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+
 const Marker = () => <i className="fas fa-map-marker-alt"></i>;
 
 const SimpleMap = (center) => {
@@ -16,7 +18,7 @@ const SimpleMap = (center) => {
       return (
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: process.env.REACT_APP_GOOGLE_API_KEY,
+            key: GOOGLE_API_KEY,
           }}
           defaultCenter={center.coord}
           defaultZoom={18}
