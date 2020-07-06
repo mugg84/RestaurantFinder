@@ -36,19 +36,19 @@ const DisplayDefaultRestaurants = () => {
       items: 5,
     },
     normaldesktop: {
-      breakpoint: { max: 1240, min: 924 },
+      breakpoint: { max: 1240, min: 974 },
       items: 4,
     },
     desktop: {
-      breakpoint: { max: 924, min: 624 },
+      breakpoint: { max: 974, min: 674 },
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 624, min: 364 },
+      breakpoint: { max: 674, min: 414 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 364, min: 0 },
+      breakpoint: { max: 414, min: 0 },
       items: 1,
     },
   };
