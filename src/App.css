@@ -331,7 +331,7 @@ nav a {
 .card {
   display: flex;
   width: 22rem;
-  height: 34rem;
+  min-height: 35rem;
   min-width: 25rem;
   flex-direction: column;
   padding-bottom: 2rem;
@@ -351,6 +351,7 @@ nav a {
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
+  height: 100%;
   bottom: 0;
   transition: all 1s;
   -webkit-transition: all 1s;
@@ -396,7 +397,7 @@ nav a {
 }
 
 .card-image-holder {
-  height: 17rem;
+  height: 50%;
   width: 25rem;
   overflow: hidden;
   border-top-left-radius: 1rem;
@@ -419,7 +420,7 @@ nav a {
 }
 
 .card-text {
-  height: 17rem;
+  height: 50%;
   padding: 0 2rem 2rem 2rem;
 }
 
@@ -855,7 +856,7 @@ aside figure {
 .slide-card-text {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
   height: 50%;
   padding: 1rem;
@@ -1019,7 +1020,7 @@ small {
 
 @media only screen and (max-width: 900px) {
   html {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .searchBar-input input {
@@ -1046,9 +1047,6 @@ small {
 }
 
 @media only screen and (max-width: 700px) {
-  html {
-    font-size: 8px;
-  }
 
   h1 {
     margin: 4rem 0;
@@ -1094,10 +1092,6 @@ small {
 
   .slider-endimage {
     height: 45vh;
-  }
-
-  .slide-card-text {
-    font-size: 120%;
   }
 
   .newsletter {
@@ -1289,10 +1283,6 @@ small {
   .clearButton {
     width: 100%;
     margin: 0;
-  }
-
-  .card {
-    width: 35rem;
   }
 
   .card-image-holder {
