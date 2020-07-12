@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import classnames from "classnames";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 
 const Navbar = ({ className }) => {
-  const [scrollDir, setScrollDir] = useState("scrolling down");
+  const [scrollDir, setScrollDir] = useState('scrolling down');
 
   useEffect(() => {
     const threshold = 0;
@@ -17,7 +17,7 @@ const Navbar = ({ className }) => {
         ticking = false;
         return;
       }
-      setScrollDir(scrollY > lastScrollY ? "scrolling down" : "scrolling up");
+      setScrollDir(scrollY > lastScrollY ? 'scrolling down' : 'scrolling up');
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
     };
@@ -29,9 +29,9 @@ const Navbar = ({ className }) => {
       }
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
     // eslint-disable-next-line
   }, []);
 
@@ -39,9 +39,9 @@ const Navbar = ({ className }) => {
     <nav
       className={classnames(
         className,
-        scrollDir === "scrolling down" && className === "fixed"
-          ? "hide"
-          : "show"
+        scrollDir === 'scrolling down' && className === 'fixed'
+          ? 'hide'
+          : 'show'
       )}
     >
       <p className="log-big">

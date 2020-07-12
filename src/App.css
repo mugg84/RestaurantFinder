@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /**********************************************************************************
 *********************************** Global styles**********************************
@@ -16,8 +16,8 @@ html {
 }
 
 body {
-  font-family: "Work Sans", sans-serif;
-  font-size: 1.6rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
   line-height: 1.6;
   background-color: white;
   color: var(--main--color);
@@ -198,7 +198,7 @@ nav a {
 
 .main-home {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./Images/adils-photography-gmo6Ok9G0U8-unsplash.jpg");
+    url('./Images/adils-photography-gmo6Ok9G0U8-unsplash.jpg');
 
   background-size: cover;
   background-attachment: fixed;
@@ -299,7 +299,7 @@ nav a {
 .restaurant-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 /**********************************************************************************
@@ -336,7 +336,6 @@ nav a {
   flex-direction: column;
   padding-bottom: 2rem;
   margin: 2rem;
-  text-align: center;
   position: relative;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
@@ -377,7 +376,6 @@ nav a {
 .card a {
   color: var(--text--color);
   width: 100%;
-  font-size: 1.4rem;
 }
 
 .card a:hover {
@@ -393,12 +391,11 @@ nav a {
 }
 
 .card-text h3 {
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .card-image-holder {
   height: 50%;
-  width: 25rem;
   overflow: hidden;
   border-top-left-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -432,11 +429,6 @@ nav a {
   overflow: hidden;
 }
 
-.card-details {
-  padding: 0 1rem;
-  text-align: left;
-}
-
 /**********************************************************************************
 ************************************** about page   *******************************
 ***********************************************************************************/
@@ -457,7 +449,7 @@ nav a {
 .about {
   height: 95vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./Images/jay-wennington-N_Y88TWmGwA-unsplash.jpg") no-repeat center
+    url('./Images/jay-wennington-N_Y88TWmGwA-unsplash.jpg') no-repeat center
       center fixed;
   background-size: 100% 100%;
   padding: 4rem 0;
@@ -483,7 +475,7 @@ nav a {
 
 .goal article {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./Images/8-low-ural-hdfIOjp8ABE-unsplash.jpg") no-repeat center center;
+    url('./Images/8-low-ural-hdfIOjp8ABE-unsplash.jpg') no-repeat center center;
   height: 85vh;
   background-size: 100% 100%;
   display: flex;
@@ -538,9 +530,9 @@ nav a {
   align-items: center;
   grid-gap: 0.5rem;
   grid-template-areas:
-    "header header header header"
-    "one one two two"
-    "three four five six";
+    'header header header header'
+    'one one two two'
+    'three four five six';
 }
 
 .who-text {
@@ -641,7 +633,7 @@ nav a {
 ***********************************************************************************/
 
 .info-background {
-  background-image: url("./Images/banner.jpg");
+  background-image: url('./Images/banner.jpg');
   height: 70vh;
   background-size: 100% 100%;
 }
@@ -795,74 +787,9 @@ aside figure {
   padding: 2rem 0;
 }
 
-.slide-card {
+.react-multi-carousel-item {
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem;
-  height: 50vh;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 1rem;
-  overflow: hidden;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
-  transition: 1s ease 0.5s;
-  -webkit-transition: 1s ease 0.5s;
-  -moz-transition: 1s ease 0.5s;
-  -ms-transition: 1s ease 0.5s;
-  -o-transition: 1s ease 0.5s;
-}
-
-.slide-image-holder {
-  width: 100%;
-  height: 50%;
-  overflow: hidden;
-}
-
-.slide-card-image {
-  width: 100%;
-  height: 100%;
-  background-size: 100% 100%;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  transition: 1s ease 0.5s;
-  -webkit-transition: 1s ease 0.5s;
-  -moz-transition: 1s ease 0.5s;
-  -ms-transition: 1s ease 0.5s;
-  -o-transition: 1s ease 0.5s;
-}
-
-.slide-card:hover {
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 3rem;
-  margin-top: 1rem;
-}
-
-.slide-card:hover .slide-card-image {
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-}
-
-.slide-card-title h3 {
-  margin: 0 1rem;
-}
-
-.slide-card-text {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  width: 100%;
-  height: 50%;
-  padding: 1rem;
-  background-color: #f1f1f1;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
 }
 
 .react-multiple-carousel__arrow--right {
@@ -881,10 +808,6 @@ h3,
   text-overflow: ellipsis;
 }
 
-.star-ratings {
-  margin: 0 1rem;
-}
-
 .slide-card-details p {
   margin: 0 1rem;
   color: var(--text--color);
@@ -893,7 +816,7 @@ h3,
 .slider-endimage {
   height: 80vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("./Images/aurelien-lemasson-theobald-x00CzBt4Dfk-unsplash.jpg")
+    url('./Images/aurelien-lemasson-theobald-x00CzBt4Dfk-unsplash.jpg')
       no-repeat center center;
   background-size: 100% 100%;
   position: relative;
@@ -984,6 +907,10 @@ small {
   color: var(--main--color);
 }
 
+.fa-pizza-slice {
+  padding-top: 0.5rem;
+}
+
 .nested-list li {
   padding-top: 1rem;
   font-weight: 400;
@@ -1047,7 +974,6 @@ small {
 }
 
 @media only screen and (max-width: 700px) {
-
   h1 {
     margin: 4rem 0;
   }
@@ -1149,11 +1075,11 @@ small {
 
   .who {
     grid-template-areas:
-      "header header"
-      "one one"
-      "three four"
-      "two two"
-      "five six";
+      'header header'
+      'one one'
+      'three four'
+      'two two'
+      'five six';
   }
 
   .values-grid {
@@ -1322,11 +1248,11 @@ small {
 
   .who {
     grid-template-areas:
-      "header"
-      "one"
-      "four"
-      "two"
-      "six";
+      'header'
+      'one'
+      'four'
+      'two'
+      'six';
   }
 
   .three,

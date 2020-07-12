@@ -33,24 +33,21 @@ const DisplayDefaultRestaurants = () => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 1480, min: 1240 },
-      items: 5,
-    },
-    normaldesktop: {
-      breakpoint: { max: 1240, min: 974 },
       items: 4,
     },
-    desktop: {
-      breakpoint: { max: 974, min: 674 },
+    normaldesktop: {
+      breakpoint: { max: 1240, min: 850 },
       items: 3,
     },
-    tablet: {
-      breakpoint: { max: 674, min: 414 },
+    desktop: {
+      breakpoint: { max: 850, min: 600 },
       items: 2,
     },
-    mobile: {
-      breakpoint: { max: 414, min: 0 },
+    tablet: {
+      breakpoint: { max: 600, min: 0},
       items: 1,
     },
+  
   };
 
   return (
