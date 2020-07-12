@@ -714,6 +714,10 @@ aside figure {
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
+.restaurant-display-left figure {
+  width: 45vh;
+}
+
 .map-holder {
   height: 45vh;
   width: 45vh;
@@ -971,6 +975,21 @@ small {
     height: 40vh;
     width: 40vh;
   }
+
+  .restaurant-display-left figure {
+    width: 40vh;
+  }
+}
+
+@media (max-width: 800px) {
+  * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+    transform: scale(1) !important;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1062,7 +1081,7 @@ small {
 
   .who,
   .values {
-    padding: 4rem 8rem;
+    padding: 8rem;
   }
 
   .goal {
@@ -1089,6 +1108,10 @@ small {
   /* rest info */
   .map-holder {
     height: 30vh;
+    width: 30vh;
+  }
+
+  .restaurant-display-left figure {
     width: 30vh;
   }
 
@@ -1143,6 +1166,10 @@ small {
     width: 55vh;
   }
 
+  .restaurant-display-left figure {
+    width: 55vh;
+  }
+
   #first {
     grid-column-start: 1;
     grid-column-end: 5;
@@ -1158,8 +1185,8 @@ small {
   }
 
   nav i {
-    font-size: 3.5rem;
-    margin: 0 2rem;
+    font-size: 2.5rem;
+    margin: 0 0.5rem;
   }
 
   .nav-big-icon {
@@ -1243,7 +1270,7 @@ small {
 
   .who,
   .values {
-    padding: 4rem;
+    padding: 8rem 4rem;
   }
 
   .who {
@@ -1268,7 +1295,6 @@ small {
   }
 
   .goal {
-    padding: 4rem 0;
     margin: 0 4rem;
   }
 
@@ -1282,6 +1308,9 @@ small {
   }
 
   .map-holder {
+    width: 35vh;
+  }
+  .restaurant-display-left figure {
     width: 35vh;
   }
 
@@ -1301,6 +1330,9 @@ small {
   }
 
   .map-holder {
+    width: 30vh;
+  }
+  .restaurant-display-left figure {
     width: 30vh;
   }
 
