@@ -968,7 +968,29 @@ small {
   }
 
   .goal img {
-    height: 100%;
+    height: auto;
+  }
+
+  .who img:hover {
+    transition: none;
+    transform: scale(1);
+  }
+
+  card-front {
+    transition: none;
+  }
+
+  .card-image {
+    transition: none;
+  }
+
+  .card-front:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    bottom: 0;
+  }
+
+  .card-front:hover .card-image {
+    transform: scale(1);
   }
 
   .map-holder {
@@ -978,17 +1000,6 @@ small {
 
   .restaurant-display-left figure {
     width: 40vh;
-  }
-}
-
-@media (max-width: 800px) {
-  * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    -ms-transition: none !important;
-    transition: none !important;
-    transform: scale(1) !important;
   }
 }
 
@@ -1295,7 +1306,11 @@ small {
   }
 
   .goal {
-    margin: 0 4rem;
+    margin: 0 2rem;
+  }
+
+  .goal p {
+    font-size: 1.5rem;
   }
 
   .goal figure {
@@ -1342,5 +1357,13 @@ small {
 
   .slider-endimage h2 {
     position: relative;
+  }
+
+  .goal figure {
+    height: 60vh;
+  }
+
+  .goal figure img {
+    height: 50%;
   }
 }
