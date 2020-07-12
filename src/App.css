@@ -954,7 +954,11 @@ small {
     display: none;
   }
 
-  .searchBar-form * {
+  .searchBar h1 {
+    font-size: 4rem;
+  }
+
+  .searchBar * {
     font-size: 90%;
   }
 }
