@@ -961,6 +961,10 @@ small {
   .searchBar * {
     font-size: 90%;
   }
+
+  .aboutText {
+    top: 60vh;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -1007,14 +1011,9 @@ small {
     transform: scale(1);
   }
 
-  .map-holder {
-    height: 40vh;
-    width: 40vh;
-  }
+ 
 
-  .restaurant-display-left figure {
-    width: 40vh;
-  }
+ 
 }
 
 @media only screen and (max-width: 700px) {
@@ -1131,14 +1130,9 @@ small {
   }
 
   /* rest info */
-  .map-holder {
-    height: 30vh;
-    width: 30vh;
-  }
+  
 
-  .restaurant-display-left figure {
-    width: 30vh;
-  }
+ 
 
   .restaurant-img {
     height: 45vh;
@@ -1339,9 +1333,7 @@ small {
   .map-holder {
     width: 35vh;
   }
-  .restaurant-display-left figure {
-    width: 35vh;
-  }
+ 
 
   .backButton {
     display: block;
@@ -1359,9 +1351,6 @@ small {
   }
 
   .map-holder {
-    width: 30vh;
-  }
-  .restaurant-display-left figure {
     width: 30vh;
   }
 
