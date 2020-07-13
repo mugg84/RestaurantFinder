@@ -1330,10 +1330,6 @@ small {
     grid-template-columns: 1fr;
   }
 
-  .map-holder {
-    width: 35vh;
-  }
- 
 
   .backButton {
     display: block;
@@ -1350,9 +1346,6 @@ small {
     font-size: 2.5rem;
   }
 
-  .map-holder {
-    width: 30vh;
-  }
 
   .restaurant-sliders {
     margin: 8rem 2rem;
