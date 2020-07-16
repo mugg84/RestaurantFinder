@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import RestContext from "../context/restaurant/restContext";
-import RestaurantSlideCard from "../restaurants/RestaurantSlideCard";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Fade from "react-reveal/Fade";
+import React, { useContext, useEffect } from 'react';
+import RestContext from '../context/restaurant/restContext';
+import RestaurantSlideCard from '../restaurants/RestaurantSlideCard';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Fade from 'react-reveal/Fade';
 
 const DisplayDefaultRestaurants = () => {
   const restContext = useContext(RestContext);
@@ -44,15 +44,14 @@ const DisplayDefaultRestaurants = () => {
       items: 2,
     },
     tablet: {
-      breakpoint: { max: 600, min: 0},
+      breakpoint: { max: 600, min: 0 },
       items: 1,
     },
-  
   };
 
   return (
     <section className="restaurant-sliders">
-      {defaultRestaurants.length > 0 && (
+      {defaultRestaurants.length > 0 && Array.isArray(defaultRestaurants) && (
         <section className="restaurant-slider">
           <header>
             <h2>Restaurants near you</h2>
@@ -69,56 +68,59 @@ const DisplayDefaultRestaurants = () => {
         </section>
       )}
 
-      {defaultThaiRestaurants.length > 0 && (
-        <section className="restaurant-slider">
-          <header>
-            <h2>Fancy Thai?</h2>
-          </header>
+      {defaultThaiRestaurants.length > 0 &&
+        Array.isArray(defaultThaiRestaurants) && (
+          <section className="restaurant-slider">
+            <header>
+              <h2>Fancy Thai?</h2>
+            </header>
 
-          <Carousel responsive={responsive} infinite={true}>
-            {defaultThaiRestaurants.map((resturant) => (
-              <RestaurantSlideCard
-                restaurant={resturant}
-                key={`${resturant.id}-t`}
-              />
-            ))}
-          </Carousel>
-        </section>
-      )}
+            <Carousel responsive={responsive} infinite={true}>
+              {defaultThaiRestaurants.map((resturant) => (
+                <RestaurantSlideCard
+                  restaurant={resturant}
+                  key={`${resturant.id}-t`}
+                />
+              ))}
+            </Carousel>
+          </section>
+        )}
 
-      {defaultItalianRestaurants.length > 0 && (
-        <section className="restaurant-slider">
-          <header>
-            <h2>Fancy Italian?</h2>
-          </header>
+      {defaultItalianRestaurants.length > 0 &&
+        Array.isArray(defaultItalianRestaurants) && (
+          <section className="restaurant-slider">
+            <header>
+              <h2>Fancy Italian?</h2>
+            </header>
 
-          <Carousel responsive={responsive} infinite={true}>
-            {defaultItalianRestaurants.map((resturant) => (
-              <RestaurantSlideCard
-                restaurant={resturant}
-                key={`${resturant.id}-it`}
-              />
-            ))}
-          </Carousel>
-        </section>
-      )}
+            <Carousel responsive={responsive} infinite={true}>
+              {defaultItalianRestaurants.map((resturant) => (
+                <RestaurantSlideCard
+                  restaurant={resturant}
+                  key={`${resturant.id}-it`}
+                />
+              ))}
+            </Carousel>
+          </section>
+        )}
 
-      {defaultIndianRestaurants.length > 0 && (
-        <section className="restaurant-slider">
-          <header>
-            <h2>Fancy Indian?</h2>
-          </header>
+      {defaultIndianRestaurants.length > 0 &&
+        Array.isArray(defaultIndianRestaurants) && (
+          <section className="restaurant-slider">
+            <header>
+              <h2>Fancy Indian?</h2>
+            </header>
 
-          <Carousel responsive={responsive} infinite={true}>
-            {defaultIndianRestaurants.map((resturant) => (
-              <RestaurantSlideCard
-                restaurant={resturant}
-                key={`${resturant.id}-ind`}
-              />
-            ))}
-          </Carousel>
-        </section>
-      )}
+            <Carousel responsive={responsive} infinite={true}>
+              {defaultIndianRestaurants.map((resturant) => (
+                <RestaurantSlideCard
+                  restaurant={resturant}
+                  key={`${resturant.id}-ind`}
+                />
+              ))}
+            </Carousel>
+          </section>
+        )}
 
       <div className="slider-endimage">
         <Fade left>
