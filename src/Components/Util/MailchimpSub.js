@@ -1,42 +1,39 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import jsonp from "jsonp";
-import toQueryString from "to-querystring";
-import CustomForm from "./CustomForm";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import jsonp from 'jsonp';
+import toQueryString from 'to-querystring';
+import CustomForm from './CustomForm';
 
 let MAILCHIMP_URL = process.env.REACT_APP_MAILCHIMP_URL;
 
 const MailchimpSubscribe = ({ render }) => {
   const [status, setStatus] = useState(null);
-  const [message, setMessage] = useState(null);
+
   const subscribe = (data) => {
     const params = toQueryString(data);
-    const url = MAILCHIMP_URL + "&" + params;
+    const url = MAILCHIMP_URL + '&' + params;
 
-    setStatus("sending");
-    setMessage(null);
+    setStatus('sending');
 
     jsonp(
       url,
       {
-        param: "c",
+        param: 'c',
       },
       (err, data) => {
         if (err) {
-          setStatus("error");
-          setMessage(data.msg);
-        } else if (data.result !== "success") {
-          setStatus("error");
-          setMessage(data.msg);
+          console.log(err);
+          setStatus(err);
+        } else if (data.result !== 'success') {
+          console.log(data.result);
+          setStatus(data.result);
         } else {
-          setStatus("success");
-          setMessage(data.msg);
+          setStatus('success');
         }
       }
     );
 
     setTimeout(() => {
-      setMessage(null);
       setStatus(null);
     }, 5000);
   };
@@ -44,7 +41,6 @@ const MailchimpSubscribe = ({ render }) => {
   return render({
     subscribe: subscribe,
     status: status,
-    message: message,
   });
 };
 

@@ -1,26 +1,58 @@
-import React, { useState, useContext } from "react";
-import DisplaySearchBar from "../layout/DisplaySearchBar";
-import RestContext from "../context/restaurant/restContext";
+import React, { useState, useContext } from 'react';
+import DisplaySearchBar from '../layout/DisplaySearchBar';
+import RestContext from '../context/restaurant/restContext';
 
 const Search = () => {
+  let autocomplete;
   const restContext = useContext(RestContext);
 
-  const [where, setWhere] = useState("");
-  const [what, setWhat] = useState("");
-  const [sortBy, setSortBy] = useState("best_match");
+  const [where, setWhere] = useState('');
+  const [what, setWhat] = useState('');
+  const [sortBy, setSortBy] = useState('best_match');
 
   const sortByOptions = {
-    "Best Match": "best_match",
-    "Highest Rated": "rating",
-    "Most Reviewed": "review_count",
+    'Best Match': 'best_match',
+    'Highest Rated': 'rating',
+    'Most Reviewed': 'review_count',
+  };
+
+  const handleScriptLoad = () => {
+    const options = {
+      types: ['(cities)'],
+    }; // To disable any eslint 'google not defined' errors
+
+    // Initialize Google Autocomplete
+    /*global google*/ autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete'),
+      options
+    );
+
+    // address.
+    autocomplete.setFields(['address_components', 'formatted_address']);
+
+    // Fire Event when a suggested name is selected
+    autocomplete.addListener('place_changed', handlePlaceSelect);
+  };
+
+  const handlePlaceSelect = () => {
+    // Extract City From Address Object
+
+    const addressObject = autocomplete.getPlace();
+    const address = addressObject.address_components;
+
+    // Check if address is valid
+    if (address) {
+      // Set State
+      setWhere(address[0].long_name);
+    }
   };
 
   // give active class to option selected
   const getSortByClass = (sortByOption) => {
     if (sortBy === sortByOption) {
-      return "active";
+      return 'active';
     } else {
-      return "";
+      return '';
     }
   };
 
@@ -31,9 +63,9 @@ const Search = () => {
 
   //handle input changes
   const handleChange = (e) => {
-    if (e.target.name === "what") {
+    if (e.target.name === 'what') {
       setWhat(e.target.value);
-    } else if (e.target.name === "where") {
+    } else if (e.target.name === 'where') {
       setWhere(e.target.value);
     }
   };
@@ -42,11 +74,11 @@ const Search = () => {
     e.preventDefault();
     if (where && what) {
       restContext.getRestaurants({ where, what, sortBy });
-      setWhere("");
-      setWhat("");
-      setSortBy("best_match");
+      setWhere('');
+      setWhat('');
+      setSortBy('best_match');
     } else {
-      restContext.setAlert("Please fill all the inputs", "error");
+      restContext.setAlert('Please fill all the inputs', 'error');
     }
   };
 
@@ -73,6 +105,7 @@ const Search = () => {
       renderSortByOptions={renderSortByOptions}
       where={where}
       what={what}
+      handleScriptLoad={handleScriptLoad}
     />
   );
 };

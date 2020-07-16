@@ -1,8 +1,8 @@
-import React, { useReducer } from "react";
-import RestContext from "./restContext";
-import RestReducer from "./restReducer";
-import Yelp from "../../Util/Yelp";
-import { getCurrentPosition } from "../../Util/GeoLocation";
+import React, { useReducer } from 'react';
+import RestContext from './restContext';
+import RestReducer from './restReducer';
+import Yelp from '../../Util/Yelp';
+import { getCurrentPosition } from '../../Util/GeoLocation';
 import {
   GET_RESTAURANTS,
   GET_INFO_RESTAURANT,
@@ -15,7 +15,7 @@ import {
   GET_LOCATION,
   SET_ALERT,
   REMOVE_ALERT,
-} from "../../types";
+} from '../../types';
 
 const RestState = (props) => {
   const initalState = {
@@ -49,10 +49,10 @@ const RestState = (props) => {
 
     let restaurants = await Yelp.searchRestaurants(text);
 
-    if (restaurants === "Zero Restaurants" || restaurants.length === 0) {
-      return setAlert("No restaurants in the area", "no-rest");
-    } else if (restaurants === "Error") {
-      return setAlert("Something went wrong", "error");
+    if (restaurants === 'Zero Restaurants' || restaurants.length === 0) {
+      return setAlert('No restaurants in the area', 'no-rest');
+    } else if (restaurants === 'Error') {
+      return setAlert('Invalid search. Please try different search', 'error');
     } else {
       dispatch({
         type: GET_RESTAURANTS,
@@ -67,8 +67,13 @@ const RestState = (props) => {
     setLoading();
     let restaurant = await Yelp.searchRestaurantsInfo(id);
 
-    if (restaurant === "Error") {
-      return setAlert("Something went wrong", "error");
+    if (restaurant.length === 0) {
+      return setAlert(
+        'Restaurant info not available. Please try again later',
+        'no-rest'
+      );
+    } else if (restaurant === 'Error') {
+      return setAlert('Something went wrong', 'error');
     } else {
       dispatch({
         type: GET_INFO_RESTAURANT,
@@ -95,7 +100,7 @@ const RestState = (props) => {
         payload: [coords.latitude.toFixed(5), coords.longitude.toFixed(5)],
       });
     } catch (error) {
-      setAlert("Location not available", "location");
+      setAlert('Location not available', 'location');
     }
   };
 
@@ -106,12 +111,12 @@ const RestState = (props) => {
       let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
 
       if (
-        defaultRestaurants === "Zero Restaurants" ||
+        defaultRestaurants === 'Zero Restaurants' ||
         defaultRestaurants.length === 0
       ) {
-        return setAlert("No restaurants in the area", "no-rest");
-      } else if (defaultRestaurants === "Error") {
-        return setAlert("Something went wrong", "error");
+        return setAlert('No restaurants in the area', 'no-rest');
+      } else if (defaultRestaurants === 'Error') {
+        return setAlert('Something went wrong', 'error');
       } else {
         dispatch({
           type: GET_DEFAULT_RESTAURANTS,
@@ -128,12 +133,12 @@ const RestState = (props) => {
       );
 
       if (
-        defaultThaiRestaurants === "Zero Restaurants" ||
+        defaultThaiRestaurants === 'Zero Restaurants' ||
         defaultThaiRestaurants.length === 0
       ) {
-        return setAlert("No restaurants in the area", "no-rest");
-      } else if (defaultThaiRestaurants === "Error") {
-        return setAlert("Something went wrong", "error");
+        return setAlert('No restaurants in the area', 'no-rest');
+      } else if (defaultThaiRestaurants === 'Error') {
+        return setAlert('Something went wrong', 'error');
       } else {
         dispatch({
           type: GET_DEFAULT_THAI_RESTAURANTS,
@@ -150,12 +155,12 @@ const RestState = (props) => {
       );
 
       if (
-        defaultItaRestaurants === "Zero Restaurants" ||
+        defaultItaRestaurants === 'Zero Restaurants' ||
         defaultItaRestaurants.length === 0
       ) {
-        return setAlert("No restaurants in the area", "no-rest");
-      } else if (defaultItaRestaurants === "Error") {
-        return setAlert("Something went wrong", "error");
+        return setAlert('No restaurants in the area', 'no-rest');
+      } else if (defaultItaRestaurants === 'Error') {
+        return setAlert('Something went wrong', 'error');
       } else {
         dispatch({
           type: GET_DEFAULT_ITALIAN_RESTAURANTS,
@@ -172,12 +177,12 @@ const RestState = (props) => {
       );
 
       if (
-        defaultIndianRestaurants === "Zero Restaurants" ||
+        defaultIndianRestaurants === 'Zero Restaurants' ||
         defaultIndianRestaurants.length === 0
       ) {
-        return setAlert("No restaurants in the area", "no-rest");
-      } else if (defaultIndianRestaurants === "Error") {
-        return setAlert("Something went wrong", "error");
+        return setAlert('No restaurants in the area', 'no-rest');
+      } else if (defaultIndianRestaurants === 'Error') {
+        return setAlert('Something went wrong', 'error');
       } else {
         dispatch({
           type: GET_DEFAULT_INDIAN_RESTAURANTS,

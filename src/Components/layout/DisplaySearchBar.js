@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import RestContext from "../context/restaurant/restContext";
-import Fade from "react-reveal/Fade";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import RestContext from '../context/restaurant/restContext';
+//Import React Script Libraray to load Google object
+import Script from 'react-load-script';
+import Fade from 'react-reveal/Fade';
 
 const DisplaySearchBar = ({
   renderSortByOptions,
@@ -9,11 +11,12 @@ const DisplaySearchBar = ({
   where,
   handleChange,
   what,
+  handleScriptLoad,
 }) => {
   const restContext = useContext(RestContext);
 
   const { restaurants, clearSearch } = restContext;
-
+  const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
 
   return (
     <section className="searchBar">
@@ -25,7 +28,7 @@ const DisplaySearchBar = ({
         </legend>
         <Fade>
           <fieldset className="searchBar-input">
-
+            {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
             <input
               type="text"
               name="where"
@@ -74,6 +77,7 @@ DisplaySearchBar.propTypes = {
   where: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   what: PropTypes.string.isRequired,
+  handleScriptLoad: PropTypes.func.isRequired,
 };
 
 export default DisplaySearchBar;
