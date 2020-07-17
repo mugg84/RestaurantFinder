@@ -8,11 +8,11 @@ const Search = () => {
 
   const [where, setWhere] = useState('');
   const [what, setWhat] = useState('');
-  const [sortBy, setSortBy] = useState('best_match');
+  const [sortBy, setSortBy] = useState('rating');
 
   const sortByOptions = {
-    'Best Match': 'best_match',
     'Highest Rated': 'rating',
+    'Best Match': 'best_match',
     'Most Reviewed': 'review_count',
   };
 
@@ -78,7 +78,7 @@ const Search = () => {
       setWhat('');
       setSortBy('best_match');
     } else {
-      restContext.setAlert('Please fill all the inputs', 'error');
+      restContext.setAlert('Please fill all the inputs', 'input');
     }
   };
 

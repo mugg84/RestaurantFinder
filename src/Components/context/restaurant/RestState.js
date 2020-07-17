@@ -40,7 +40,7 @@ const RestState = (props) => {
       payload: { msg, type },
     });
 
-    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 5000);
+    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 3000);
   };
 
   // Get Restaurants
@@ -50,9 +50,9 @@ const RestState = (props) => {
     let restaurants = await Yelp.searchRestaurants(text);
 
     if (restaurants === 'Zero Restaurants' || restaurants.length === 0) {
-      return setAlert('No restaurants in the area', 'no-rest');
+      return setAlert('No restaurants in the area', 'input');
     } else if (restaurants === 'Error') {
-      return setAlert('Invalid search. Please try different search', 'error');
+      return setAlert('Invalid search. Try different input', 'input');
     } else {
       dispatch({
         type: GET_RESTAURANTS,

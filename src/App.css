@@ -111,6 +111,47 @@ input {
   background-color: #d6b41d;
 }
 
+
+/**********************************************************************************
+**************************************  alert *************************************
+***********************************************************************************/
+
+.alert-holder {
+  height: 5vh;
+}
+
+.alert-text {
+  color: red;
+  font-weight: 700;
+  font-size: 120%;
+}
+
+.alert-empty {
+  display: flex;
+  width: 30vh;
+  height: 30vh;
+  margin-top: -15vh;
+  margin-left: -15vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+
+  background-color: aliceblue;
+  color: var(--text--color);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 1rem;
+  z-index: 999;
+}
+
+.alert-empty i {
+  color: red;
+  padding: 2rem;
+}
+
 /**********************************************************************************
 ************************************** navbar * ***********************************
 ***********************************************************************************/
@@ -183,6 +224,7 @@ nav a {
 .logo-small {
   display: none;
 }
+
 
 /**********************************************************************************
 ************************************** search bar ***********************************
@@ -259,6 +301,7 @@ nav a {
   flex-direction: column;
   align-items: baseline;
   justify-content: center;
+  z-index: 400;
 }
 
 .searchBar-input input {
@@ -266,11 +309,16 @@ nav a {
 }
 
 .searchBar-submit {
+  padding-top: 0;
   transition: all 0.8s ease 0s;
   -webkit-transition: all 0.8s ease 0s;
   -moz-transition: all 0.8s ease 0s;
   -ms-transition: all 0.8s ease 0s;
   -o-transition: all 0.8s ease 0s;
+}
+
+.searchBar-submit input {
+  margin-top: 0;
 }
 
 .myButton {
@@ -302,27 +350,7 @@ nav a {
   justify-content: space-around;
 }
 
-/**********************************************************************************
-**************************************  alert *************************************
-***********************************************************************************/
 
-.alert-empty {
-  display: flex;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  font-size: 2.5rem;
-  background-color: aliceblue;
-  color: var(--text--color);
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.alert-empty i {
-  color: var(--main--color);
-  padding: 2rem;
-}
 
 /**********************************************************************************
 ************************************** restaurant card *****************************
@@ -967,7 +995,7 @@ small {
   }
 }
 
-@media only screen and (orientation: portrait) and (max-width: 1024px)  and (min-width: 648px){
+@media only screen and (orientation: portrait) and (max-width: 1024px) and (min-width: 648px) {
   .restaurant-display {
     flex-direction: column;
   }

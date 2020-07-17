@@ -4,6 +4,7 @@ import RestContext from '../context/restaurant/restContext';
 //Import React Script Libraray to load Google object
 import Script from 'react-load-script';
 import Fade from 'react-reveal/Fade';
+import Alert from '../layout/Alert';
 
 const DisplaySearchBar = ({
   renderSortByOptions,
@@ -45,6 +46,9 @@ const DisplaySearchBar = ({
               onChange={handleChange}
               value={what}
             />
+            <div className="alert-holder">
+              <Alert />
+            </div>
           </fieldset>
 
           <fieldset className="searchBar-submit">

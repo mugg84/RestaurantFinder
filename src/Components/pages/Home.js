@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useContext } from "react";
 import Search from "../../Components/restaurants/Search";
-import Alert from "../../Components/layout/Alert";
 import Navbar from "../../Components/layout/Navbar";
 import DisplatDefaultRestaurants from "../../Components/layout/DisplayDefaultRestaurants";
 import DisplayRestaurants from "../../Components/layout/DisplayRestaurants";
@@ -30,7 +29,6 @@ const Home = () => {
       <Fragment>
         <Navbar className="sticky nav-home" />
         <Search />
-        <Alert />
         <Waypoint
           onEnter={handleWaypointEnter}
           onLeave={handleWaypointLeave}

@@ -1,21 +1,21 @@
-import React, { useContext } from "react";
-import Fade from "react-reveal/Fade";
-import RestContext from "../../Components/context/restaurant/restContext";
+import React, { useContext } from 'react';
+import RestContext from '../../Components/context/restaurant/restContext';
 
 const Alert = () => {
   const restContext = useContext(RestContext);
   const { alert } = restContext;
-
-  return (
-    alert !== null && (
-      <Fade>
+  if (alert !== null && alert.type === 'input') {
+    return <p className="alert-text">{alert.msg}</p>;
+  } else {
+    return (
+      alert !== null && (
         <article className="alert-empty">
           <i className="fas fa-info-circle" />
           {alert.msg}
         </article>
-      </Fade>
-    )
-  );
+      )
+    );
+  }
 };
 
 export default Alert;
