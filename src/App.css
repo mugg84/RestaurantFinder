@@ -116,39 +116,13 @@ input {
 ***********************************************************************************/
 
 .alert-holder {
-  height: 5vh;
+  height: 3rem;
 }
 
 .alert-text {
   color: red;
   font-weight: 700;
   font-size: 120%;
-}
-
-.alert-empty {
-  display: flex;
-  width: 30vh;
-  height: 30vh;
-  margin-top: -15vh;
-  margin-left: -15vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 2rem;
-
-  background-color: aliceblue;
-  color: var(--text--color);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  border-radius: 1rem;
-  z-index: 999;
-}
-
-.alert-empty i {
-  color: red;
-  padding: 2rem;
 }
 
 /**********************************************************************************
@@ -162,7 +136,7 @@ nav {
   align-items: center;
   padding: 0.7rem 2rem;
   width: 100%;
-  height: 10vh;
+  height: 6rem;
   z-index: 999;
   transition: top 1s ease;
 }
@@ -497,20 +471,6 @@ nav a {
   margin: 0 14rem;
 }
 
-.goal article {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('./Images/8-low-ural-hdfIOjp8ABE-unsplash.jpg') no-repeat center center;
-  height: 85vh;
-  background-size: 100% 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-}
 
 .goal-carousel .react-multiple-carousel__arrow {
   top: 35%;
@@ -526,7 +486,7 @@ nav a {
 }
 
 .goal img {
-  height: 85vh;
+  height: 60rem;
   width: 100%;
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -578,7 +538,7 @@ nav a {
 
 .one,
 .two {
-  height: 47vh;
+  height: 35rem;
 }
 
 .one {
@@ -593,7 +553,7 @@ nav a {
 .four,
 .five,
 .six {
-  height: 27vh;
+  height: 20rem;
 }
 
 .three {
@@ -656,12 +616,6 @@ nav a {
 ************************************restaurant info********************************
 ***********************************************************************************/
 
-.info-background {
-  background-image: url('./Images/banner.jpg');
-  height: 70vh;
-  background-size: 100% 100%;
-}
-
 .backButton {
   margin: 4rem 0;
   padding: 1rem 3rem;
@@ -716,7 +670,7 @@ nav a {
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 0.5rem;
-  height: 60vh;
+  height: 45rem;
 }
 
 #first {
@@ -783,8 +737,8 @@ aside figure {
 }
 
 .review-user img {
-  height: 8vh;
-  width: 8vh;
+  height: 5rem;
+  width: 5rem;
   margin-right: 1rem;
   border-radius: 50rem;
 }
@@ -974,6 +928,10 @@ small {
 }
 
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
+  nav {
+    height: 4rem;
+  }
+
   .fixed {
     display: none;
   }
@@ -1022,7 +980,7 @@ small {
   }
 
   .restaurant-img {
-    height: 35vh;
+    height: 25rem;
   }
 }
 
@@ -1151,7 +1109,7 @@ small {
 
   .about {
     background-size: cover;
-    height: 80vh;
+    height: 60rem;
   }
 
   .aboutText {
@@ -1187,7 +1145,7 @@ small {
   /* rest info */
 
   .restaurant-img {
-    height: 45vh;
+    height: 35rem;
   }
 }
 
@@ -1362,7 +1320,7 @@ small {
   .two,
   .four,
   .six {
-    height: 40vh;
+    height: 30rem;
   }
 
   .goal {
@@ -1408,10 +1366,6 @@ small {
 
   .slider-endimage h2 {
     position: relative;
-  }
-
-  .goal figure {
-    height: 60vh;
   }
 
   .goal figure img {
