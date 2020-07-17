@@ -17,14 +17,9 @@ const Search = () => {
   };
 
   const handleScriptLoad = () => {
-    const options = {
-      types: ['(cities)'],
-    }; // To disable any eslint 'google not defined' errors
-
     // Initialize Google Autocomplete
     /*global google*/ autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'),
-      options
+      document.getElementById('autocomplete')
     );
 
     // address.

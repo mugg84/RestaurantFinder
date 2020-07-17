@@ -40,7 +40,7 @@ const RestState = (props) => {
       payload: { msg, type },
     });
 
-    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 3000);
+    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 5000);
   };
 
   // Get Restaurants
