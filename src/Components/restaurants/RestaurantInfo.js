@@ -1,15 +1,15 @@
-import React, { useEffect, useContext, Fragment } from "react";
-import { Link } from "react-router-dom";
-import Spinner from "../Util/Spinner";
-import Navbar from "../layout/Navbar";
-import Review from "../Util/Review";
-import Footer from "../layout/Footer";
-import PropTypes from "prop-types";
-import RestContext from "../context/restaurant/restContext";
-import SimpleMap from "../Util/Map";
-import StarRatings from "react-star-ratings";
-import Fade from "react-reveal/Fade";
-import { v4 as uuidv4 } from "uuid";
+import React, { useEffect, useContext, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import Spinner from '../Util/Spinner';
+import Navbar from '../layout/Navbar';
+import Review from '../Util/Review';
+import Footer from '../layout/Footer';
+import PropTypes from 'prop-types';
+import RestContext from '../context/restaurant/restContext';
+import SimpleMap from '../Util/Map';
+import StarRatings from 'react-star-ratings';
+import Fade from 'react-reveal/Fade';
+import { v4 as uuidv4 } from 'uuid';
 
 const Restaurant = ({ match }) => {
   const restContext = useContext(RestContext);
@@ -70,7 +70,7 @@ const Restaurant = ({ match }) => {
                       src={
                         photos.length
                           ? photos[0]
-                          : require("../../Images/no-image-avaiable.jpg")
+                          : require('../../Images/no-image-avaiable.jpg')
                       }
                       alt={name}
                     />
@@ -78,7 +78,7 @@ const Restaurant = ({ match }) => {
                       src={
                         photos.length > 1
                           ? photos[1]
-                          : require("../../Images/no-image-avaiable.jpg")
+                          : require('../../Images/no-image-avaiable.jpg')
                       }
                       alt={name}
                     />
@@ -86,7 +86,7 @@ const Restaurant = ({ match }) => {
                       src={
                         photos.length > 2
                           ? photos[2]
-                          : require("../../Images/no-image-avaiable.jpg")
+                          : require('../../Images/no-image-avaiable.jpg')
                       }
                       alt={name}
                     />
@@ -114,9 +114,9 @@ const Restaurant = ({ match }) => {
                     <p>{address}</p>
                     <p>{city}</p>
                     <p>
-                      Visit our{" "}
+                      Visit our{' '}
                       <a
-                        style={{ color: "var(--main--color)" }}
+                        style={{ color: '$color-primary' }}
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"

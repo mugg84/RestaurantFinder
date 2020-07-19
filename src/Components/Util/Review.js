@@ -16,7 +16,7 @@ const Review = ({ review }) => {
           src={
             image_url
               ? image_url
-              : require("../../Images/no-image-avaiable.jpg")
+              : require('../../Images/no-image-avaiable.jpg')
           }
           alt={name}
         />
@@ -27,9 +27,9 @@ const Review = ({ review }) => {
       </figure>
 
       <div className="review-text">
-        {text}{" "}
+        {text}{' '}
         <a
-          style={{ color: "var(--main--color)" }}
+          style={{ color: '$color-primary' }}
           href={url}
           target="_blank"
           rel="noopener noreferrer"
