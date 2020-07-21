@@ -19,12 +19,10 @@ const DisplayDefaultRestaurants = () => {
   useEffect(() => {
     if (location) {
       if (defaultRestaurants.length === 0) {
-        /*
         restContext.getDefaultRestaurants(location);
         restContext.getDefaultThaiRestaurants(location);
         restContext.getDefaultItalianRestaurants(location);
         restContext.getDefaultIndianRestaurants(location);
-        */
       }
     }
     // eslint-disable-next-line

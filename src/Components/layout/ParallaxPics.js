@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Fade from 'react-reveal/Fade';
 
 const ParallaxPics = () => {
   const [offset, setOffset] = useState(0);
@@ -39,31 +40,35 @@ const ParallaxPics = () => {
       </hgroup>
 
       <section className="parPics">
-        <figure style={{ overflow: 'hidden' }} className=" parRight">
-          <div className="parallaxHolder">
-            <img
-              src={require('../../Images/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg')}
-              alt="parallaxHolder"
-              className="parallax"
-              style={{
-                transform: `translateY(${offset * 0.2}px)`,
-              }}
-            />
-          </div>
-        </figure>
-
-        <figure style={{ overflow: 'hidden' }} className="parLeft">
-          <div className="parallaxHolder">
-            <img
-              src={require('../../Images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')}
-              alt="parallaxHolder"
-              className="parallax"
-              style={{
-                transform: `translateY(${offset * 0.2}px)`,
-              }}
-            />
-          </div>
-        </figure>
+        <Fade>
+          <figure style={{ overflow: 'hidden' }} className=" parRight">
+            <div className="parallaxHolder">
+              <img
+                src={require('../../Images/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg')}
+                alt="parallaxHolder"
+                className="parallax"
+                style={{
+                  transform: `translateY(${offset * 0.25}px)`,
+                }}
+              />
+            </div>
+          </figure>
+        </Fade>
+        
+        <Fade>
+          <figure style={{ overflow: 'hidden' }} className="parLeft">
+            <div className="parallaxHolder">
+              <img
+                src={require('../../Images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')}
+                alt="parallaxHolder"
+                className="parallax"
+                style={{
+                  transform: `translateY(${offset * 0.25}px)`,
+                }}
+              />
+            </div>
+          </figure>
+        </Fade>
       </section>
     </section>
   );
