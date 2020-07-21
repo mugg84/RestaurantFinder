@@ -29,7 +29,16 @@ const ParallaxPics = () => {
 
   return (
     <section className="parallax">
-      <h2>Parallax not completed yet</h2>
+      <hgroup>
+        <h2>Parallax not completed yet. Lorem ipsum dolor sit amet.</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt quaerat
+          ea possimus laudantium fuga repudiandae quos velit, sapiente vero eius
+          expedita tempore laboriosam error eum tempora quibusdam aspernatur
+          quia ad?
+        </p>
+      </hgroup>
+
       <section className="parPics">
         <figure style={{ overflow: 'hidden' }} className=" parRight">
           <div className="parallaxHolder">
@@ -38,7 +47,7 @@ const ParallaxPics = () => {
               alt="parallaxHolder"
               className="parallax"
               style={{
-                transform: `translateY(${offset * 0.3 + 275}px)`,
+                transform: `translateY(${offset * 0.4 + 150}px)`,
               }}
             />
           </div>
@@ -47,22 +56,16 @@ const ParallaxPics = () => {
         <figure style={{ overflow: 'hidden' }} className="parLeft">
           <div className="parallaxHolder">
             <img
-              src={require('../../Images/jakub-kapusnak-4f4YZfDMLeU-unsplash.jpg')}
+              src={require('../../Images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')}
               alt="parallaxHolder"
               className="parallax"
               style={{
-                transform: `translateY(${offset * 0.3 + 275}px)`,
+                transform: `translateY(${offset * 0.4 + 150}px)`,
               }}
             />
           </div>
         </figure>
       </section>
-
-      <div className="endImage">
-        <Fade left>
-          <h2>Something that's supposed to be inspirational</h2>
-        </Fade>
-      </div>
     </section>
   );
 };
