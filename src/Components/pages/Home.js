@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect, useContext } from "react";
-import Search from "../../Components/restaurants/Search";
-import Navbar from "../../Components/layout/Navbar";
-import DisplatDefaultRestaurants from "../../Components/layout/DisplayDefaultRestaurants";
-import DisplayRestaurants from "../../Components/layout/DisplayRestaurants";
-import Footer from "../../Components/layout/Footer";
-import { Waypoint } from "react-waypoint";
-import RestContext from "../context/restaurant/restContext";
+import React, { Fragment, useEffect, useContext } from 'react';
+import Search from '../../Components/restaurants/Search';
+import Navbar from '../../Components/layout/Navbar';
+import DisplatDefaultRestaurants from '../../Components/layout/DisplayDefaultRestaurants';
+import DisplayRestaurants from '../../Components/layout/DisplayRestaurants';
+import ParallaxPics from '../../Components/layout/ParallaxPics';
+import Footer from '../../Components/layout/Footer';
+import { Waypoint } from 'react-waypoint';
+import RestContext from '../context/restaurant/restContext';
 
 const Home = () => {
   const restContext = useContext(RestContext);
@@ -16,12 +17,11 @@ const Home = () => {
     // eslint-disable-next-line
   }, []);
 
-
   const handleWaypointEnter = () => {
-    document.querySelector(".fixed").style.opacity = "0";
+    document.querySelector('.fixed').style.opacity = '0';
   };
   const handleWaypointLeave = () => {
-    document.querySelector(".fixed").style.opacity = "100";
+    document.querySelector('.fixed').style.opacity = '100';
   };
 
   return (
@@ -37,6 +37,7 @@ const Home = () => {
         <Navbar className="fixed" />
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
+        <ParallaxPics />
         <Footer />
       </Fragment>
     </section>

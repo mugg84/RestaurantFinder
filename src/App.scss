@@ -246,9 +246,11 @@ nav {
 .main-home {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url('./Images/adils-photography-gmo6Ok9G0U8-unsplash.jpg');
-  position: relative;
+  
+  z-index: -1;
   background-size: cover;
   background-attachment: fixed;
+  background-position: center center;
   height: 95vh;
 }
 
@@ -461,7 +463,6 @@ nav {
   margin: 0 14rem;
 
   & img {
-    height: 60rem;
     width: 100%;
     @include border-radius(1rem);
   }
@@ -763,8 +764,52 @@ h3,
   color: $color-text;
 }
 
-.slider-endimage {
-  height: 50rem;
+/**********************************************************************************
+************************************** parallax ***********************************
+***********************************************************************************/
+
+.parallax {
+  position: relative;
+  width: 100%;
+  @include flex(stretch, flex-start, column);
+
+  & figure {
+    position: absolute;
+    height: 30%;
+    width: 50%;
+  }
+}
+.parPics {
+  height: 60rem;
+}
+
+.parallaxHolder {
+  position: relative;
+  height: 100%;
+
+  & img {
+    position: absolute;
+    max-height: 300%;
+    max-width: 300%;
+    height: 250%;
+    width: 100%;
+  }
+}
+
+.parLeft {
+  background-color: rosybrown;
+  left: 45%;
+  top: 20%;
+}
+
+.parRight {
+  background-color: rebeccapurple;
+  right: 45%;
+}
+
+.endImage {
+  margin: 4rem;
+  height: 35rem;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('./Images/aurelien-lemasson-theobald-x00CzBt4Dfk-unsplash.jpg')
       no-repeat center center;
@@ -777,7 +822,7 @@ h3,
     display: inline-block;
     width: 60%;
     position: absolute;
-    font-size: 5.4rem;
+    font-size: 4rem;
     top: 20%;
     left: 7%;
     border: none;
@@ -957,8 +1002,8 @@ small {
     width: 70%;
   }
 
-  .slider-endimage h2 {
-    font-size: 4rem;
+  .endImage h2 {
+    font-size: 2.5rem;
   }
 
   .who,
@@ -1237,10 +1282,6 @@ small {
 
   .restaurant-sliders {
     margin: 8rem 2rem;
-
-    & h2 {
-      font-size: 3.5rem;
-    }
   }
 
   .footer-logo {
@@ -1328,7 +1369,7 @@ small {
     }
   }
 
-  .slider-endimage h2 {
+  .endImage h2 {
     position: relative;
   }
 

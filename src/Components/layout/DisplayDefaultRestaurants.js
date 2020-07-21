@@ -3,7 +3,6 @@ import RestContext from '../context/restaurant/restContext';
 import RestaurantSlideCard from '../restaurants/RestaurantSlideCard';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Fade from 'react-reveal/Fade';
 
 const DisplayDefaultRestaurants = () => {
   const restContext = useContext(RestContext);
@@ -121,12 +120,6 @@ const DisplayDefaultRestaurants = () => {
             </Carousel>
           </section>
         )}
-
-      <div className="slider-endimage">
-        <Fade left>
-          <h2>Something that's supposed to be inspirational</h2>
-        </Fade>
-      </div>
     </section>
   );
 };
