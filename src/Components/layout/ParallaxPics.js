@@ -46,7 +46,7 @@ const ParallaxPics = () => {
               alt="parallaxHolder"
               className="parallax"
               style={{
-                transform: `translateY(${offset * 0.4 + 150}px)`,
+                transform: `translateY(${offset * 0.2}px)`,
               }}
             />
           </div>
@@ -59,7 +59,7 @@ const ParallaxPics = () => {
               alt="parallaxHolder"
               className="parallax"
               style={{
-                transform: `translateY(${offset * 0.4 + 150}px)`,
+                transform: `translateY(${offset * 0.2}px)`,
               }}
             />
           </div>
