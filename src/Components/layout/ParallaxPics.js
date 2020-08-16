@@ -40,35 +40,31 @@ const ParallaxPics = () => {
       </hgroup>
 
       <section className="parPics">
-        <Fade>
-          <figure style={{ overflow: 'hidden' }} className=" parRight">
-            <div className="parallaxHolder">
-              <img
-                src={require('../../Images/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg')}
-                alt="parallaxHolder"
-                className="parallax"
-                style={{
-                  transform: `translateY(${offset * 0.25}px)`,
-                }}
-              />
-            </div>
-          </figure>
-        </Fade>
-        
-        <Fade>
-          <figure style={{ overflow: 'hidden' }} className="parLeft">
-            <div className="parallaxHolder">
-              <img
-                src={require('../../Images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')}
-                alt="parallaxHolder"
-                className="parallax"
-                style={{
-                  transform: `translateY(${offset * 0.25}px)`,
-                }}
-              />
-            </div>
-          </figure>
-        </Fade>
+        <figure style={{ overflow: 'hidden' }} className=" parRight">
+          <div className="parallaxHolder">
+            <img
+              src={require('../../Images/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg')}
+              alt="parallaxHolder"
+              className="parallax"
+              style={{
+                transform: `translateY(${offset * 0.2}px)`,
+              }}
+            />
+          </div>
+        </figure>
+
+        <figure style={{ overflow: 'hidden' }} className="parLeft">
+          <div className="parallaxHolder">
+            <img
+              src={require('../../Images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')}
+              alt="parallaxHolder"
+              className="parallax"
+              style={{
+                transform: `translateY(${offset * 0.2}px)`,
+              }}
+            />
+          </div>
+        </figure>
       </section>
     </section>
   );
