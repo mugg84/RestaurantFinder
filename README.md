@@ -1,6 +1,4 @@
-### Restaurant Finder App https://restaurant-finder-123.netlify.app/
-
-# Restaurant Finder App with Redux https://restaurant-finder-redux.netlify.app/
+## Restaurant Finder App with Redux https://restaurant-finder-redux.netlify.app/
 
 # Recipe Finder
 
@@ -29,7 +27,7 @@ It automatically displays different types of restaurant list if location permiss
 
 ## Front-end
 
-- React with Context and hooks
+- React with Context and Hooks
 
 ## Testing
 
