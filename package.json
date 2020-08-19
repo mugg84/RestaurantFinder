@@ -1,11 +1,8 @@
 {
-  "name": "RestaurantFinder",
+  "name": "restaurantfinder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "google-map-react": "^1.1.7",
     "node-sass": "^4.14.1",
@@ -14,12 +11,17 @@
     "react-load-script": "0.0.6",
     "react-mailchimp-subscribe": "^2.1.0",
     "react-multi-carousel": "^2.5.5",
+    "react-redux": "^7.2.0",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-star-ratings": "^2.3.0",
+    "react-test-renderer": "^16.13.1",
     "react-transition-group": "^1.2.1",
     "react-waypoint": "^9.0.2",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "uuid": "^8.2.0"
   },
   "scripts": {
@@ -42,5 +44,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.5.0",
+    "check-prop-types": "^1.1.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "jest": "^26.4.0",
+    "jest-enzyme": "^7.1.2",
+    "redux-mock-store": "^1.5.4"
   }
 }

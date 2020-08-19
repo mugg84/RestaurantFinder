@@ -1,0 +1,198 @@
+@import '../../../style/variables';
+
+@import '../../../style/mixin';
+
+.backButton {
+  margin: 4rem 0;
+  padding: 1rem 3rem;
+  display: inline-block;
+}
+
+.restaurantDisplay {
+  margin: 4rem 8rem;
+  display: flex;
+
+  & * {
+    color: $color-text;
+  }
+
+  & ul {
+    display: flex;
+  }
+
+  & li {
+    display: flex;
+    width: 33.3%;
+  }
+}
+
+.restaurantDisplayInfo {
+  margin-bottom: 2rem;
+
+  & h2 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+
+  & div {
+    display: flex;
+  }
+}
+
+.restaurantDisplayright {
+  width: 70%;
+}
+
+.restaurantDisplayLeft {
+  width: 30%;
+  height: 100%;
+  @include flex(stretch, flex-end, row);
+
+  & figure {
+    width: 30rem;
+  }
+
+  & figcaption {
+    @include flex(stretch, center, column);
+    padding: 2rem;
+  }
+}
+
+.restaurantImg {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  height: 45rem;
+
+  & img {
+    @include border-radius(1rem);
+    height: 100%;
+    width: 100%;
+  }
+}
+
+#first {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+aside figure {
+  margin-top: 12rem;
+  @include border-radius(1rem);
+  @include box-shadow(5px, 5px, 5px, 5px);
+}
+
+.restaurantReviews {
+  flex-direction: column;
+  padding: 4rem 0;
+
+  & h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    border-bottom: 1px solid $color-primary;
+    padding-bottom: 4rem;
+  }
+}
+
+@media only screen and (max-width: 1124px) {
+  .restaurantDisplay {
+    margin: 4rem;
+  }
+
+  .restaurantDisplayright {
+    width: 60%;
+  }
+
+  .restaurantDisplayLeft {
+    width: 40%;
+  }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 1024px) and (min-width: 648px) {
+  .restaurantDisplay {
+    flex-direction: column;
+  }
+
+  .restaurantImg {
+    height: 25rem;
+  }
+
+  .restaurantDisplayInfo {
+    font-size: 130%;
+
+    & h2 {
+      font-size: 5rem;
+    }
+  }
+
+  .restaurantDisplayright,
+  .restaurantDisplayLeft {
+    width: 100%;
+  }
+
+  .restaurantDisplayLeft {
+    justify-content: center;
+
+    & figure {
+      margin: 4rem;
+    }
+  }
+
+  .backButton {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .restaurantDisplayLeft figure {
+    width: 27rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .restaurantImg {
+    height: 35rem;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .restaurantDisplay {
+    flex-direction: column;
+  }
+
+  .restaurantReviews {
+    padding-bottom: 0;
+  }
+
+  .restaurantDisplayright {
+    width: 100%;
+  }
+
+  .restaurantDisplayLeft {
+    width: 100%;
+    @include flex(center, center, row);
+    margin: 4rem 0;
+
+    & figure {
+      margin: 0;
+      width: 45vh;
+    }
+  }
+
+  #first {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .backButton {
+    display: block;
+  }
+}

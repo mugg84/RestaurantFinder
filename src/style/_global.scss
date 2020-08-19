@@ -1,0 +1,93 @@
+@import './mixin';
+@import './variables';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+
+h1 {
+  color: $color-primary;
+  font-size: 5.5rem;
+  line-height: 5rem;
+  text-shadow: 1px 1px 1px rgba(77, 77, 77, 0.5);
+}
+
+h2 {
+  color: $color-text;
+  margin: 2rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: $color-text;
+}
+
+p {
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  color: $color-light;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+input {
+  padding: 1rem;
+  font-size: 2rem;
+  margin: 2rem 0;
+  border: solid 1px $color-dark;
+  @include border-radius(0.3rem);
+}
+
+.button {
+  font-size: 2rem;
+  font-family: inherit;
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
+  cursor: pointer;
+  color: $color-text;
+  text-decoration: none;
+  @include transition(all, 0.8s, 0s);
+  @include box-shadow(0, 1px, 0, 0);
+  @include border-radius(0.3rem);
+}
+
+.button:hover {
+  background-color: $color-btn-background;
+}
+
+.react-multiple-carousel__arrow--right {
+  z-index: 900 !important;
+  right: 0;
+}
+.react-multiple-carousel__arrow--left {
+  z-index: 900 !important;
+  left: 0;
+}
+
+.restaurant .react-multi-carousel-list {
+  padding: 2rem 0;
+  @include box-shadow(0, 0, 10px, 0);
+}
+
+.react-multi-carousel-item {
+  @include flex(stretch, center, row);
+}
+
+

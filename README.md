@@ -38,8 +38,7 @@ It automatically displays different types of restaurant list if location permiss
 
 ## ToDo
 
-- Testing
+- Testing (Existing tests are implemented for Redux version)
 - Fix issue with Google automplete (if API key restricted location input is disabled)
-- Implement Sass modules
 - Minor style improvement needed
 - Instead of using MailChimp newsletter implement a small database to check if the email address has been already provided and to act accordingly.

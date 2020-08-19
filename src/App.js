@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Components/pages/Home';
-import About from './Components/pages/About';
-import RestaurantInfo from './Components/restaurants/RestaurantInfo';
+import Home from './Components/pages/Home/Home';
+import About from './Components/pages/About/About';
+import RestaurantInfo from './Components/restaurants/RestaurantInfo/RestaurantInfo.js';
+
 import RestState from './Components/context/restaurant/RestState';
 
 import './App.scss';
