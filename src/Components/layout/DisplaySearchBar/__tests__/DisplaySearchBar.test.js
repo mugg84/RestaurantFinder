@@ -1,59 +1,60 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
+import { restContext } from './../../../context/restaurant/restContext';
 import DisplaySearchBar from '../../../layout/DisplaySearchBar/DisplaySearchBar';
 
-import { CLEAR_SEARCH } from '../../../../actions/types';
+jest.mock('../../Alert/Alert', () => ({
+  default: () => null,
+  __esModule: true,
+}));
 
-const mockStore = configureStore();
-const initialState = {
-  restaurants: { restaurants: [], alert: null },
-};
 const props = {
-  renderSortByOptions: jest.fn(),
-  onSubmit: jest.fn(),
-  where: '',
-  handleChange: jest.fn(),
-  what: '',
   handleScriptLoad: jest.fn(),
-  clearSearch: jest.fn(),
 };
 
-let wrapper, store;
+let wrapper;
+
+let value = {
+  restaurants: [],
+  getRestaurants: jest.fn(),
+  setAlert: jest.fn(),
+};
+wrapper = mount(
+  <restContext.Provider value={value}>
+    <DisplaySearchBar {...props} />
+  </restContext.Provider>
+);
 
 describe('Search', () => {
-  beforeEach(() => {
-    store = mockStore(initialState);
-
-    wrapper = mount(
-      <Provider store={store}>
-        <DisplaySearchBar {...props} />
-      </Provider>
-    );
-  });
-
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  test('1- if "where" input changes handleChange is called', () => {
-    wrapper
-      .find('[name="where"]')
-      .at(0)
-      .simulate('change', { target: { value: 'foo', name: 'where' } });
+  test('1- input "where" updates its value when input simulated', () => {
+    wrapper.find('[name="where"]').simulate('change', {
+      target: { value: 'foo', name: 'where' },
+    });
 
-    expect(props.handleChange).toHaveBeenCalled();
+    expect(wrapper.find('[name="where"]').prop('value')).toBe('foo');
   });
 
-  test('2- if "what" input changes handleChange is called', () => {
-    wrapper
-      .find('[name="where"]')
-      .at(0)
-      .simulate('change', { target: { value: 'foo', name: 'where' } });
+  test('2- input "what" updates its value when input simulated', () => {
+    /* 
+    Not working
+    const what = wrapper.find('[name="what"]');
 
-    expect(props.handleChange).toHaveBeenCalled();
+    what.simulate('change', {
+      target: { value: 'foo', name: 'what' },
+    });
+
+    expect(what.prop('value')).toBe('foo'); */
+
+    wrapper.find('[name="what"]').simulate('change', {
+      target: { value: 'foo', name: 'what' },
+    });
+
+    expect(wrapper.find('[name="what"]').prop('value')).toBe('foo');
   });
 
   test('3- if "restaurants" empty ClearButton is not rendered ', () => {
@@ -62,29 +63,40 @@ describe('Search', () => {
     expect(clear.length).toBe(0);
   });
 
-  test('4- on ClearButton click CLEAR_SEARCH action is dispatched', () => {
-    const initialState = {
-      restaurants: { restaurants: ['foo'], alert: null },
+  test('4- getRestaurant called if inputs not empty and form submitted', () => {
+    wrapper.find('form').simulate('submit');
+
+    expect(value.getRestaurants).toHaveBeenCalled();
+  });
+
+  test('5 - setAlert called if no imput and search button pressed', () => {
+    wrapper.find('[name="what"]').simulate('change', {
+      target: { value: '', name: 'what' },
+    });
+    wrapper.find('[name="where"]').simulate('change', {
+      target: { value: '', name: 'what' },
+    });
+
+    wrapper.find('form').simulate('submit');
+
+    expect(value.setAlert).toHaveBeenCalled();
+  });
+
+  test('6- if "restaurants" not empty ClearButton click should call "clearSearch"', () => {
+    let value = {
+      restaurants: ['foo'],
+      clearSearch: jest.fn(),
     };
-    store = mockStore(initialState);
 
     wrapper = mount(
-      <Provider store={store}>
+      <restContext.Provider value={value}>
         <DisplaySearchBar {...props} />
-      </Provider>
+      </restContext.Provider>
     );
 
-    wrapper
-      .find('[data-test="clear"]')
-      .at(0)
-      .simulate('click');
+    const clear = wrapper.find('[data-test="clear"]');
+    clear.simulate('click');
 
-    const actions = store.getActions();
-
-    const expected = {
-      type: CLEAR_SEARCH,
-    };
-
-    expect(actions).toContainEqual(expected);
+    expect(value.clearSearch).toHaveBeenCalled();
   });
 });

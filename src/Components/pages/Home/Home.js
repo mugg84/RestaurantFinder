@@ -1,7 +1,8 @@
 import React, { useEffect, useContext } from 'react';
+import { handleScriptLoad } from '../../../helpers/Autocomplete';
 
 import RestContext from '../../context/restaurant/restContext';
-import Search from '../../restaurants/Search/Search';
+import DisplaySearchBar from '../../layout/DisplaySearchBar/DisplaySearchBar';
 import Navbar from '../../layout/Navbar/Navbar';
 import DisplatDefaultRestaurants from '../../layout/DisplayDefaultRestaurants/DisplayDefaultRestaurants';
 import DisplayRestaurants from '../../layout/DisplayRestaurants/DisplayRestaurants';
@@ -23,7 +24,7 @@ const Home = () => {
     <section className={styles.mainHome}>
       <>
         <Navbar className="sticky navHome" />
-        <Search />
+        <DisplaySearchBar handleScriptLoad={handleScriptLoad} />
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
         <ParallaxPics />

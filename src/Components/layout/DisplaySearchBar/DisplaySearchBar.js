@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-//Import React Script Libraray to load Google object
 import Script from 'react-load-script';
 
 import RestContext from '../../context/restaurant/restContext';
@@ -9,20 +8,68 @@ import Alert from '../Alert/Alert';
 
 import styles from './DisplaySearchBar.module.scss';
 
-const DisplaySearchBar = ({
-  renderSortByOptions,
-  onSubmit,
-  where,
-  handleChange,
-  what,
-  handleScriptLoad,
-}) => {
+const DisplaySearchBar = ({ handleScriptLoad }) => {
+  const [where, setWhere] = useState('');
+  const [what, setWhat] = useState('');
+  const [sortBy, setSortBy] = useState('rating');
+
   const restContext = useContext(RestContext);
 
-  let { clearSearch, restaurants } = restContext;
+  let { clearSearch, restaurants, getRestaurants, setAlert } = restContext;
 
   const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
   // {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
+
+  const sortByOptions = {
+    'Highest Rated': 'rating',
+    'Best Match': 'best_match',
+    'Most Reviewed': 'review_count',
+  };
+
+  const getSortByClass = (sortByOption) =>
+    sortBy === sortByOption ? styles.active : '';
+
+  const handleSortByChange = (sortByOption) => {
+    setSortBy(sortByOption);
+  };
+
+  const handleChange = (e) => {
+    if (e.target.name === 'what') {
+      setWhat(e.target.value);
+    } else if (e.target.name === 'where') {
+      setWhere(e.target.value);
+    }
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (where && what) {
+      getRestaurants({ where, what, sortBy });
+      setWhere('');
+      setWhat('');
+      setSortBy('best_match');
+    } else {
+      setAlert('Please fill all the inputs');
+    }
+  };
+
+  const renderSortByOptions = () => {
+    return Object.keys(sortByOptions).map((sortByOption) => {
+      let sortByOptionValue = sortByOptions[sortByOption];
+      return (
+        <li
+          className={`${sortByOptionValue} ${getSortByClass(
+            sortByOptionValue
+          )}`}
+          key={sortByOptionValue}
+          onClick={() => handleSortByChange(sortByOptionValue)}
+        >
+          {sortByOption}
+        </li>
+      );
+    });
+  };
+
   return (
     <section className={styles.searchBar}>
       <form onSubmit={onSubmit} className={styles.searchBarForm}>
@@ -85,10 +132,6 @@ const DisplaySearchBar = ({
 };
 
 DisplaySearchBar.propTypes = {
-  renderSortByOptions: PropTypes.func.isRequired,
-  where: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  what: PropTypes.string.isRequired,
   handleScriptLoad: PropTypes.func.isRequired,
 };
 

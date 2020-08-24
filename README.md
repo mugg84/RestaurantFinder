@@ -1,4 +1,6 @@
-## Restaurant Finder App with Redux https://restaurant-finder-redux.netlify.app/
+## Restaurant Finder App With Context API
+
+## https://restaurant-finder-redux.netlify.app/
 
 A React app which provides a restaurant list according to different parameters.
 
@@ -25,7 +27,7 @@ It automatically displays different types of restaurant list if location permiss
 
 ## Front-end
 
-- React with Context and Hooks
+- React with Context API and Hooks
 
 ## Testing
 
