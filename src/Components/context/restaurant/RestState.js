@@ -34,7 +34,9 @@ const RestState = (props) => {
 
   const [state, dispatch] = useReducer(RestReducer, initalState);
 
-  /// Set alert
+  const setLoading = () => dispatch({ type: SET_LOADING });
+
+  const clearSearch = () => dispatch({ type: CLEAR_SEARCH });
 
   const setAlert = (msg) => {
     dispatch({
@@ -45,7 +47,6 @@ const RestState = (props) => {
     setTimeout(() => dispatch({ type: REMOVE_ALERT }), 5000);
   };
 
-  // Get Restaurants
   const getRestaurants = async (text) => {
     try {
       setLoading();
@@ -64,8 +65,6 @@ const RestState = (props) => {
       setAlert('Invalid search. Try different input');
     }
   };
-
-  // Get Restaurants Info
 
   const getRestaurantInfo = async (id) => {
     try {
@@ -90,16 +89,6 @@ const RestState = (props) => {
     }
   };
 
-  // Clear search
-
-  const clearSearch = () => dispatch({ type: CLEAR_SEARCH });
-
-  // Set loading
-
-  const setLoading = () => dispatch({ type: SET_LOADING });
-
-  // Get location
-
   const fetchCoordinates = async () => {
     try {
       const { coords } = await getCurrentPosition();
@@ -111,8 +100,6 @@ const RestState = (props) => {
       setAlert('Location not available', 'location');
     }
   };
-
-  // Get default restaurants
 
   const getDefaultRestaurants = async (location, type) => {
     if (location.length > 0) {

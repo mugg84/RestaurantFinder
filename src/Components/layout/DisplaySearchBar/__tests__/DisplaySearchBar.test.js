@@ -14,7 +14,6 @@ const props = {
 };
 
 let wrapper;
-
 let value = {
   restaurants: [],
   getRestaurants: jest.fn(),
