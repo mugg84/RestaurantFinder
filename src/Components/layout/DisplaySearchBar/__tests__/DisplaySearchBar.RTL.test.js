@@ -9,8 +9,6 @@ jest.mock('../../Alert/Alert', () => ({
   __esModule: true,
 }));
 
-afterEach(cleanup);
-
 const props = {
   handleScriptLoad: jest.fn(),
 };
@@ -26,17 +24,34 @@ let wrapper = (
   </restContext.Provider>
 );
 
+afterEach(cleanup);
+
 describe('Search', () => {
   test('1- input "where" updates its value when input simulated', () => {
     render(wrapper);
-    let input = screen.getByPlaceholderText('What do you want to eat?');
+    let input = screen.getByPlaceholderText('Where do you want to eat?');
 
     fireEvent.change(input, {
       target: { value: 'foo', name: 'where' },
     });
 
-    screen.debug();
+    expect(input.value).toBe('foo');
+  });
+
+  test('2- input "what" updates its value when input simulated', () => {
+    render(wrapper);
+    let input = screen.getByPlaceholderText('What do you want to eat?');
+
+    fireEvent.change(input, {
+      target: { value: 'foo', name: 'what' },
+    });
 
     expect(input.value).toBe('foo');
+  });
+
+  test('3- if "restaurants" empty ClearButton is not rendered ', () => {
+    render(wrapper);
+
+    expect(screen.queryGetByText('Clear')).toBeFalsy();
   });
 });
