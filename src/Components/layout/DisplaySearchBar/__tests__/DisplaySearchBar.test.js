@@ -39,15 +39,13 @@ describe('Search', () => {
   });
 
   test('2- input "what" updates its value when input simulated', () => {
-    /* 
-    Not working
     const what = wrapper.find('[name="what"]');
 
+    // console.log(what.debug());
+    // console.log('is this running');
     what.simulate('change', {
       target: { value: 'foo', name: 'what' },
     });
-
-    expect(what.prop('value')).toBe('foo'); */
 
     wrapper.find('[name="what"]').simulate('change', {
       target: { value: 'foo', name: 'what' },
@@ -57,7 +55,7 @@ describe('Search', () => {
   });
 
   test('3- if "restaurants" empty ClearButton is not rendered ', () => {
-    const clear = wrapper.find('[data-test="clear"]');
+    const clear = wrapper.find('[data-testid="clear"]');
 
     expect(clear.length).toBe(0);
   });
@@ -73,7 +71,7 @@ describe('Search', () => {
       target: { value: '', name: 'what' },
     });
     wrapper.find('[name="where"]').simulate('change', {
-      target: { value: '', name: 'what' },
+      target: { value: '', name: 'where' },
     });
 
     wrapper.find('form').simulate('submit');
@@ -93,7 +91,7 @@ describe('Search', () => {
       </restContext.Provider>
     );
 
-    const clear = wrapper.find('[data-test="clear"]');
+    const clear = wrapper.find('[data-testid="clear"]');
     clear.simulate('click');
 
     expect(value.clearSearch).toHaveBeenCalled();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup, screen } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 
 import { restContext } from './../../../context/restaurant/restContext';
 import DisplaySearchBar from '../../../layout/DisplaySearchBar/DisplaySearchBar';
@@ -27,9 +27,12 @@ let wrapper = (
 afterEach(cleanup);
 
 describe('Search', () => {
+  test('0-', () => {
+
+  })
   test('1- input "where" updates its value when input simulated', () => {
-    render(wrapper);
-    let input = screen.getByPlaceholderText('Where do you want to eat?');
+    const { getByPlaceholderText } = render(wrapper);
+    let input = getByPlaceholderText('Where do you want to eat?');
 
     fireEvent.change(input, {
       target: { value: 'foo', name: 'where' },
@@ -39,8 +42,8 @@ describe('Search', () => {
   });
 
   test('2- input "what" updates its value when input simulated', () => {
-    render(wrapper);
-    let input = screen.getByPlaceholderText('What do you want to eat?');
+    const { getByPlaceholderText } = render(wrapper);
+    let input = getByPlaceholderText('What do you want to eat?');
 
     fireEvent.change(input, {
       target: { value: 'foo', name: 'what' },
@@ -50,8 +53,58 @@ describe('Search', () => {
   });
 
   test('3- if "restaurants" empty ClearButton is not rendered ', () => {
-    render(wrapper);
+    const { queryByText } = render(wrapper);
 
-    expect(screen.queryGetByText('Clear')).toBeFalsy();
+    expect(queryByText('Clear')).not.toBeInTheDocument()
+  });
+
+  test('4- setAlert called if inputs not empty and form submitted', () => {
+    const { getByTestId } = render(wrapper);
+    fireEvent.submit(getByTestId('form'));
+
+    expect(value.setAlert).toHaveBeenCalled();
+  });
+
+  test('5- getRestaurant called if inputs not empty and form submitted', () => {
+    const { getByPlaceholderText, getByTestId } = render(wrapper);
+
+    let inputWhere = getByPlaceholderText('Where do you want to eat?');
+    let inputWhat = getByPlaceholderText('What do you want to eat?');
+
+    fireEvent.change(inputWhere, {
+      target: { value: 'foo', name: 'where' },
+    });
+
+    fireEvent.change(inputWhat, {
+      target: { value: 'foo', name: 'what' },
+    });
+
+    fireEvent.submit(getByTestId('form'));
+
+    expect(value.getRestaurants).toHaveBeenCalled();
+  });
+
+  test('6- if "restaurants" not empty ClearButton click should call "clearSearch"', () => {
+    let value = {
+      restaurants: ['foo'],
+      clearSearch: jest.fn(),
+      setAlert: jest.fn(),
+    };
+
+    wrapper = (
+      <restContext.Provider value={value}>
+        <DisplaySearchBar {...props} />
+      </restContext.Provider>
+    );
+
+    const { getByTestId } = render(wrapper);
+
+    const button = getByTestId('clear')
+    
+    expect(button).toBeInTheDocument()
+
+    fireEvent.click(button);
+
+    expect(value.clearSearch).toHaveBeenCalled();
   });
 });

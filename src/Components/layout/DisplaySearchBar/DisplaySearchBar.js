@@ -72,7 +72,11 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
 
   return (
     <section className={styles.searchBar}>
-      <form onSubmit={onSubmit} className={styles.searchBarForm}>
+      <form
+        onSubmit={onSubmit}
+        className={styles['searchBar--form']}
+        data-testid="form"
+      >
         <legend className="title">
           <Fade left>
             <h1>Where are you going to eat tonight?</h1>
@@ -96,14 +100,14 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
               onChange={handleChange}
               value={what}
             />
-            <div data-test="alert-holder" className={styles.alertHolder}>
+            <div data-testid="alert-holder" className={styles.alertHolder}>
               <Alert />
             </div>
           </fieldset>
 
           <fieldset className={styles.searchBarSubmit}>
             <input
-              data-test="search"
+              data-testid="search"
               className={`${styles.myButton} button`}
               type="submit"
               name="submit"
@@ -112,7 +116,7 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
 
             {restaurants.length > 0 && (
               <button
-                data-test="clear"
+                data-testid="clear"
                 className={`${styles.clearButton} button`}
                 onClick={clearSearch}
               >
