@@ -54,7 +54,7 @@ const RestState = (props) => {
       let restaurants = await Yelp.searchRestaurants(text);
 
       if (restaurants === [] || restaurants.length === 0) {
-        return dispatch(setAlert('No restaurants in the area'));
+        setAlert('No restaurants in the area');
       } else {
         dispatch({
           type: GET_RESTAURANTS,
@@ -73,9 +73,7 @@ const RestState = (props) => {
       let restaurant = await Yelp.searchRestaurantsInfo(id);
 
       if (restaurant.length === 0 || restaurant === []) {
-        return dispatch(
-          setAlert('Restaurant info not available. Please try again later')
-        );
+        setAlert('Restaurant info not available. Please try again later');
       } else {
         dispatch({
           type: GET_INFO_RESTAURANT,
@@ -83,9 +81,7 @@ const RestState = (props) => {
         });
       }
     } catch (error) {
-      dispatch(
-        setAlert('Restaurant info not available. Please try again later')
-      );
+      setAlert('Restaurant info not available. Please try again later');
     }
   };
 
@@ -110,7 +106,13 @@ const RestState = (props) => {
         );
 
         if (defaultRestaurants === [] || defaultRestaurants.length === 0) {
-          return dispatch(setAlert('No restaurants in the area'));
+          if (type === 'thai' || type === 'italian') {
+            setAlert(`No ${type} restaurants in the area`);
+          } else if (type === 'indpak') {
+            setAlert(`No indian restaurants in the area`);
+          } else {
+            setAlert(`No local restaurants found`);
+          }
         } else if (type === 'thai') {
           dispatch({
             type: GET_DEFAULT_THAI_RESTAURANTS,
@@ -133,7 +135,7 @@ const RestState = (props) => {
           });
         }
       } catch (error) {
-        dispatch(setAlert('Something went wrong'));
+        setAlert('Something went wrong');
       }
     }
   };

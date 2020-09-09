@@ -25,7 +25,7 @@ const DisplayDefaultRestaurants = () => {
       if (defaultRestaurants.length === 0) {
         getDefaultRestaurants(location, 'restaurants');
         getDefaultRestaurants(location, 'thai');
-        getDefaultRestaurants(location, 'italian');
+        getDefaultRestaurants(location, 'italian'); 
         getDefaultRestaurants(location, 'indpak');
       }
     }
