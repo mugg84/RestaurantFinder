@@ -168,9 +168,27 @@ h2 {
   }
 }
 
-@media only screen and (orientation: landscape) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  .about {
+    height: 95vh;
+
+    &__text {
+      top: 65vh;
+    }
+  }
+
   .fixed {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+  .about {
+    height: 85vh;
+
+    &__text {
+      top: 65vh;
+    }
   }
 }
 
@@ -197,15 +215,6 @@ h2 {
 @media only screen and (max-width: 768px) {
   h2 {
     font-size: 3rem;
-  }
-
-  .about {
-    background-size: cover;
-    height: 60rem;
-
-    &__text {
-      top: 35rem;
-    }
   }
 
   .who,
