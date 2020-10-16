@@ -8,9 +8,9 @@ const Alert = () => {
   const restContext = useContext(RestContext);
   const { alert } = restContext;
   return alert === null ? (
-    <p className={styles.alertText}></p>
+    <p className={styles.alert__text}></p>
   ) : (
-    <p className={styles.alertText}>{alert.msg}</p>
+    <p className={styles.alert__text}>{alert.msg}</p>
   );
 };
 

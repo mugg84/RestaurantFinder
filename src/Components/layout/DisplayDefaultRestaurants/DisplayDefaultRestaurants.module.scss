@@ -1,28 +1,28 @@
 @import '../../../style/variables';
 @import '../../../style/mixin';
 
-.restaurantSliders h2 {
-  font-size: 3rem;
-  border-bottom: 1px solid $color-primary;
-  text-align: left;
-}
-
-.restaurantSliders {
+.restaurant__sliders {
   margin: 8rem 4rem;
 
   & header {
     height: 20%;
   }
+
+  & h2 {
+    font-size: 3rem;
+    border-bottom: 1px solid $color-primary;
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width: 450px) {
-  .restaurantSliders {
+  .restaurant__sliders {
     margin: 8rem 2rem;
   }
 }
 
 @media only screen and (max-width: 350px) {
-  .restaurantSliders {
+  .restaurant__sliders {
     margin: 8rem 2rem;
 
     & h2 {

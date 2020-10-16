@@ -25,7 +25,7 @@ const DisplayDefaultRestaurants = () => {
       if (defaultRestaurants.length === 0) {
         getDefaultRestaurants(location, 'restaurants');
         getDefaultRestaurants(location, 'thai');
-        getDefaultRestaurants(location, 'italian'); 
+        getDefaultRestaurants(location, 'italian');
         getDefaultRestaurants(location, 'indpak');
       }
     }
@@ -36,12 +36,12 @@ const DisplayDefaultRestaurants = () => {
     <section
       className={
         Array.isArray(defaultRestaurants) && defaultRestaurants.length > 0
-          ? styles.restaurantSliders
+          ? styles.restaurant__sliders
           : ''
       }
     >
       {Array.isArray(defaultRestaurants) && defaultRestaurants.length > 0 && (
-        <section className={styles.restaurantSlider}>
+        <section className={styles.restaurant__slider}>
           <header>
             <h2>Restaurants near you</h2>
           </header>
@@ -59,7 +59,7 @@ const DisplayDefaultRestaurants = () => {
 
       {Array.isArray(defaultThaiRestaurants) &&
         defaultThaiRestaurants.length > 0 && (
-          <section className={styles.restaurantSlider}>
+          <section className={styles.restaurant__slider}>
             <header>
               <h2>Fancy Thai?</h2>
             </header>
@@ -77,7 +77,7 @@ const DisplayDefaultRestaurants = () => {
 
       {Array.isArray(defaultItalianRestaurants) &&
         defaultItalianRestaurants.length > 0 && (
-          <section className={styles.restaurantSlider}>
+          <section className={styles.restaurant__slider}>
             <header>
               <h2>Fancy Italian?</h2>
             </header>
@@ -95,7 +95,7 @@ const DisplayDefaultRestaurants = () => {
 
       {Array.isArray(defaultIndianRestaurants) &&
         defaultIndianRestaurants.length > 0 && (
-          <section className={styles.restaurantSlider}>
+          <section className={styles.restaurant__slider}>
             <header>
               <h2>Fancy Indian?</h2>
             </header>

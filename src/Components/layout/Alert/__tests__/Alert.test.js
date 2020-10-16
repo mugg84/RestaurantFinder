@@ -13,7 +13,7 @@ describe('Alert', () => {
       </restContext.Provider>
     );
 
-    expect(alertMount.find('.alertText').text()).toBe('');
+    expect(alertMount.find('.alert__text').text()).toBe('');
   });
 
   test('displays alert message', () => {
@@ -23,6 +23,6 @@ describe('Alert', () => {
       </restContext.Provider>
     );
 
-    expect(alertMount.find('.alertText').text()).toBe('foo');
+    expect(alertMount.find('.alert__text').text()).toBe('foo');
   });
 });

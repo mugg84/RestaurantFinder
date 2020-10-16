@@ -24,13 +24,17 @@ h2 {
       center center fixed;
   background-size: 100% 100%;
   padding: 4rem 0;
-}
 
-.aboutText {
-  position: absolute;
-  top: 40rem;
-  left: 4rem;
-  @include flex(stretch, flex-start, column);
+  &__text {
+    position: absolute;
+    top: 40rem;
+    left: 4rem;
+    @include flex(stretch, flex-start, column);
+  }
+
+  & h2 {
+    margin-top: 0;
+  }
 }
 
 .who,
@@ -96,74 +100,72 @@ h2 {
     text-align: center;
     color: $color-text;
   }
-}
 
-.whoText {
-  grid-area: header;
-}
-
-.one,
-.two {
-  height: 25rem;
-}
-
-.one {
-  grid-area: one;
-}
-
-.two {
-  grid-area: two;
-}
-
-.three,
-.four,
-.five,
-.six {
-  height: 20rem;
-}
-
-.three {
-  grid-area: three;
-}
-
-.four {
-  grid-area: four;
-}
-
-.five {
-  grid-area: five;
-}
-
-.six {
-  grid-area: six;
-}
-
-.about h2 {
-  margin-top: 0;
-}
-
-.values p {
-  color: $color-text;
-}
-
-.value {
-  text-align: center;
-  margin: 3rem;
-
-  & i {
-    font-size: 7rem;
+  &__text {
+    grid-area: header;
   }
 
-  & h3 {
-    padding: 2rem 0 1rem 0;
+  &__one,
+  &__two {
+    height: 25rem;
+  }
+
+  &__one {
+    grid-area: one;
+  }
+
+  &__two {
+    grid-area: two;
+  }
+
+  &__three,
+  &__four,
+  &__five,
+  &__six {
+    height: 20rem;
+  }
+
+  &__three {
+    grid-area: three;
+  }
+
+  &__four {
+    grid-area: four;
+  }
+
+  &__five {
+    grid-area: five;
+  }
+
+  &__six {
+    grid-area: six;
   }
 }
 
-.valuesGrid {
-  margin-top: 8rem;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+.values {
+  & p {
+    color: $color-text;
+  }
+
+  &__value {
+    text-align: center;
+    margin: 3rem;
+
+    & i {
+      font-size: 7rem;
+    }
+
+    & h3 {
+      padding: 2rem 0 1rem 0;
+    }
+  }
+
+  &__grid {
+    margin-top: 8rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
@@ -200,10 +202,10 @@ h2 {
   .about {
     background-size: cover;
     height: 60rem;
-  }
 
-  .aboutText {
-    top: 35rem;
+    &__text {
+      top: 35rem;
+    }
   }
 
   .who,
@@ -228,7 +230,7 @@ h2 {
       'five six';
   }
 
-  .valuesGrid {
+  .values__grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -238,7 +240,7 @@ h2 {
 }
 
 @media only screen and (max-width: 450px) {
-  .aboutText * {
+  .about__text * {
     text-align: left;
   }
 
@@ -258,18 +260,18 @@ h2 {
     & p {
       font-size: 1.5rem;
     }
-  }
 
-  .three,
-  .five {
-    display: none;
-  }
+    &__three,
+    &__five {
+      display: none;
+    }
 
-  .one,
-  .two,
-  .four,
-  .six {
-    height: 25rem;
+    &__one,
+    &__two,
+    &__four,
+    &__six {
+      height: 25rem;
+    }
   }
 
   .goal {
@@ -285,7 +287,7 @@ h2 {
     }
   }
 
-  .valuesGrid {
+  .values__grid {
     grid-template-columns: 1fr;
   }
 }
