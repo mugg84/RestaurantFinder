@@ -74,7 +74,7 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
     <section className={styles.searchBar}>
       <form
         onSubmit={onSubmit}
-        className={styles['searchBar--form']}
+        className={styles.searchBar__form}
         data-testid="form"
       >
         <legend className="title">
@@ -83,7 +83,7 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
           </Fade>
         </legend>
         <Fade>
-          <fieldset className={styles.searchBarInput}>
+          <fieldset className={styles.searchBar__input}>
             <input
               type="text"
               name="where"
@@ -105,10 +105,10 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
             </div>
           </fieldset>
 
-          <fieldset className={styles.searchBarSubmit}>
+          <fieldset className={styles.searchBar__submit}>
             <input
               data-testid="search"
-              className={`${styles.myButton} button`}
+              className={`${styles['btn--submit']} button`}
               type="submit"
               name="submit"
               value="Search"
@@ -117,7 +117,7 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
             {restaurants.length > 0 && (
               <button
                 data-testid="clear"
-                className={`${styles.clearButton} button`}
+                className={`${styles['btn--clear']} button`}
                 onClick={clearSearch}
               >
                 Clear
@@ -126,7 +126,7 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
           </fieldset>
         </Fade>
       </form>
-      <article className={styles.searchBarSortOptions}>
+      <article className={styles.searchBar__sort}>
         <Fade>
           <ul>{renderSortByOptions()}</ul>
         </Fade>

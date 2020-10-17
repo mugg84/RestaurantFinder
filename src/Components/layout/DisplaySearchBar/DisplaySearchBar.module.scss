@@ -10,59 +10,59 @@
   @include flex(stretch, space-around, row);
   padding: 10rem 8rem;
   height: 100%;
-}
 
-.searchBarForm {
-  @include flex(stretch, space-evenly, column);
-  width: 70%;
-}
-
-.searchBarSortOptions {
-  width: 30%;
-  @include flex(center, center, row);
-
-  & ul {
-    @include flex(center, flex-start, column);
+  &__form {
+    @include flex(stretch, space-evenly, column);
+    width: 70%;
   }
 
-  & li {
-    text-shadow: 1px 1px 1px rgba(77, 77, 77, 0.5);
-    border-bottom: 1px solid;
-    font-size: 1.8rem;
-    padding: 0 2rem;
-    margin: 3rem 0;
-    cursor: pointer;
+  &__sort {
+    width: 30%;
+    @include flex(center, center, row);
+
+    & ul {
+      @include flex(center, flex-start, column);
+    }
+
+    & li {
+      text-shadow: 1px 1px 1px rgba(77, 77, 77, 0.5);
+      border-bottom: 1px solid;
+      font-size: 1.8rem;
+      padding: 0 2rem;
+      margin: 3rem 0;
+      cursor: pointer;
+      @include transition(all, 0.8s, 0s);
+    }
+
+    & li:hover {
+      @include transform-scale(1.1);
+    }
+  }
+
+  &__input {
+    @include flex(baseline, center, column);
+    z-index: 400;
+
+    & input {
+      width: 55%;
+    }
+  }
+
+  &__submit {
+    padding-top: 0;
     @include transition(all, 0.8s, 0s);
-  }
 
-  & li:hover {
-    @include transform-scale(1.1);
-  }
-}
-
-.searchBarInput {
-  @include flex(baseline, center, column);
-  z-index: 400;
-
-  & input {
-    width: 55%;
+    & input {
+      margin-top: 0;
+    }
   }
 }
 
-.searchBarSubmit {
-  padding-top: 0;
-  @include transition(all, 0.8s, 0s);
-
-  & input {
-    margin-top: 0;
-  }
-}
-
-.myButton {
+.btn--submit {
   padding: 1rem 3rem;
 }
 
-.clearButton {
+.btn--clear {
   padding: 1rem 3.8rem;
   margin: 0 4rem;
 }
@@ -82,7 +82,7 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .searchBarInput input {
+  .searchBar__input input {
     width: 70%;
   }
 }
@@ -92,22 +92,22 @@
     flex-direction: column-reverse;
     justify-content: center;
     padding: 4rem 6rem;
-  }
 
-  .searchBarSortOptions {
-    width: 100%;
+    &__sort {
+      width: 100%;
 
-    & ul {
-      flex-direction: row;
+      & ul {
+        flex-direction: row;
+      }
+
+      & li:hover {
+        @include transform-scale(1);
+      }
     }
 
-    & li:hover {
-      @include transform-scale(1);
+    &__form {
+      width: 100%;
     }
-  }
-
-  .searchBarForm {
-    width: 100%;
   }
 }
 
@@ -118,21 +118,21 @@
     & ul {
       display: none;
     }
+
+    &__sort li {
+      text-align: center;
+    }
+
+    &__input input {
+      width: 100%;
+    }
   }
 
-  .searchBarSortOptions li {
-    text-align: center;
-  }
-
-  .searchBarInput input {
+  .btn--submit {
     width: 100%;
   }
 
-  .myButton {
-    width: 100%;
-  }
-
-  .clearButton {
+  .btn--clear {
     width: 100%;
     margin: 0;
   }

@@ -17,9 +17,9 @@ const DisplayRestaurants = () => {
     return (
       <>
         {Array.isArray(restaurants) && restaurants.length > 0 && (
-          <section className={styles.restaurantListContainer}>
+          <section className={styles.restaurant}>
             <h2>Your search results:</h2>
-            <article className={styles.restaurantList}>
+            <article className={styles.restaurant__list}>
               {restaurants.map((restaurant) => (
                 <RestaurantCard
                   key={restaurant.id}

@@ -52,7 +52,7 @@ describe('Search', () => {
     expect(wrapper.find('[name="what"]').prop('value')).toBe('foo');
   });
 
-  test('3- if "restaurants" empty ClearButton is not rendered ', () => {
+  test('3- if "restaurants" empty btn--clear is not rendered ', () => {
     const clear = wrapper.find('[data-testid="clear"]');
 
     expect(clear.length).toBe(0);
@@ -77,7 +77,7 @@ describe('Search', () => {
     expect(value.setAlert).toHaveBeenCalled();
   });
 
-  test('6- if "restaurants" not empty ClearButton click should call "clearSearch"', () => {
+  test('6- if "restaurants" not empty btn--clear click should call "clearSearch"', () => {
     let value = {
       restaurants: ['foo'],
       clearSearch: jest.fn(),

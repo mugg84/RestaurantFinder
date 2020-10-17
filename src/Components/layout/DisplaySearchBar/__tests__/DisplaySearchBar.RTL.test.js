@@ -27,9 +27,6 @@ let wrapper = (
 afterEach(cleanup);
 
 describe('Search', () => {
-  test('0-', () => {
-
-  })
   test('1- input "where" updates its value when input simulated', () => {
     const { getByPlaceholderText } = render(wrapper);
     let input = getByPlaceholderText('Where do you want to eat?');
@@ -52,10 +49,10 @@ describe('Search', () => {
     expect(input.value).toBe('foo');
   });
 
-  test('3- if "restaurants" empty ClearButton is not rendered ', () => {
+  test('3- if "restaurants" empty btn--clear is not rendered ', () => {
     const { queryByText } = render(wrapper);
 
-    expect(queryByText('Clear')).not.toBeInTheDocument()
+    expect(queryByText('Clear')).not.toBeInTheDocument();
   });
 
   test('4- setAlert called if inputs not empty and form submitted', () => {
@@ -84,7 +81,7 @@ describe('Search', () => {
     expect(value.getRestaurants).toHaveBeenCalled();
   });
 
-  test('6- if "restaurants" not empty ClearButton click should call "clearSearch"', () => {
+  test('6- if "restaurants" not empty btn--clear click should call "clearSearch"', () => {
     let value = {
       restaurants: ['foo'],
       clearSearch: jest.fn(),
@@ -99,9 +96,9 @@ describe('Search', () => {
 
     const { getByTestId } = render(wrapper);
 
-    const button = getByTestId('clear')
-    
-    expect(button).toBeInTheDocument()
+    const button = getByTestId('clear');
+
+    expect(button).toBeInTheDocument();
 
     fireEvent.click(button);
 

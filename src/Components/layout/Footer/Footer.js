@@ -19,14 +19,14 @@ function Footer() {
           )}
         />
       </section>
-      <section className={styles.footerItems}>
-        <ul className={styles.topList}>
-          <li className={styles.footerLogo}>
+      <section className={styles.footer}>
+        <ul className={styles.footer__mainList}>
+          <li className={styles.footer__logo}>
             <i className="fas fa-pizza-slice"></i>Food finder
           </li>
           <li>
             Explore
-            <ul className={styles.nestedList}>
+            <ul className={styles.footer__lists}>
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -37,7 +37,7 @@ function Footer() {
           </li>
           <li>
             Visit
-            <ul className={styles.nestedList}>
+            <ul className={styles.footer__lists}>
               <li>7 Some Street</li>
               <li>SW9 999</li>
               <li>London, UK</li>
@@ -45,7 +45,7 @@ function Footer() {
           </li>
           <li>
             Follow
-            <ul className={styles.nestedList}>
+            <ul className={styles.footer__lists}>
               <li>Instagram</li>
               <li>Linkedln</li>
             </ul>

@@ -37,36 +37,36 @@ small {
   }
 }
 
-.footerItems {
+.footer {
   padding: 4rem 5rem;
-}
 
-.topList {
-  @include flex(stretch, space-around, row);
-  width: 100%;
-  font-weight: 600;
+  &__mainList {
+    @include flex(stretch, space-around, row);
+    width: 100%;
+    font-weight: 600;
 
-  & li {
-    text-align: center;
-    width: 16.6%;
+    & li {
+      text-align: center;
+      width: 16.6%;
+    }
   }
-}
 
-.footerLogo {
-  display: flex;
-  width: 50%;
-  color: $color-primary;
+  &__logo {
+    display: flex;
+    width: 50%;
+    color: $color-primary;
+  }
+
+  &__lists li {
+    padding-top: 1rem;
+    font-weight: 400;
+    width: 100%;
+    opacity: 0.8;
+  }
 }
 
 .fa-pizza-slice {
   padding-top: 0.5rem;
-}
-
-.nestedList li {
-  padding-top: 1rem;
-  font-weight: 400;
-  width: 100%;
-  opacity: 0.8;
 }
 
 small {
@@ -88,7 +88,7 @@ small {
     }
   }
 
-  .footerItems {
+  .footer {
     padding: 4rem 2rem;
   }
 }
@@ -96,30 +96,32 @@ small {
 @media only screen and (max-width: 680px) {
   footer {
     padding: 4rem 0;
-  }
 
-  .topList {
-    & :nth-child(3) {
-      display: none;
+    &__mainList {
+      & :nth-child(3) {
+        display: none;
+      }
+
+      & > li {
+        width: 33.3%;
+        text-align: center;
+      }
     }
 
-    & > li {
-      width: 33.3%;
-      text-align: center;
+    &__logo {
+      justify-content: center;
     }
-  }
-
-  .footerLogo {
-    justify-content: center;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .footerLogo {
-    display: none;
-  }
+  .footer {
+    &__logo {
+      display: none;
+    }
 
-  .topList > li {
-    width: 50%;
+    &__mainList > li {
+      width: 50%;
+    }
   }
 }
