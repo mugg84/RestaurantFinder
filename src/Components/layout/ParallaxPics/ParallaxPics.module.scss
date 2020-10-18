@@ -32,30 +32,30 @@
     color: $color-text;
     width: 40%;
   }
-}
 
-.parallaxHolder {
-  position: relative;
-  height: 100%;
+  &__holder {
+    position: relative;
+    height: 100%;
 
-  & img {
-    position: absolute;
-    max-height: 300%;
-    max-width: 300%;
-    height: 250%;
-    width: 100%;
+    & img {
+      position: absolute;
+      max-height: 300%;
+      max-width: 300%;
+      height: 250%;
+      width: 100%;
+    }
   }
-}
 
-.parLeft {
-  background-color: rosybrown;
-  left: 45%;
-  top: 55%;
-}
+  &__left {
+    background-color: rosybrown;
+    left: 45%;
+    top: 55%;
+  }
 
-.parRight {
-  background-color: rebeccapurple;
-  right: 45%;
+  &__right {
+    background-color: rebeccapurple;
+    right: 45%;
+  }
 }
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
@@ -94,7 +94,7 @@
       width: 100%;
     }
 
-    & .parLeft {
+    & .parallax__left {
       top: 65%;
     }
 

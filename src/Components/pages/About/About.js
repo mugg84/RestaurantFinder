@@ -12,8 +12,8 @@ const About = () => {
   }, []);
 
   return (
-    <section className={styles.aboutContainer}>
-      <Navbar className="sticky navAbout" />
+    <section className={styles.about}>
+      <Navbar className="nav__sticky nav__about" />
       <DisplayAbout />
       <Footer />
     </section>

@@ -29,80 +29,82 @@
   & a:active {
     color: $color-text;
   }
-}
 
-.cardFront {
-  position: absolute;
-  background-color: #f1f1f1;
-  width: 100%;
-  height: 100%;
-  bottom: 0;
-  @include transition(all, 1s, 0.2s);
-  @include border-radius(1rem);
-  @include box-shadow(0, 4px, 8px, 0);
+  .card__front {
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    @include transition(all, 1s, 0.2s);
+    @include border-radius(1rem);
+    @include box-shadow(0, 4px, 8px, 0);
 
-  &:hover {
-    bottom: 1rem;
-    @include box-shadow(10px, 10px, 10px, 10px);
+    &:hover {
+      bottom: 1rem;
+      @include box-shadow(10px, 10px, 10px, 10px);
+    }
+
+    &:hover .card__img {
+      @include transform-scale(1.1);
+    }
   }
 
-  &:hover .cardImage {
-    @include transform-scale(1.1);
-  }
-}
-
-.cardImageHolder {
-  height: 50%;
-  overflow: hidden;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
-
-.cardImage {
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  @include transition(all, 1s, 0.2s);
-}
-
-.cardText {
-  height: 50%;
-  padding: 0 2rem 2rem 2rem;
-
-  & h3 {
-    padding: 1rem 0;
-  }
-
-  & * {
-    color: $color-text;
-    margin: auto 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  &__images {
+    height: 50%;
     overflow: hidden;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  &__img {
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    @include transition(all, 1s, 0.2s);
+  }
+
+  &__text {
+    height: 50%;
+    padding: 0 2rem 2rem 2rem;
+
+    & h3 {
+      padding: 1rem 0;
+    }
+
+    & * {
+      color: $color-text;
+      margin: auto 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
 }
 
 @media only screen and (max-width: 900px) {
-  cardFront {
-    transition: none;
+  .card {
+    &__front {
+      transition: none;
 
-    &:hover {
-      bottom: 0;
-      @include box-shadow(0, 4px, 8px, 0);
+      &:hover {
+        bottom: 0;
+        @include box-shadow(0, 4px, 8px, 0);
+      }
+
+      &:hover .card__img {
+        @include transform-scale(1);
+      }
     }
 
-    &:hover .cardImage {
-      @include transform-scale(1);
+    &__img {
+      transition: none;
     }
-  }
-
-  .cardImage {
-    transition: none;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .cardImageHolder {
+  .card__images {
     width: 100%;
   }
 }

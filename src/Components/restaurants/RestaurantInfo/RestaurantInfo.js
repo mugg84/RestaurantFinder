@@ -44,12 +44,12 @@ const Restaurant = ({ match }) => {
         } = restaurant;
 
         return (
-          <section className={styles.restaurantInfo}>
-            <Navbar className="navInfo" />
+          <section className={styles.restaurat__info}>
+            <Navbar className="nav__info" />
 
-            <section className={styles.restaurantDisplay}>
-              <article className={styles.restaurantDisplayright}>
-                <hgroup className={styles.restaurantDisplayInfo}>
+            <section className={styles.display}>
+              <article className={styles.display__left}>
+                <hgroup className={styles.display__info}>
                   <Fade left>
                     <h2>{name}</h2>
                   </Fade>
@@ -67,7 +67,7 @@ const Restaurant = ({ match }) => {
                   {price && <p>Price: {price}</p>}
                 </hgroup>
                 <Fade>
-                  <figure className={styles.restaurantImg}>
+                  <figure className={styles.display__img}>
                     <img
                       id={styles.first}
                       src={
@@ -96,7 +96,7 @@ const Restaurant = ({ match }) => {
                   </figure>
                 </Fade>
 
-                <ul className={styles.restaurantReviews}>
+                <ul className={styles.display__reviews}>
                   <h3>{reviews && reviews.length} Reviews</h3>
                   {reviews &&
                     reviews.map((review) => (
@@ -106,11 +106,11 @@ const Restaurant = ({ match }) => {
                     ))}
                 </ul>
 
-                <Link to="/" className={`${styles.backButton} button`}>
+                <Link to="/" className={`${styles['btn--back']} button`}>
                   Back to Search
                 </Link>
               </article>
-              <aside className={styles.restaurantDisplayLeft}>
+              <aside className={styles.display__right}>
                 <figure>
                   <SimpleMap coord={coordinates} />
                   <figcaption>

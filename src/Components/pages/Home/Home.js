@@ -21,9 +21,9 @@ const Home = () => {
   }, []);
 
   return (
-    <section className={styles.mainHome}>
+    <section className={styles.home}>
       <>
-        <Navbar className="sticky navHome" />
+        <Navbar className="nav__sticky nav__home" />
         <DisplaySearchBar handleScriptLoad={handleScriptLoad} />
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />

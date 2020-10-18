@@ -2,7 +2,7 @@
 
 @import '../../../style/mixin';
 
-.mainHome {
+.home {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url('../../../Images/adils-photography-gmo6Ok9G0U8-unsplash.jpg');
 
@@ -14,13 +14,13 @@
 }
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
-  .mainHome {
+  .home {
     height: 140vh;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .mainHome {
+  .home {
     height: 80vh;
   }
 }

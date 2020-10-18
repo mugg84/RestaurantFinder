@@ -11,10 +11,10 @@ const RestaurantSlideCard = ({ restaurant }) => {
   return (
     <Link to={`/restaurant/${id}`}>
       <section className={styles.card}>
-        <div className={styles.cardFront}>
-          <figure className={styles.cardImageHolder}>
+        <div className={styles.card__front}>
+          <figure className={styles.card__images}>
             <div
-              className={styles.cardImage}
+              className={styles.card__img}
               style={{
                 backgroundImage: `url(${
                   image
@@ -24,11 +24,11 @@ const RestaurantSlideCard = ({ restaurant }) => {
               }}
             ></div>
           </figure>
-          <article className={styles.cardText}>
-            <div className={styles.cardTitle}>
+          <article className={styles.card__text}>
+            <div className={styles.card__title}>
               <h3>{name}</h3>
             </div>
-            <div className={styles.cardDetails}>
+            <div className={styles.card__details}>
               <StarRatings
                 rating={rating}
                 numberOfStars={5}

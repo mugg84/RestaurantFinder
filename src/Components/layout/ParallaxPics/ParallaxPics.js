@@ -40,13 +40,16 @@ const ParallaxPics = () => {
         </p>
       </hgroup>
 
-      <section className={styles.parPics}>
-        <figure style={{ overflow: 'hidden' }} className={styles.parRight}>
-          <div className={styles.parallaxHolder}>
+      <section className={styles.parallax__pics}>
+        <figure
+          style={{ overflow: 'hidden' }}
+          className={styles.parallax__right}
+        >
+          <div className={styles.parallax__holder}>
             <img
               src={require('../../../Images/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg')}
-              alt="parallaxHolder"
-              className={styles.parallax}
+              alt="parallax__holder"
+              className={styles.parallax__pic}
               style={{
                 transform: `translateY(${offset * 0.2}px)`,
               }}
@@ -54,12 +57,15 @@ const ParallaxPics = () => {
           </div>
         </figure>
 
-        <figure style={{ overflow: 'hidden' }} className={styles.parLeft}>
-          <div className={styles.parallaxHolder}>
+        <figure
+          style={{ overflow: 'hidden' }}
+          className={styles.parallax__left}
+        >
+          <div className={styles.parallax__holder}>
             <img
               src={require('../../../Images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')}
-              alt="parallaxHolder"
-              className={styles.parallax}
+              alt="parallax__holder"
+              className={styles.parallax_pic}
               style={{
                 transform: `translateY(${offset * 0.2}px)`,
               }}
