@@ -31,7 +31,7 @@ const ParallaxPics = () => {
   return (
     <section className={styles.parallax}>
       <hgroup>
-        <h2>Parallax not completed yet. Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt quaerat
           ea possimus laudantium fuga repudiandae quos velit, sapiente vero eius

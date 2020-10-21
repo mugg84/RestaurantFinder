@@ -32,7 +32,7 @@ describe('Search', () => {
     let input = getByPlaceholderText('Where do you want to eat?');
 
     fireEvent.change(input, {
-      target: { value: 'foo', name: 'where' },
+      target: { value: 'foo' },
     });
 
     expect(input.value).toBe('foo');
@@ -43,7 +43,7 @@ describe('Search', () => {
     let input = getByPlaceholderText('What do you want to eat?');
 
     fireEvent.change(input, {
-      target: { value: 'foo', name: 'what' },
+      target: { value: 'foo' },
     });
 
     expect(input.value).toBe('foo');

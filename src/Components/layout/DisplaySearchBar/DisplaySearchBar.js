@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-// import Script from 'react-load-script';
+import Script from 'react-load-script';
 
 import RestContext from '../../context/restaurant/restContext';
 import Fade from 'react-reveal/Fade';
@@ -17,8 +17,7 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
 
   let { clearSearch, restaurants, getRestaurants, setAlert } = restContext;
 
-  //  const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
-  // {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
+  const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
 
   const sortByOptions = {
     'Highest Rated': 'rating',
@@ -84,6 +83,7 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
         </legend>
         <Fade>
           <fieldset className={styles.searchBar__input}>
+            {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
             <input
               type="text"
               name="where"

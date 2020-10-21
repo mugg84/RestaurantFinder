@@ -22,7 +22,7 @@ function Footer() {
       <section className={styles.footer}>
         <ul className={styles.footer__mainList}>
           <li className={styles.footer__logo}>
-            <i className="fas fa-pizza-slice"></i>Food finder
+            <i className="fas fa-pizza-slice">Food Finder</i>
           </li>
           <li>
             Explore

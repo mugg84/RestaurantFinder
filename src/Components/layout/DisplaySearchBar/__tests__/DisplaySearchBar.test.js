@@ -39,12 +39,6 @@ describe('Search', () => {
   });
 
   test('2- input "what" updates its value when input simulated', () => {
-    const what = wrapper.find('[name="what"]');
-
-    what.simulate('change', {
-      target: { value: 'foo', name: 'what' },
-    });
-
     wrapper.find('[name="what"]').simulate('change', {
       target: { value: 'foo', name: 'what' },
     });

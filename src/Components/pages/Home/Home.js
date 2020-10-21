@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     restContext.fetchCoordinates();
-    //window.scrollTo(0, 0);
+
     // eslint-disable-next-line
   }, []);
 
