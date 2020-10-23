@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import Script from 'react-load-script';
 
 import RestContext from '../../context/restaurant/restContext';
+import { handleScriptLoad } from '../../../helpers/Autocomplete';
 import Fade from 'react-reveal/Fade';
 import Alert from '../Alert/Alert';
 
 import styles from './DisplaySearchBar.module.scss';
 
-const DisplaySearchBar = ({ handleScriptLoad }) => {
+const DisplaySearchBar = () => {
   const [where, setWhere] = useState('');
   const [what, setWhat] = useState('');
   const [sortBy, setSortBy] = useState('rating');
@@ -83,7 +84,9 @@ const DisplaySearchBar = ({ handleScriptLoad }) => {
         </legend>
         <Fade>
           <fieldset className={styles.searchBar__input}>
-            {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
+            {googleUrl && window.gm_authFailure && (
+              <Script url={googleUrl} onLoad={handleScriptLoad} />
+            )}
             <input
               type="text"
               name="where"

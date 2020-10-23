@@ -14,7 +14,7 @@ export const handleScriptLoad = () => {
   autocomplete.addListener('place_changed', handlePlaceSelect);
 };
 
-export const handlePlaceSelect = () => {
+const handlePlaceSelect = () => {
   // Extract City From Address Object
 
   const addressObject = autocomplete.getPlace();

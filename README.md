@@ -36,5 +36,4 @@ It automatically displays different types of restaurant list if location permiss
 
 ## ToDo
 
-- Fix issue with Google automplete (if API key restricted location input is disabled)
 - Minor style improvement needed
