@@ -70,6 +70,15 @@ const DisplaySearchBar = () => {
     });
   };
 
+  // If google API authentication problem
+  window.gm_authFailure = () => {
+    document.getElementById('autocomplete').disabled = false;
+    document.getElementById('autocomplete').placeholder =
+      'Where do you want to eat?';
+    document.getElementById('autocomplete').style.backgroundImage = '';
+    document.getElementById('autocomplete').style.paddingLeft = '1rem';
+  };
+
   return (
     <section className={styles.searchBar}>
       <form
@@ -84,9 +93,7 @@ const DisplaySearchBar = () => {
         </legend>
         <Fade>
           <fieldset className={styles.searchBar__input}>
-            {googleUrl && window.gm_authFailure && (
-              <Script url={googleUrl} onLoad={handleScriptLoad} />
-            )}
+            {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
             <input
               type="text"
               name="where"
