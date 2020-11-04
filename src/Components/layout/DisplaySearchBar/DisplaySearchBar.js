@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Script from 'react-load-script';
 
@@ -17,6 +17,8 @@ const DisplaySearchBar = () => {
   const restContext = useContext(RestContext);
 
   let { clearSearch, restaurants, getRestaurants, setAlert } = restContext;
+
+  let autoRef = useRef();
 
   const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
 
@@ -72,11 +74,10 @@ const DisplaySearchBar = () => {
 
   // If google API authentication problem
   window.gm_authFailure = () => {
-    document.getElementById('autocomplete').disabled = false;
-    document.getElementById('autocomplete').placeholder =
-      'Where do you want to eat?';
-    document.getElementById('autocomplete').style.backgroundImage = '';
-    document.getElementById('autocomplete').style.paddingLeft = '1rem';
+    autoRef.current.disabled = false;
+    autoRef.current.placeholder = 'Where do you want to eat?';
+    autoRef.current.style.backgroundImage = '';
+    autoRef.current.style.paddingLeft = '1rem';
   };
 
   return (
@@ -95,6 +96,7 @@ const DisplaySearchBar = () => {
           <fieldset className={styles.searchBar__input}>
             {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
             <input
+              ref={autoRef}
               type="text"
               name="where"
               placeholder="Where do you want to eat?"
